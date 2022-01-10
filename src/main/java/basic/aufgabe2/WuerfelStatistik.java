@@ -1,5 +1,7 @@
 package basic.aufgabe2;
 
+import java.util.Arrays;
+
 /**
  * Aufgabe:
  *
@@ -24,7 +26,7 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 	public static void main(String[] args) {
-
+		int zahlen[] = new int[7];
 		int eins = 0;
 		int zwei = 0;
 		int drei = 0;
@@ -37,21 +39,27 @@ public class WuerfelStatistik {
 			// System.out.println(zahl);
 			if (zahl == 1){
 				eins++;
+				zahlen[1] = eins;
 			}
 			else if (zahl == 2){
 				zwei++;
+				zahlen[2] = zwei;
 			}
 			else if (zahl == 3){
 				drei++;
+				zahlen[3] = drei;
 			}
 			else if (zahl == 4){
 				vier++;
+				zahlen[4] = vier;
 			}
 			else if (zahl == 5){
 				fuenf++;
+				zahlen[5] = fuenf;
 			}
 			else{
 				sechs++;
+				zahlen[6] = sechs;
 			}
 		}
 		System.out.println("Anzahl der gewuerfelten Zahlen:"
@@ -61,5 +69,6 @@ public class WuerfelStatistik {
 				+ "\n4: " + vier
 				+ "\n5: " + fuenf
 				+ "\n6: " + sechs);
+		System.out.println(Arrays.toString(zahlen));
 	}
 }
