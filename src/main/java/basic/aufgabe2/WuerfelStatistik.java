@@ -35,23 +35,23 @@ public class WuerfelStatistik {
 		for (int i = 1; i <= 10000; ++i) {
 			double zufall = Math.random();
 
-			int zahl = (int) (zufall * 6) + 1;
-			if (zahl == 1) {
+			int i = (int) (zufall * 6) + 1;
+			if (i == 1) {
 				anzahlEinser++;
 			}
-			if (zahl == 2) {
+			if (i == 2) {
 				anzahlZweier++;
 			}
-			if (zahl == 3) {
+			if (i == 3) {
 				anzahlDreier++;
 			}
-			if (zahl == 4) {
+			if (i == 4) {
 				anzahlVierer++;
 			}
-			if (zahl == 5) {
+			if (i == 5) {
 				anzahlFuenfer++;
 			}
-			if (zahl == 6) {
+			if (i == 6) {
 				anzahlSechser++;
 			}
 			System.out.println("Einser:" + anzahlEinser);
