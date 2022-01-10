@@ -1,6 +1,8 @@
 package basic.aufgabe2;
+import java.util.HashMap;
 
 public class KaffeeAutomat {
+
 
 	public static void main(String[] args) {
 		// Angenommen: Ein Kaffee kostet 30 Cent,
@@ -14,6 +16,17 @@ public class KaffeeAutomat {
 
 		// 3. Vereinfache die Lösung mit Schleifen
 
+		int kaffeePreis = 30;
+		int bezahlung = 200;
+		int [] muenzenWerte = {200, 100, 50, 20, 10, 5, 2, 1};
+		int restBetrag = bezahlung - kaffeePreis;
+		int indexZaehler = 0;
+
+		for(int a : muenzenWerte) {
+			System.out.println((int)(restBetrag / muenzenWerte[indexZaehler]) + " mal " + String.valueOf(a) + "-Cent-Münze");
+			restBetrag = restBetrag % muenzenWerte[indexZaehler];
+			++indexZaehler;
+		}
 
 	}
 
