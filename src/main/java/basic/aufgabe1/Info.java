@@ -1,4 +1,4 @@
-package basic;
+package basic.aufgabe1;
 
 public class Info {
     public static void main(String[] args) {
