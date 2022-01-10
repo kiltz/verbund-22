@@ -1,7 +1,5 @@
 package basic.aufgabe2;
 
-import java.util.Arrays;
-
 /**
  * Aufgabe:
  *
