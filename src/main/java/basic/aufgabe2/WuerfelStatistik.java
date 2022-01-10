@@ -24,7 +24,7 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 	public static void main(String[] args) {
-		int zahlen[] = new int[7];
+		int zahlen[] = new int[6];
 		int eins = 0;
 		int zwei = 0;
 		int drei = 0;
@@ -39,27 +39,27 @@ public class WuerfelStatistik {
 			int zahl = (int) (zufall * 6) + 1;
 			if (zahl == 1){
 				eins++;
-				zahlen[1] = eins;
+				zahlen[0] = eins;
 			}
 			else if (zahl == 2){
 				zwei++;
-				zahlen[2] = zwei;
+				zahlen[1] = zwei;
 			}
 			else if (zahl == 3){
 				drei++;
-				zahlen[3] = drei;
+				zahlen[2] = drei;
 			}
 			else if (zahl == 4){
 				vier++;
-				zahlen[4] = vier;
+				zahlen[3] = vier;
 			}
 			else if (zahl == 5){
 				fuenf++;
-				zahlen[5] = fuenf;
+				zahlen[4] = fuenf;
 			}
 			else{
 				sechs++;
-				zahlen[6] = sechs;
+				zahlen[5] = sechs;
 			}
 			gesamt = ++gesamt;
 		}
@@ -73,8 +73,11 @@ public class WuerfelStatistik {
 		 */
 		// System.out.println(Arrays.toString(zahlen));
 		for(int i=0; i<=6; i++) {
-			System.out.print(i + ": " + zahlen[i] + "\n");
+			System.out.print((i+1) + ": " + zahlen[i] + "\n");
+
 		}
 		System.out.println("--------" + "\nGesamt: " + gesamt);
-	} // 0 wird mit eingeschlossen, weil die "eins" auf den zweiten bzw [1]. Stelle und nicht auf [0] gespeichert wird
+	}
+	// 0 wird mit eingeschlossen, weil die "eins" auf den zweiten bzw [1]. Stelle und nicht auf [0] gespeichert wird
+	// wurde im println mit "(i+1)" in Line 76:30 gelöst
 }
