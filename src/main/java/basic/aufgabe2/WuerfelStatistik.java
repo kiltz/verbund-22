@@ -32,11 +32,13 @@ public class WuerfelStatistik {
 		int drei = 0;
 		int vier = 0;
 		int fuenf = 0;
-		int sechs =0;
+		int sechs = 0;
+		int gesamt = 0;
+
 		for (int i = 1; i <= 10000; ++i) {
+
 			double zufall = Math.random();
 			int zahl = (int) (zufall * 6) + 1;
-			// System.out.println(zahl);
 			if (zahl == 1){
 				eins++;
 				zahlen[1] = eins;
@@ -61,14 +63,20 @@ public class WuerfelStatistik {
 				sechs++;
 				zahlen[6] = sechs;
 			}
+			gesamt = ++gesamt;
 		}
-		System.out.println("Anzahl der gewuerfelten Zahlen:"
+		/*System.out.println("Anzahl der gewuerfelten Zahlen:"
 				+ "\n1: " + eins
 				+ "\n2: " + zwei
 				+ "\n3: " + drei
 				+ "\n4: " + vier
 				+ "\n5: " + fuenf
 				+ "\n6: " + sechs);
-		System.out.println(Arrays.toString(zahlen));
-	}
+		 */
+		// System.out.println(Arrays.toString(zahlen));
+		for(int i=0; i<=6; i++) {
+			System.out.print(i + ": " + zahlen[i] + "\n");
+		}
+		System.out.println("--------" + "\nGesamt: " + gesamt);
+	} // 0 wird mit eingeschlossen, weil die "eins" auf den zweiten bzw [1]. Stelle und nicht auf [0] gespeichert wird
 }
