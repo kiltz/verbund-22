@@ -25,9 +25,16 @@ package basic.aufgabe2;
 public class WuerfelStatistik {
 	public static void main(String[] args) {
 
+		for (int i = 1; i <= 10000; ++i) {
+			double zufall = Math.random();
 
-		double zufall = Math.random();
+			int zahl = (int)(zufall * 6) + 1;
+			String[] wuerfe = {"Jan", "Feb", "Mär"};
 
-		// hier gehts los....
+			String[] wuerfe = {"Einser", "Zweier", "Dreier", "Vierer", "Fünfer", "Sechser"};
+			for (String i : wuerfe) {
+				System.out.println(i);
+			}
+		}
 	}
 }
