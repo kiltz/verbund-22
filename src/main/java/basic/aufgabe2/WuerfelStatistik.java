@@ -78,6 +78,6 @@ public class WuerfelStatistik {
 		}
 		System.out.println("--------" + "\nGesamt: " + gesamt);
 	}
-	// 0 wird mit eingeschlossen, weil die "eins" auf den zweiten bzw [1]. Stelle und nicht auf [0] gespeichert wird
-	// wurde im println mit "(i+1)" in Line 76:30 gelöst
+	// 0 wird mit eingeschlossen, weil die "eins" auf den zweiten bzw "[1]". Stelle und nicht auf "[0]" gespeichert wird
+	// wurde im println mit "(i+1)" in Zeile 76:30 gelöst --> ArrayIndexOutOfBoundsException error kommt trotzdem
 }
