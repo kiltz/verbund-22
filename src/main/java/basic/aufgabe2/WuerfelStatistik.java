@@ -41,27 +41,7 @@ public class WuerfelStatistik {
 
 		for (int i = 0; i < bereich; i++) {
 			zufall = (int)(Math.random() * 6 + 1);
-
-			switch (zufall) {
-				case 1:
-					versuche[0]++;
-					break;
-				case 2:
-					versuche[1]++;
-					break;
-				case 3:
-					versuche[2]++;
-					break;
-				case 4:
-					versuche[3]++;
-					break;
-				case 5:
-					versuche[4]++;
-					break;
-				case 6:
-					versuche[5]++;
-					break;
-			}
+			versuche[zufall-1]++;
 		}
 		return versuche;
 	}
