@@ -6,7 +6,7 @@ public class KaffeeAutomat {
 		String[] muenzen = {"1 Euro", "50 cent", "20 cent", "10 cent" , "5 cent", "2 cent", "1 cent"};
 
 		try{
-			int[] rueckgeld = ruekgeldRechnen(30, 50, "Cent");
+			int[] rueckgeld = rueckgeldRechnen(30, 50, "Cent");
 			for (int i = 0; i < muenzen.length; i++) {
 				if (rueckgeld[i] > 0) System.out.println(String.format("%s-Münze: %d Stück", muenzen[i], rueckgeld[i]));
 			}
@@ -15,7 +15,7 @@ public class KaffeeAutomat {
 		}
 	}
 
-	static int[] ruekgeldRechnen(int preis, int summe, String muenze) throws IllegalArgumentException {
+	static int[] rueckgeldRechnen(int preis, int summe, String muenze) throws IllegalArgumentException {
 		int[] rueckgeld = {0, 0, 0, 0, 0, 0, 0};
 		int[] muenzen = {100, 50, 20, 10, 5, 2, 1};
 		boolean check = true;
