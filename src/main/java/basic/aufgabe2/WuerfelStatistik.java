@@ -34,9 +34,8 @@ public class WuerfelStatistik {
 
 		for (int i = 1; i <= 10000; ++i) {
 			double zufall = Math.random();
-
-			int i = (int) (zufall * 6) + 1;
-			if (i == 1) {
+			int zahl = (int) (zufall * 6) + 1;
+			if (zahl == 1) {
 				anzahlEinser++;
 			}
 			if (i == 2) {
