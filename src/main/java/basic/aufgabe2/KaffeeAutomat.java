@@ -20,14 +20,16 @@ public class KaffeeAutomat {
 		int bezahlung = 200;
 		int [] muenzenWerte = {200, 100, 50, 20, 10, 5, 2, 1};
 		int restBetrag = bezahlung - kaffeePreis;
-		int indexZaehler = 0;
 
-		for(int a : muenzenWerte) {
-			System.out.println((int)(restBetrag / muenzenWerte[indexZaehler]) + " mal " + String.valueOf(a) + "-Cent-Münze");
-			restBetrag = restBetrag % muenzenWerte[indexZaehler];
-			++indexZaehler;
+		for(int i = 0; i< muenzenWerte.length; i++) {
+			int anzMuenze = (int)(restBetrag / muenzenWerte[i]);
+			if(i == 0 || i == 1) {
+				System.out.println(String.format("%2d", anzMuenze) + " mal " + String.format("%2d", muenzenWerte[i]/100) + "-Euro-Münze");
+				restBetrag = restBetrag % muenzenWerte[i];
+			} else {
+				System.out.println(String.format("%2d", anzMuenze) + " mal " + String.format("%2d", muenzenWerte[i]) + "-Cent-Münze");
+				restBetrag = restBetrag % muenzenWerte[i];
+			}
 		}
-
 	}
-
 }
