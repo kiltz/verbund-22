@@ -7,6 +7,7 @@ public class KreisNutzer {
         k1.setRadius(10);
 
         Kreis k2 = new Kreis();
+
         k2.setRadius(10);
 
         k1.setRadius(-20);

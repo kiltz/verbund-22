@@ -16,5 +16,6 @@ public class FibonacciFolge {
             zahl3 = zahl1 + zahl2;
         }
 
+
     }
 }

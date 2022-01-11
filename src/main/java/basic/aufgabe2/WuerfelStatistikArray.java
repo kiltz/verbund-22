@@ -11,23 +11,24 @@ package basic.aufgabe2;
  * Merke Dir in einem Array wie oft welche Zahl gewürfelt wurde.
  *
  * Gebe die Statistik aus.
- *
- * Zusatzaufgabe:
- *
- * Stoppe die Zeit, die für den Durchlauf gebraucht wird.
- * ( System.currentTimeMillis() )
- * Gebe das Ergebnis in ansprechender Form aus.
- *
- * Variiere die Anzahl der Durchläufe, gehe in die Masse.
- *
- */
+  */
 
-public class WuerfelStatistik {
+public class WuerfelStatistikArray {
 	public static void main(String[] args) {
 
+		int[] wurf = {0, 0, 0, 0, 0, 0};
 
-		double zufall = Math.random();
+		for (int i = 1; i <= 10000; ++i){
+			double zufall = Math.random();
+			int zahl = (int) ((zufall * 6) + 1);
 
-		// hier gehts los....
+			wurf[zahl - 1]++;
+		}
+
+		for (int i = 0; i < 6; ++i){
+			System.out.println((i+1) + ": " + wurf[i]);
+		}
+
+		}
+
 	}
-}
