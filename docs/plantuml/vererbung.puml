@@ -1,0 +1,29 @@
+@startuml
+
+abstract class  Form {
+    public abstract double berechneUmfang();
+}
+
+class Kreis {
+    int radius;
+}
+class Rechteck {
+    int breite;
+    int laenge;
+}
+class Dreieck {
+    int seiteA;
+    int seiteB;
+    int seiteC;
+}
+
+class ZeichenBlatt {
+}
+
+ZeichenBlatt "1" *-- "*" Form
+
+Form <|-- Kreis
+Form <|-- Rechteck
+Form <|-- Dreieck
+
+@enduml
