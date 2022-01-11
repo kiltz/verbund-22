@@ -16,7 +16,7 @@ public class Konto {
     }
 
     public void auszahlen(int ausgezahlt) {
-        if (kontostand <= dispo) {
+        if (kontostand + dispo <= dispo) {
             System.out.println("ausgezahlt: " + ausgezahlt);
             kontostand -= ausgezahlt;
         }
