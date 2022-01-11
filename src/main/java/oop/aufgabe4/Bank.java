@@ -20,7 +20,5 @@ public class Bank {
         if (k.getKontoStand() != -100) {
             System.out.println("Fehler 4");
         }
-
-
     }
 }
