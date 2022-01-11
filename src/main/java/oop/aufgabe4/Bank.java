@@ -1,5 +1,12 @@
 package oop.aufgabe4;
 
+import oop.aufgabe4.muloe.Konto;
+
+/*
+Bitte diese Klasse nicht verändern.
+Die Klasse soll ausgeführt werden können und es erscheint keine Ausgabe.
+
+ */
 public class Bank {
     public static void main(String[] args) {
         Konto k = new Konto();
