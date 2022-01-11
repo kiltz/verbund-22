@@ -12,7 +12,6 @@ public class FibonacciFolge {
             System.out.println(zahl3);
             zahl2 = zahl1;
             zahl3 = zahl2;
-            zahl1 + zahl2;
 
     }
 }
