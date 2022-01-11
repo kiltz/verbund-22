@@ -1,10 +1,10 @@
 package oop.erbe.aufgabe5;
 
 public class Dreieck extends Form {
-    int seiteA;
-    int seiteB;
-    int seiteC;
-    public Dreieck(int seiteA, int seiteB, int seiteC) {
+    double seiteA;
+    double seiteB;
+    double seiteC;
+    public Dreieck(double seiteA, double seiteB, double seiteC) {
         super();
         this.seiteA = seiteA;
         this.seiteB = seiteB;

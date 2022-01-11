@@ -1,10 +1,10 @@
 package oop.erbe.aufgabe5;
 
 public class Rechteck extends Form {
-    int length;
-    int width;
+    double length;
+    double width;
 
-    public Rechteck(int length, int width) {
+    public Rechteck(double length, double width) {
         super();
         this.length = length;
         this.width = width;
