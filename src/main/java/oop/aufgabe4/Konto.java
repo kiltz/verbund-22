@@ -12,22 +12,10 @@ public class Konto {
         kontoStand += summe;
     }
 
-    public boolean auszahlen(int summe) {
-        if (kontoStand >= 0 && kontoStand + dispo < summe || kontoStand < 0 && dispo < summe) {
-            return false;
-        }
-        else if (kontoStand >= summe) {
+    public void auszahlen(int summe) {
+        if (kontoStand + dispo >= summe) {
             kontoStand -= summe;
         }
-        else if (kontoStand > 0){
-            kontoStand -= summe;
-            dispo += kontoStand;
-        }
-        else {
-            kontoStand -= summe;
-            dispo -= summe;
-        }
-        return true;
     }
 
     public int getKontoStand() {
