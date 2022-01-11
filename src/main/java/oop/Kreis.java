@@ -1,9 +1,21 @@
 package oop;
 
 public class Kreis {
-    int radius;
+    // darf nicht negativ sein!
+    private int radius;
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        if (radius >= 0) {
+            this.radius = radius;
+        }
+    }
 
     double berechneUmfang() {
-        return 2 * Math.PI * radius;
+        double umfang = 2 * Math.PI * radius;
+        return umfang;
     }
 }
