@@ -1,9 +1,9 @@
-package oop.erbe.aufgabe;
+package oop.erbe.aufgabe5;
 
-import oop.erbe.aufgabe.muloe.Dreieck;
-import oop.erbe.aufgabe.muloe.Form;
-import oop.erbe.aufgabe.muloe.Kreis;
-import oop.erbe.aufgabe.muloe.Rechteck;
+import oop.erbe.aufgabe5.muloe.Dreieck;
+import oop.erbe.aufgabe5.muloe.Form;
+import oop.erbe.aufgabe5.muloe.Kreis;
+import oop.erbe.aufgabe5.muloe.Rechteck;
 
 public class ZeichenBlatt {
 
