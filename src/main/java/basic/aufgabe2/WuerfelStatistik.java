@@ -29,16 +29,16 @@ public class WuerfelStatistik {
 
 		// tue es 10.000 mal
 		for (int i = 1; i <= 10000; ++i) {
-			double zufall = Math.random();          // etwas zwischen 0.00 und 0.999
+			double zufall = Math.random();          // etwas zwischen 0.000 und 0.999
 			int zahl = (int) (zufall * 6) + 1;      // etwas zwischen 1 und 6
 
-			int index = zahl -1;
+			int index = zahl - 1;
 			anzahl[index]++;
+		}
 
 		System.out.println("\n" + "Ergebniss nach 10.000 Würfen: " + "\n");
 		for (int i = 0; i < 6; ++i) {
-			System.out.println((i+1)+": "+anzahl[i]);
+				System.out.println("Sie haben " + anzahl[i] + " " + (i + 1) + "er gewürfelt.");
 		}
-
 	}
 }
