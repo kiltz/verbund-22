@@ -1,5 +1,12 @@
 package oop.erbe.aufgabe5;
 
+/*
+Bitte nichts an der Klasse ZeichenBlatt ändern.
+Dafür sorgen, dass gültige Werte bei den berechneUmfang zurück gegeben werden.
+
+Bitte nicht den Kreis aus oop nutzen!
+
+ */
 
 public class ZeichenBlatt {
 
