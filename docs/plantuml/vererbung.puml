@@ -17,6 +17,11 @@ class Dreieck {
     int seiteC;
 }
 
+class ZeichenBlatt {
+}
+
+ZeichenBlatt "1" *-- "*" Form
+
 Form <|-- Kreis
 Form <|-- Rechteck
 Form <|-- Dreieck
