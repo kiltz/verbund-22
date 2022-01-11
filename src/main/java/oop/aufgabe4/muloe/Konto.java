@@ -4,6 +4,18 @@ public class Konto {
     int dispo = 0;
     int kontostand = 0;
 
+    public Konto() {
+    }
+
+    public Konto(int dispo) {
+        this.dispo = dispo;
+    }
+
+    public Konto(int dispo, int kontostand) {
+        this.dispo = dispo;
+        this.kontostand = kontostand;
+    }
+
     public void setDispo(int neuerDispo) {
         dispo = neuerDispo;
     }
