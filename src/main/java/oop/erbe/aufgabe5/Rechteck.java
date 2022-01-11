@@ -13,7 +13,8 @@ public class Rechteck extends Form {
     @Override
 
     public double berechneUmfang() {
-        return seiteX + seiteY;
+        double umfangr = 2 * (seiteX + seiteY);
+        return umfangr;
     }
 
 }
