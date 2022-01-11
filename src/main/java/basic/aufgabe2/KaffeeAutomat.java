@@ -37,7 +37,7 @@ public class KaffeeAutomat {
 			case "cent":
 				break;
 			default:
-				throw new IllegalArgumentException("Falshe eingabe!");
+				throw new IllegalArgumentException("Falsche eingabe!");
 		}
 
 		if (summe < preis || preis <= 0) throw new IllegalArgumentException("Summe ist zu klein!");
