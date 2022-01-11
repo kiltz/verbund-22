@@ -1,9 +1,12 @@
 package oop.erbe.aufgabe5;
 
-import oop.erbe.aufgabe5.muloe.Dreieck;
-import oop.erbe.aufgabe5.muloe.Form;
-import oop.erbe.aufgabe5.muloe.Kreis;
-import oop.erbe.aufgabe5.muloe.Rechteck;
+/*
+Bitte nichts an der Klasse ZeichenBlatt ändern.
+Dafür sorgen, dass gültige Werte bei den berechneUmfang zurück gegeben werden.
+
+Bitte nicht den Kreis aus oop nutzen!
+
+ */
 
 public class ZeichenBlatt {
 
