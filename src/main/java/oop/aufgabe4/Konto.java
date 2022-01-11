@@ -15,13 +15,9 @@ public class Konto {
         kontostand += betrag;
     }
 
-    public void auszahlen(int ausgezahlt) {
-        if (kontostand + dispo <= dispo) {
-            System.out.println("ausgezahlt: " + ausgezahlt);
-            kontostand -= ausgezahlt;
-        }
-        else {
-            System.out.println("Betrag überschreitet die Grenze");
+    public void auszahlen(int betrag) {
+        if (kontostand + dispo >= betrag) {
+            kontostand -= betrag;
         }
     }
 }
