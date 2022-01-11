@@ -1,0 +1,17 @@
+@startuml
+
+class Form {
+}
+
+class Kreis {
+}
+class Rechteck {
+}
+class Dreieck {
+}
+
+Form <|-- Kreis
+Form <|-- Rechteck
+Form <|-- Dreieck
+
+@enduml
