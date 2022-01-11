@@ -72,12 +72,12 @@ public class WuerfelStatistik {
 				+ "\n6: " + sechs);
 		 */
 		// System.out.println(Arrays.toString(zahlen));
-		for(int i=0; i<=6; i++) {
-			System.out.print((i+1) + ": " + zahlen[i] + "\n");
+		for(int j=0; j<=6; j++) { // 11.01. | doppelte deklaration von "i" zu "j"
+			System.out.print((j+1) + ": " + zahlen[j] + "\n");
 
 		}
 		System.out.println("--------" + "\nGesamt: " + gesamt);
 	}
-	// 0 wird mit eingeschlossen, weil die "eins" auf den zweiten bzw "[1]". Stelle und nicht auf "[0]" gespeichert wird
-	// wurde im println mit "(i+1)" in Zeile 76:30 gelöst --> ArrayIndexOutOfBoundsException error kommt trotzdem
+	// 10.01. |0 wird mit eingeschlossen, weil die "eins" auf den zweiten bzw "[1]". Stelle und nicht auf "[0]" gespeichert wird
+	// 10.01. |> wurde im println mit "(i+1)" in Zeile 76:30 gelöst --> ArrayIndexOutOfBoundsException error kommt trotzdem
 }
