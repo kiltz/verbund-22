@@ -1,4 +1,4 @@
-package oop.erbe.aufgabe5;
+package oop.erbe.aufgabe5; // & Aufgabe 6
 
 /*
 Bitte nichts an der Klasse ZeichenBlatt ändern.
@@ -8,11 +8,8 @@ Bitte nicht den Kreis aus oop nutzen!
 
  */
 
-
-import oop.erbe.aufgabe5.mueloe.Dreieck;
-import oop.erbe.aufgabe5.mueloe.Form;
-import oop.erbe.aufgabe5.mueloe.Kreis;
-import oop.erbe.aufgabe5.mueloe.Rechteck;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ZeichenBlatt {
 
@@ -29,12 +26,19 @@ public class ZeichenBlatt {
 
         System.out.println(r1);
 
-        /* Aufgabe:
+        /* Aufgabe 6:
             1. Erstellt eine Liste für Form-Elemente
             2. Fügt der Liste ein paar Elemente (Dreiecke, Rechtecke, Kreise) hinzu.
             3. Durchlauft die Liste und gebt die entsprechenden Umfänge aus.
             4. Zusatz: gebt aus um welche genaue Form (Dreieck, Rechteck, Kreis) es sich handelt.
 
          */
+        List<String> liste = new ArrayList<>();
+        liste.add("Dreieck: " + d1.berechneUmfang());
+        liste.add("Rechteck: " + r1.berechneUmfang());
+        liste.add("Kreis: " + k1.berechneUmfang());
+        for (String f : liste) {
+            System.out.println(f);
+        }
     }
 }
