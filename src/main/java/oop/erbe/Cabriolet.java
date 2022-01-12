@@ -8,6 +8,6 @@ public class Cabriolet extends Auto {
 
     @Override
     public String getTyp() {
-        return super.getTyp()+" Cabrio";
+        return super.getTyp() + " Cabrio";
     }
 }
