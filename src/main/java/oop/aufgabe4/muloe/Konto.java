@@ -30,13 +30,19 @@ public class Konto {
     }
 
     // 2. gebe die Exception weiter
-    public void auszahlen(int betrag) {
+    public void auszahlen(int betrag) throws KeineKontoDeckungException {
+
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
         } else {
-            // mecker!
-            // 1. Wirf eine "KeineKontoDeckungException"
-            // analog zu den "RadiusZuKleinException"
+            throw new KeineKontoDeckungException("WTF");
         }
+
+
+        // mecker!
+        // 1. Wirf eine "KeineKontoDeckungException"
+        // analog zu den "RadiusZuKleinException"
+
+
     }
 }
