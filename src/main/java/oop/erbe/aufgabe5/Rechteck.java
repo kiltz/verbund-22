@@ -16,6 +16,6 @@ public class Rechteck extends Form {
     }
     @Override
     public String toString() {
-        return String.format("Rechteck (%d, %d)", hoehe, breite);
+        return "Rechteck";
     }
 }

@@ -19,6 +19,6 @@ public class Dreieck extends Form {
     }
     @Override
     public String toString() {
-        return String.format("Dreieck (%d, %d, %d)", seiteA, seiteB, seiteC);
+        return "Dreieck";
     }
 }

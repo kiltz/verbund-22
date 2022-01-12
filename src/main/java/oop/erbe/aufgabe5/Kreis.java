@@ -16,6 +16,8 @@ public class Kreis extends Form {
 
     @Override
     public String toString() {
-        return String.format("Kreis (%d)", radius);
+        return "Kreis";
     }
+
+
 }
