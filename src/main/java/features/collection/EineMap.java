@@ -25,12 +25,11 @@ public class EineMap {
         for (Map.Entry e : monate.entrySet()) {
             System.out.println(e.getKey() + ": " + e.getValue());
         }
-
         // System-Properties
         Properties props = System.getProperties();
         for (Map.Entry e : props.entrySet()) {
             System.out.println(e.getKey() + ": " + e.getValue());
         }
-
+        System.out.println("Hallo " + System.getProperty("user.name"));
     }
 }
