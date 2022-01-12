@@ -1,7 +1,5 @@
 package basic;
 
-import java.util.Locale;
-
 public class Anweisungen {
 
     public static void main(String[] args) {
@@ -21,6 +19,7 @@ public class Anweisungen {
 
         String monat = "Januar";
         switch (monat) {
+
             case "Januar":
             case "Februar":
                 System.out.println("Winter");
