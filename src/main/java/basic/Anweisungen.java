@@ -19,7 +19,6 @@ public class Anweisungen {
 
         String monat = "Januar";
         switch (monat) {
-
             case "Januar":
             case "Februar":
                 System.out.println("Winter");
