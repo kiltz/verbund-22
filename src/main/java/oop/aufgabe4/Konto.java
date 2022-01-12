@@ -1,26 +1,43 @@
 package oop.aufgabe4;
 
 public class Konto {
-    int kontoDispo = 0;
+    int dispo = 0;
     int kontostand = 0;
 
-    public void setDispo(int dispo) {
-        kontoDispo = dispo;
+    public Konto() {
+    }
+
+    public Konto(int dispo) {
+        this.dispo = dispo;
+    }
+
+    public Konto(int dispo, int kontostand) {
+        this.dispo = dispo;
+        this.kontostand = kontostand;
+    }
+
+    public void setDispo(int neuerDispo) {
+        dispo = neuerDispo;
     }
 
     public void einzahlen(int betrag) {
-        kontostand = kontostand + betrag;
+        //kontostand = kontostand + betrag;
+        kontostand += betrag;
     }
 
     public int getKontoStand() {
         return kontostand;
     }
 
-    public void auszahlen(int betrag) {
-        if ((kontostand - betrag) > -kontoDispo) {
-            System.out.println("Maximale Ausgabesumme liegt bei " + (kontostand + kontoDispo) + " Euro.");
+    // 2. gebe die Exception weiter
+    public void auszahlen(int betrag) throws AuszahlSummeZuGrossException {
+        if (kontostand + dispo >= betrag) {
+            kontostand -= betrag;
         } else {
-            kontostand = kontostand - betrag;
+            // mecker!
+            // 1. Wirf eine "KeineKontoDeckungException"
+            // analog zu den "RadiusZuKleinException"
+            throw new AuszahlSummeZuGrossException("Das Kontolimit wurde überschritten. Die Summe kann nicht ausgezahlt werden.");
         }
     }
 }
