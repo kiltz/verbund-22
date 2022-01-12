@@ -15,21 +15,33 @@ public class Bank {
         }
         // 3. Behandle die Fehlersituationen
         // => es darf kein Fehler auftauchen
-        k.auszahlen(300);
-        if (k.getKontoStand() != 200) {
-            System.out.println("Fehler 2");
+        try {
+            k.auszahlen(300);
+            if (k.getKontoStand() != 200) {
+                System.out.println("Fehler 2");
+            }
+        } catch (AuszahlSummeZuGrossException e) {
+            System.out.println("Die Exception ist falsch.");
         }
+
         // 4. Behandle die Fehlersituationen
-        // => es darf kein Fehler auftauchen
-        k.auszahlen(300);
-        if (k.getKontoStand() != -100) {
-            System.out.println("Fehler 3");
+        try {
+            k.auszahlen(300);
+            if (k.getKontoStand() != -100) {
+                System.out.println("Fehler 3");
+            }
+        } catch (AuszahlSummeZuGrossException e) {
+            System.out.println("Die Exception ist falsch.");
         }
         // 5. Behandle die Fehlersituationen
         // => es muss ein Fehler auftauchen
-        k.auszahlen(1000);
-        if (k.getKontoStand() != -100) {
-            System.out.println("Fehler 4");
+        try {
+            k.auszahlen(1000);
+            if (k.getKontoStand() != -100) {
+                System.out.println("Fehler 4");
+            }
+        } catch (AuszahlSummeZuGrossException e) {
+            System.out.println("Die Exception ist richtig.");
         }
 
 
