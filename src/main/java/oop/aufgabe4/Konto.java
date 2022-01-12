@@ -17,11 +17,13 @@ public class Konto {
     }
 
     // 2. gebe die Exception weiter
-    public void auszahlen(int betrag) throws KeineKontoDeckungException {
+    public int auszahlen(int betrag) throws KeineKontoDeckungException {
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
         } else {
             throw new KeineKontoDeckungException("Konto wird zu weit überzogen");
         }
+        return betrag;
     }
 }
+
