@@ -32,7 +32,6 @@ public class ZeichenBlatt {
             1. Erstellt eine Liste für Form-Elemente
             2. Fügt der Liste ein paar Elemente (Dreiecke, Rechtecke, Kreise) hinzu.
             3. Durchlauft die Liste und gebt die entsprechenden Umfänge aus.
-            4. Zusatz: gebt aus um welche genaue Form (Dreieck, Rechteck, Kreis) es sich handelt.
 
          */
         List<Form> liste = new ArrayList<>();
