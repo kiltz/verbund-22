@@ -8,19 +8,28 @@ Bitte nicht den Kreis aus oop nutzen!
 
  */
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 public class ZeichenBlatt {
 
     public static void main(String[] args) {
         // Seitenlängen
-        Form d1 = new Dreieck(10,20,14);
-        System.out.println(d1.berechneUmfang());
+        List<Form> liste = new ArrayList<Form>();
 
-        Form r1 = new Rechteck(10,20);
-        System.out.println(r1.berechneUmfang());
+        liste.add(new Dreieck(10, 20, 14));
+        liste.add(new Rechteck(11, 18));
+        liste.add(new Dreieck(9, 7, 14));
+        liste.add(new Kreis(16));
+        liste.add(new Kreis(10));
+        liste.add(new Dreieck(10, 20, 14));
+        liste.add(new Rechteck(23, 9));
 
-        Form k1 = new Kreis(14);
-        System.out.println(k1.berechneUmfang());
-
-        System.out.println(r1);
+        for (Form elem : liste) {
+            String fullClassName = elem.getClass().toString();
+            String[] split = fullClassName.split(Pattern.quote("."));
+            System.out.println(elem.berechneUmfang() + " " + split[3]);
+        }
     }
 }
