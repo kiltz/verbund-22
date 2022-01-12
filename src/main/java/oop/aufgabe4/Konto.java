@@ -20,9 +20,13 @@ public class Konto {
         dispo = neuerDispo;
     }
 
-    public void einzahlen(int betrag) {
+    public void einzahlen(int betrag) throws BetragIstNegativException {
         //kontostand = kontostand + betrag;
-        kontostand += betrag;
+        if (betrag > 0) {
+            kontostand += betrag;
+        } else {
+            throw new BetragIstNegativException("Geben Sie einen validen Betrag, größer als 0, an.");
+        }
     }
 
     public int getKontoStand() {
@@ -30,14 +34,19 @@ public class Konto {
     }
 
     // 2. gebe die Exception weiter
-    public void auszahlen(int betrag) throws AuszahlSummeZuGrossException {
-        if (kontostand + dispo >= betrag) {
-            kontostand -= betrag;
+    public void auszahlen(int betrag) throws KeineKontoDeckungException, BetragIstNegativException {
+        if (betrag > 0) {
+            if (kontostand + dispo >= betrag) {
+                kontostand -= betrag;
+            } else {
+                // mecker!
+                // 1. Wirf eine "KeineKontoDeckungException"
+                // analog zu den "RadiusZuKleinException"
+                throw new KeineKontoDeckungException("Das Kontolimit wurde überschritten. Die Summe kann nicht ausgezahlt werden.");
+            }
         } else {
-            // mecker!
-            // 1. Wirf eine "KeineKontoDeckungException"
-            // analog zu den "RadiusZuKleinException"
-            throw new AuszahlSummeZuGrossException("Das Kontolimit wurde überschritten. Die Summe kann nicht ausgezahlt werden.");
+            throw new BetragIstNegativException("Geben Sie einen validen Betrag, größer als 0, an.");
         }
+
     }
 }
