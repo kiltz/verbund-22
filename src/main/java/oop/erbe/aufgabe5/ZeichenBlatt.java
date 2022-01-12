@@ -9,14 +9,13 @@ Bitte nicht den Kreis aus oop nutzen!
  */
 
 
-import oop.erbe.aufgabe5.mueloe.Dreieck;
-import oop.erbe.aufgabe5.mueloe.Form;
-import oop.erbe.aufgabe5.mueloe.Kreis;
-import oop.erbe.aufgabe5.mueloe.Rechteck;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ZeichenBlatt {
 
     public static void main(String[] args) {
+
         // Seitenlängen
         Form d1 = new Dreieck(10, 20, 14);
         System.out.println(d1.berechneUmfang());
@@ -27,7 +26,7 @@ public class ZeichenBlatt {
         Form k1 = new Kreis(14);
         System.out.println(k1.berechneUmfang());
 
-        System.out.println(r1);
+        System.out.println();
 
         /* Aufgabe:
             1. Erstellt eine Liste für Form-Elemente
@@ -36,5 +35,14 @@ public class ZeichenBlatt {
             4. Zusatz: gebt aus um welche genaue Form (Dreieck, Rechteck, Kreis) es sich handelt.
 
          */
+        List<Form> liste = new ArrayList<>();
+        liste.add(new Dreieck(10, 20, 14));
+        liste.add(new Kreis(14));
+        liste.add(new Rechteck(10, 20));
+
+        //@Override
+        for (Form a : liste) {
+            System.out.println(a.berechneUmfang());
+        }
     }
 }

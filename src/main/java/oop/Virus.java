@@ -5,10 +5,11 @@ import java.util.List;
 
 public class Virus {
 
+
     // Instanzvariable
     long nr;
     // Klassenvariable
-    static long anzahl;
+    static long anzahl = 99999999;
 
     static List<Virus> liste = new ArrayList<>();
 
