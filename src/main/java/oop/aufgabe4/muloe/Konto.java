@@ -39,7 +39,7 @@ public class Konto {
         }
 
 
-        // mecker!
+        // mecker!!
         // 1. Wirf eine "KeineKontoDeckungException"
         // analog zu den "RadiusZuKleinException"
 

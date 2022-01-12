@@ -22,8 +22,9 @@ public class Bank {
         // => es darf kein Fehler auftauchen
         try {
             k.auszahlen(300);
-            if (k.getKontoStand() != 200)
+            if (k.getKontoStand() != 200) {
                 System.out.println("Fehler 2");
+            }
         } catch (KeineKontoDeckungException e) {
             System.err.println("Auszahlung Fehlgeschlagen");
         }
@@ -32,8 +33,9 @@ public class Bank {
         // => es darf kein Fehler auftauchen
         try {
             k.auszahlen(300);
-            if (k.getKontoStand() != -100)
+            if (k.getKontoStand() != -100) {
                 System.out.println("Fehler 3");
+            }
         } catch (KeineKontoDeckungException e) {
             System.err.println("Fehler ist aufgetreten");
         }
@@ -42,10 +44,11 @@ public class Bank {
         // => es muss ein Fehler auftauchen
         try {
             k.auszahlen(1000);
-            if (k.getKontoStand() != -100)
+            if (k.getKontoStand() != -100) {
                 System.out.println("Fehler 4");
+            }
         } catch (KeineKontoDeckungException e) {
-            System.err.println("Hat einen Fehler geworfen, was richtig ist.");
+            System.out.println("Dein Dispo wurde überschritten! Auszahlung verweigert.");
         }
 
     }
