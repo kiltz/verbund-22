@@ -10,13 +10,12 @@ Bitte nicht den Kreis aus oop nutzen!
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class ZeichenBlatt {
 
     public static void main(String[] args) {
         // Seitenlängen
-        List<Form> liste = new ArrayList<Form>();
+        List<Form> liste = new ArrayList<>();
 
         liste.add(new Dreieck(10, 20, 14));
         liste.add(new Rechteck(11, 18));
@@ -27,9 +26,8 @@ public class ZeichenBlatt {
         liste.add(new Rechteck(23, 9));
 
         for (Form elem : liste) {
-            String fullClassName = elem.getClass().toString();
-            String[] split = fullClassName.split(Pattern.quote("."));
-            System.out.println(elem.berechneUmfang() + " " + split[3]);
+            String fullClassName = elem.getClass().getSimpleName();
+            System.out.println(String.format("%7.2f", elem.berechneUmfang()) + " " + String.format("%-10s", fullClassName));
         }
     }
 }
