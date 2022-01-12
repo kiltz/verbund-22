@@ -4,7 +4,7 @@ public class Kreis {
     // darf nicht negativ sein!
     private int radius;
 
-    public Kreis(int radius) {
+    public Kreis(int radius) throws RadiusZuKleinException {
         setRadius(radius);
     }
 
@@ -16,9 +16,11 @@ public class Kreis {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(int radius) throws RadiusZuKleinException {
         if (radius >= 0) {
             this.radius = radius;
+        } else {
+            throw new RadiusZuKleinException("Radius ist zu klein!");
         }
     }
 
