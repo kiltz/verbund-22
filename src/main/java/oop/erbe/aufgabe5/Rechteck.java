@@ -1,15 +1,15 @@
 package oop.erbe.aufgabe5;
 
 public class Rechteck extends Form {
-    private double l;
-    private double b;
+    private double länge;
+    private double breite;
 
-    public Rechteck(double l, double b) {
-        this.l = l;
-        this.b = b;
+    public Rechteck(double länge, double breite) {
+        this.länge = länge;
+        this.breite = breite;
     }
 
-    protected double berechneUmfang(){
-        return (2 * (l + b));
+    protected double berechneUmfang() {
+        return (2 * (länge + breite));
     }
 }

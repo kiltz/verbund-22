@@ -1,0 +1,32 @@
+@startuml
+
+abstract class Form {
+    protected abstract double berechneUmfang()
+}
+
+class Kreis{
+    private double radius
+    public Kreis(double radius)
+    protected double berechneUmfang()
+}
+
+class Dreieck{
+    private double seiteA
+    private double seiteB
+    private double seiteC
+    public Dreieck(double seiteA, double seiteB, double seiteC)
+    protected double berechneUmfang()
+}
+
+class Rechteck{
+    private double länge
+    private double breite
+    public Dreieck(double länge, double breite)
+    protected double berechneUmfang()
+}
+
+Form <|-- Kreis
+Form <|-- Dreieck
+Form <|-- Rechteck
+
+@enduml

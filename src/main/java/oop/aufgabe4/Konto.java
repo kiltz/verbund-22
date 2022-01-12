@@ -5,7 +5,7 @@ public class Konto {
     int kontostand = 0;
 
     public void setDispo(int dispo) {
-        kontoDispo = -dispo;
+        kontoDispo = dispo;
     }
 
     public void einzahlen(int betrag) {
@@ -17,8 +17,8 @@ public class Konto {
     }
 
     public void auszahlen(int betrag) {
-        if((kontostand - betrag) < kontoDispo) {
-            System.out.println("Maximale Ausgabesumme liegt bei " + (kontostand - kontoDispo) + " Euro.");
+        if ((kontostand - betrag) > -kontoDispo) {
+            System.out.println("Maximale Ausgabesumme liegt bei " + (kontostand + kontoDispo) + " Euro.");
         } else {
             kontostand = kontostand - betrag;
         }
