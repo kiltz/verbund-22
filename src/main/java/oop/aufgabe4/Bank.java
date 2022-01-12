@@ -13,6 +13,8 @@ public class Bank {
         k.einzahlen(500);
         if (k.getKontoStand() != 500) {
             System.out.println("Fehler 1");
+        } else {
+            System.out.println("500 eingezahlt!");
         }
         // 3. Behandle die Fehlersituationen
         // => es darf kein Fehler auftauchen
@@ -20,6 +22,8 @@ public class Bank {
             k.auszahlen(300);
             if (k.getKontoStand() != 200) {
                 System.out.println("Fehler 2");
+            } else {
+                System.out.println("300 ausgezahlt!");
             }
         } catch (KeineKontoDeckungException e) {
             System.err.println("Konto wird zu weit überzogen");
@@ -30,6 +34,8 @@ public class Bank {
             k.auszahlen(300);
             if (k.getKontoStand() != -100) {
                 System.out.println("Fehler 3");
+            } else {
+                System.out.println("300 ausgezahlt!");
             }
         } catch (KeineKontoDeckungException e) {
             System.err.println("Konto wird zu weit überzogen");
@@ -40,6 +46,8 @@ public class Bank {
             k.auszahlen(1000);
             if (k.getKontoStand() != -100) {
                 System.out.println("Fehler 4");
+            } else {
+                System.out.println("1000 ausgezahlt!");
             }
         } catch (KeineKontoDeckungException e) {
             System.err.println("Konto wird zu weit überzogen");
