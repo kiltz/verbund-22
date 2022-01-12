@@ -25,7 +25,7 @@ public class Bank {
             if (k.getKontoStand() != 200)
                 System.out.println("Fehler 2");
         } catch (KeineKontoDeckungException e) {
-            System.err.println("LOL");
+            System.err.println("Auszahlung Fehlgeschlagen");
         }
 
         // 4. Behandle die Fehlersituationen
@@ -35,7 +35,7 @@ public class Bank {
             if (k.getKontoStand() != -100)
                 System.out.println("Fehler 3");
         } catch (KeineKontoDeckungException e) {
-            System.err.println("Homo");
+            System.err.println("Fehler ist aufgetreten");
         }
 
         // 5. Behandle die Fehlersituationen

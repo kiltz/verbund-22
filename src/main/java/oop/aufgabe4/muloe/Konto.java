@@ -35,7 +35,7 @@ public class Konto {
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
         } else {
-            throw new KeineKontoDeckungException("WTF");
+            throw new KeineKontoDeckungException("Überzogen");
         }
 
 
