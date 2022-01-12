@@ -1,0 +1,25 @@
+@startuml
+
+class Tester {
+    public static void main(String[] args)
+}
+
+class Azubi {
+    private String name;
+    private String firma;
+}
+
+class AzubiSI {
+    private String produkte;
+}
+
+class AzubiAE {
+    private String programmierSprachen;
+
+}
+
+Azubi <|-- AzubiAE
+Azubi <|-- AzubiSI
+
+Tester "1" *-- "*" Azubi
+@enduml

@@ -17,6 +17,7 @@ class Dreieck {
     int seiteC;
 }
 
+
 class ZeichenBlatt {
 public static void main(String[] args)
 }
