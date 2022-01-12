@@ -33,11 +33,11 @@ public class ZeichenBlatt {
             4. Zusatz: gebt aus um welche genaue Form (Dreieck, Rechteck, Kreis) es sich handelt.
 
          */
-        List<String> liste = new ArrayList<>();
-        liste.add("Dreieck: " + d1.berechneUmfang());
-        liste.add("Rechteck: " + r1.berechneUmfang());
-        liste.add("Kreis: " + k1.berechneUmfang());
-        for (String f : liste) {
+        List<String> formElemente = new ArrayList<>();
+        formElemente.add("Dreieck: " + d1.berechneUmfang());
+        formElemente.add("Rechteck: " + r1.berechneUmfang());
+        formElemente.add("Kreis: " + k1.berechneUmfang());
+        for (String f : formElemente) {
             System.out.println(f);
         }
     }
