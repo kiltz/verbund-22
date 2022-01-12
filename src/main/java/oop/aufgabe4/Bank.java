@@ -7,6 +7,9 @@ Die Klasse soll ausgeführt werden können und es erscheint keine Ausgabe.
 
  */
 public class Bank {
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
     public static void main(String[] args) throws Exception {
         Konto k = new Konto();
         k.setDispo(1000);
@@ -26,7 +29,7 @@ public class Bank {
                 System.out.println("300 ausgezahlt!");
             }
         } catch (KeineKontoDeckungException e) {
-            System.err.println("Konto wird zu weit überzogen");
+            System.out.println("Konto wird zu weit überzogen");
         }
         // 4. Behandle die Fehlersituationen
         // => es darf kein Fehler auftauchen
@@ -38,7 +41,7 @@ public class Bank {
                 System.out.println("300 ausgezahlt!");
             }
         } catch (KeineKontoDeckungException e) {
-            System.err.println("Konto wird zu weit überzogen");
+            System.out.println("Konto wird zu weit überzogen");
         }
         // 5. Behandle die Fehlersituationen
         // => es muss ein Fehler auftauchen
@@ -50,7 +53,7 @@ public class Bank {
                 System.out.println("1000 ausgezahlt!");
             }
         } catch (KeineKontoDeckungException e) {
-            System.err.println("Konto wird zu weit überzogen");
+            System.out.println(ANSI_GREEN + "Konto wird zu weit überzogen, was richtig ist!" + ANSI_RESET);
         }
     }
 }
