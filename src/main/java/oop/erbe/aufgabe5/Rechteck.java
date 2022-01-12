@@ -1,17 +1,20 @@
 package oop.erbe.aufgabe5;
 
 public class Rechteck extends Form {
-    int i_seite_a_r;
-    int i_seite_b_r;
 
-    public Rechteck(int i_seite_a_r, int i_seite_b_r) {
+    int seiteX;
+    int seiteY;
+    public Rechteck(int seiteX, int seiteY) {
         super();
-        this.i_seite_a_r = i_seite_a_r;
-        this.i_seite_b_r = i_seite_b_r;
+    this.seiteX = seiteX;
+    this.seiteY = seiteY;
     }
 
     @Override
-    public double d_berechne_umfang() {
-        return (2 * (i_seite_a_r + i_seite_b_r));
+
+    public double berechneUmfang() {
+        double umfangr = 2 * (seiteX + seiteY);
+        return umfangr;
     }
+
 }

@@ -1,19 +1,23 @@
 package oop.erbe.aufgabe5;
 
 public class Dreieck extends Form {
-    int i_seite_a_d;
-    int i_seite_b_d;
-    int i_seite_c_d;
 
-    public Dreieck(int i_seite_a_d, int i_seite_b_d, int i_seite_c_d) {
+    int seiteA;
+    int seiteB;
+    int seiteC;
+
+
+    public Dreieck(int seiteA, int seiteB, int seiteC) {
         super();
-        this.i_seite_a_d = i_seite_a_d;
-        this.i_seite_b_d = i_seite_b_d;
-        this.i_seite_c_d = i_seite_c_d;
+        this.seiteA = seiteA;
+        this.seiteB = seiteB;
+        this.seiteC = seiteC;
     }
 
     @Override
-    public double d_berechne_umfang() {
-        return (i_seite_a_d + i_seite_b_d + i_seite_c_d);
+
+    public double berechneUmfang() {
+        return seiteA + seiteB + seiteC;
     }
+
 }

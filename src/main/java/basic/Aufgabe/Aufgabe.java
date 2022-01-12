@@ -1,6 +1,6 @@
-package basic.aufgabe1;
+package basic.Aufgabe;
 
-public class Info {
+public class Aufgabe {
     public static void main(String[] name) {
 
         System.out.println ("Moritz");
