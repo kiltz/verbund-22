@@ -20,7 +20,6 @@ public class Konto {
         } else {
             throw new DispoException("Dispo kann nicht negativ sein!");
         }
-
     }
 
     public void einzahlen(int summe) throws EinzahlungException {
@@ -33,6 +32,7 @@ public class Konto {
     }
 
     public void auszahlen(int summe) throws KeineKontoDeckungException {
+        summe = summe >= 0 ? summe : summe * -1;
         if (kontoStand + dispo >= summe) {
             kontoStand -= summe;
         } else {
