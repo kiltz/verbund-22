@@ -1,5 +1,6 @@
 package oop.aufgabe4;
 
+import oop.aufgabe4.muloe.KeineKontoDeckungException;
 import oop.aufgabe4.muloe.Konto;
 
 /*
@@ -17,19 +18,31 @@ public class Bank {
         }
         // 3. Behandle die Fehlersituationen
         // => es darf kein Fehler auftauchen
-        k.auszahlen(300);
+        try {
+            k.auszahlen(300);
+        } catch (KeineKontoDeckungException e) {
+            e.printStackTrace();
+        }
         if (k.getKontoStand() != 200) {
             System.out.println("Fehler 2");
         }
         // 4. Behandle die Fehlersituationen
         // => es darf kein Fehler auftauchen
-        k.auszahlen(300);
+        try {
+            k.auszahlen(300);
+        } catch (KeineKontoDeckungException e) {
+            e.printStackTrace();
+        }
         if (k.getKontoStand() != -100) {
             System.out.println("Fehler 3");
         }
         // 5. Behandle die Fehlersituationen
         // => es muss ein Fehler auftauchen
-        k.auszahlen(1000);
+        try {
+            k.auszahlen(1000);
+        } catch (KeineKontoDeckungException e) {
+            e.printStackTrace();
+        }
         if (k.getKontoStand() != -100) {
             System.out.println("Fehler 4");
         }
