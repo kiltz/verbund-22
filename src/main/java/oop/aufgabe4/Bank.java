@@ -13,13 +13,13 @@ public class Bank {
         Konto k = new Konto(500, 1000);
 
         if (k.getKontoStand() != 500) {
-            System.out.println("Fehler 1");
+            System.err.println("Fehler 1");
         }
 
         try {
             k.auszahlen(300);
             if (k.getKontoStand() != 200) {
-                System.out.println("Fehler 2");
+                System.err.println("Fehler 2");
             }
         } catch (KontoException ex) {
             System.err.println(ex.getMessage());
@@ -28,8 +28,7 @@ public class Bank {
         try {
             k.auszahlen(300);
             if (k.getKontoStand() != -100) {
-                System.out.println(k.getKontoStand());
-                System.out.println("Fehler 3");
+                System.err.println("Fehler 3");
             }
         } catch (KontoException ex) {
             System.err.println(ex.getMessage());
@@ -38,10 +37,9 @@ public class Bank {
         try {
             k.auszahlen(1000);
             if (k.getKontoStand() != -100) {
-                System.out.println("Fehler 4");
+                System.err.println("Fehler 4");
             }
-        } catch (KontoException ex) {
-            System.err.println(ex.getMessage());
+        } catch (KontoException ignore) {
         }
     }
 }
