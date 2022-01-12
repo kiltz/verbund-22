@@ -22,7 +22,7 @@ public class Bank {
                 System.out.println("Fehler 2");
             }
         } catch (KeineKontoDeckungException e) {
-            e.printStackTrace();
+            System.err.println("Konto wird zu weit überzogen");
         }
         // 4. Behandle die Fehlersituationen
         // => es darf kein Fehler auftauchen
@@ -32,7 +32,7 @@ public class Bank {
                 System.out.println("Fehler 3");
             }
         } catch (KeineKontoDeckungException e) {
-            e.printStackTrace();
+            System.err.println("Konto wird zu weit überzogen");
         }
         // 5. Behandle die Fehlersituationen
         // => es muss ein Fehler auftauchen
