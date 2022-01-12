@@ -16,8 +16,8 @@ public class Kreis extends Form {
 
     @Override
     public String toString() {
-        return "Kreis";
+        return "Kreis{" +
+                "radius=" + radius +
+                '}';
     }
-
-
 }

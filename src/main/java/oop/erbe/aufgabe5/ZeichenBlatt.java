@@ -26,7 +26,7 @@ public class ZeichenBlatt {
         forms.add(k1);
 
         for (Form f : forms) {
-            System.out.printf("%s hat einen Umfang von %.2f cm%n", f, f.berechneUmfang());
+            System.out.printf("%s hat einen Umfang von %.2f cm%n", f.getClass().getSimpleName(), f.berechneUmfang());
         }
     }
 }

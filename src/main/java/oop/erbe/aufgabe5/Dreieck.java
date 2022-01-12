@@ -17,8 +17,13 @@ public class Dreieck extends Form {
     public double berechneUmfang() {
         return seiteA + seiteB + seiteC;
     }
+
     @Override
     public String toString() {
-        return "Dreieck";
+        return "Dreieck{" +
+                "seiteA=" + seiteA +
+                ", seiteB=" + seiteB +
+                ", seiteC=" + seiteC +
+                '}';
     }
 }
