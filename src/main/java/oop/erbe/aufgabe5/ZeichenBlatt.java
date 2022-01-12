@@ -14,6 +14,9 @@ import oop.erbe.aufgabe5.mueloe.Form;
 import oop.erbe.aufgabe5.mueloe.Kreis;
 import oop.erbe.aufgabe5.mueloe.Rechteck;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ZeichenBlatt {
 
     public static void main(String[] args) {
@@ -35,6 +38,18 @@ public class ZeichenBlatt {
             3. Durchlauft die Liste und gebt die entsprechenden Umfänge aus.
             4. Zusatz: gebt aus um welche genaue Form (Dreieck, Rechteck, Kreis) es sich handelt.
 
+            Form Größe Umfang
+
          */
+        List<Form> liste = new ArrayList<>();
+        liste.add(new Dreieck(10, 20, 14));
+        liste.add(new Rechteck(10, 20));
+        liste.add(new Kreis(14));
+
+        System.out.println(liste);
+
+        for (Form f : liste) {
+            System.out.println(f.berechneUmfang());
+        }
     }
 }
