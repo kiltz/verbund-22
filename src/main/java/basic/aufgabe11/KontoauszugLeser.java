@@ -19,22 +19,23 @@ public class KontoauszugLeser {
             String[] parts = zeilen[i].split(";");
             // 4. Summiere die Beträge auf
             if (parts.length == 3) {
+                System.out.println("zu Summierende Zahlen: " + parts[2]);
                 double betrag = Zahlen.stringToDouble(parts[2]);
                 summe += betrag;
             } else {
                 System.out.println("");
             }
-            // 5. gebe die Summe aus
-            System.out.println("-------\nSumme: " + summe + "\n");
-            // Variiere die Datei!
-            String inhalt = d.lese();
-            if (!inhalt.equals(text)) {
-                System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
-            }
-            // Zusatzaufgabe:
-            // Erstellt 500 Buchungen mit unterschiedlichen Buchungstexten und Beträgen
 
         }
+        // 5. gebe die Summe aus
+        System.out.println("-------\nSumme: " + summe + "\n");
+        // Variiere die Datei!
+        String inhalt = d.lese();
+        if (!inhalt.equals(text)) {
+            System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
+        }
+        // Zusatzaufgabe:
+        // Erstellt 500 Buchungen mit unterschiedlichen Buchungstexten und Beträgen
     }
 }
 
