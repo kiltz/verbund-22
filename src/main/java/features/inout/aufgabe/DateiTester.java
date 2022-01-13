@@ -36,8 +36,12 @@ public class DateiTester {
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
 		Datei f = new Datei("dummy.txt");
-		for (int i = 0; i < 1073741824; i++) {
-			f.schreibe("a", true);
+		String str = "";
+		for (int n = 0; n < 131072; n++) {
+			str = str + "a";
+		}
+		for (int i = 0; i < 8192; i++) {
+			f.schreibe(str, true);
 		}
 
 		System.out.println(f.lese());

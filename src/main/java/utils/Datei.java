@@ -30,10 +30,11 @@ public class Datei {
         // einlesen der Datei
         try (BufferedReader reader = new BufferedReader(new FileReader(datei))) {
             String zeile = "";
+            zeile = reader.readLine();
+            inhalt.append(zeile);
             while ((zeile = reader.readLine()) != null) {
                 inhalt.append("\n" + zeile);
             }
-            inhalt.deleteCharAt(0);
         }
         // Etwas schief gegangen?
         catch (IOException e) {
