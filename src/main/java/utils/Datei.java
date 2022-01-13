@@ -42,7 +42,7 @@ public class Datei {
                 inhalt.append(zeile);
             }
             // Ausgabe der gesammelten Werke
-            System.out.println(inhalt);
+            // System.out.println(inhalt);
         } catch (IOException e) {
             e.printStackTrace();
         }
