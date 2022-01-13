@@ -15,17 +15,17 @@ package features.inout.aufgabe;
 public class DateiTester {
 
 	public static void main(String[] args) throws Exception {
-		String zeile1 = "Eine Zeile";
-		String zeile2 = "\nnoch eine Zeile";
+		String zeile1 = "13.01.2022;Bar;100,00\n";
+		String zeile2 = "28.01.2022;Versicherung;860";
 
 		// eine Instanz von "Datei" erzeugen
-		Datei d = new Datei("test.txt");
+		Datei d = new Datei("kontoauszug.csv");
 		d.schreibe(zeile1);
 		d.schreibe(zeile2, true); // anfügen!
 
 		String inhalt = d.lese();
 		System.out.println("'" + inhalt + "'");
-		System.out.println("'" + zeile1 + zeile2 + "'");
+		//System.out.println("'" + zeile1 + zeile2 + "'");
 		if (!inhalt.equals(zeile1 + zeile2)) {
 			System.err.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
 		}

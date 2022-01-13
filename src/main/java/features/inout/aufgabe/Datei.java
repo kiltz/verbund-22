@@ -9,18 +9,22 @@ public class Datei {
         this.dateiName = dateiName;
     }
 
+    public static String[] split(String s) {
+        return new String[0];
+    }
+
     public void schreibe(String text) {
         schreibe(text, false);
 
     }
 
-    public void schreibe(String text, boolean append) {
+    public void schreibe(String kontoauszug, boolean append) {
         File datei = null;
 
         datei = new File(dateiName);
         try (FileWriter outStream = new FileWriter(datei, append)) {
 
-            outStream.write(text);
+            outStream.write(kontoauszug);
 
         } catch (IOException e) {
             // Fehlerbehandlung
@@ -44,8 +48,9 @@ public class Datei {
                 }
                 inhalt.append(zeile);
             }
-
+            System.out.println(inhalt);
         }
+        //System.out.println(inhalt);
         // Etwas schief gegangen?
         catch (IOException e) {
             e.printStackTrace();

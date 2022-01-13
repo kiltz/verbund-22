@@ -14,11 +14,11 @@ import java.io.IOException;
  * s. http://www.adam-bien.com/roller/abien/entry/java_8_reading_a_file
  */
 public class Lese {
-    public static void main(String[] arg) {
+    public String lese() {
         StringBuffer inhalt = new StringBuffer();
         File datei = null;
         BufferedReader reader = null;
-        String dateiName = "test.txt";
+        String dateiName = "kontoauszug.csv";
         // einlesen der Datei
         datei = new File(dateiName); // Erzeuge ein Datei-Objekt
         try (FileReader inStream = new FileReader(datei)) {
@@ -35,6 +35,6 @@ public class Lese {
         catch (IOException e) {
             e.printStackTrace();
         }
-
+        return inhalt.toString();
     }
 }
