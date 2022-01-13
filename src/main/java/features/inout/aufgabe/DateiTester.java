@@ -1,6 +1,6 @@
 package features.inout.aufgabe;
 
-import utils.Datei;
+import utils.muloe.Datei;
 
 /**
  * Invariante: Ändere diese Klasse nicht!
