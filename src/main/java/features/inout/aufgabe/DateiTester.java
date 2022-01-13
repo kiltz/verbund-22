@@ -1,16 +1,14 @@
 package features.inout.aufgabe;
 
-import utils.Datei;
-
-/**
+/*
  * Invariante: Ändere diese Klasse nicht!
- * 
+ *
  * 1. Mach IntelliJ glücklich!
- * 
+ *
  * 2. Sorge dafür das der Fehler nicht ausgegeben wird.
- * 
+ *
  * 3. Optional: die Zusatzaufgabe
- * 
+ *
  * @author fk
  *
  */
@@ -18,11 +16,11 @@ public class DateiTester {
 
 	public static void main(String[] args) throws Exception {
 		String zeile1 = "Eine Zeile";
-		String zeile2 = "\nnoch eine Zeile";
+		String zeile2 = "\n noch eine Zeile";
 
 		// eine Instanz von "Datei" erzeugen
 		Datei d = new Datei("test.txt");
-		d.schreibe(zeile1);
+		d.schreibe(zeile1, true);
 		d.schreibe(zeile2, true); // anfügen!
 
 		String inhalt = d.lese();
