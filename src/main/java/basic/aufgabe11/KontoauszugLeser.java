@@ -4,6 +4,7 @@ public class KontoauszugLeser {
     public static void main(String[] args) {
         // 1. Lese die Datei "kontoauszug.csv" ein
 
+
         // 2.Zerlege den Text in die Zeilen
 
         // 3. Zerlege jede Zeile
