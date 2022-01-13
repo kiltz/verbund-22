@@ -45,11 +45,32 @@ public class Zeichenketten {
 
     private static String generierePasswort(int laengePasswort, boolean mitGrossbuchstaben,
                                             boolean mitZahlen, boolean mitSonderzeichen) {
+
         // 1. erlaubte Zeichen zusammen basteln
+        if (mitGrossbuchstaben = true) {
+            String erlaubteZeichen = grossBuchstaben;
+        }
+        if (mitZahlen = true) {
+            String erlaubteZeichen = zahlen;
+        }
+        if (mitSonderzeichen = true) {
+            String erlaubteZeichen = sonderzeichen;
+        }
 
         // 2. Passwort erstellen
+        StringBuilder passwort = new StringBuilder();
+        for (int i = 0; i < 12; ++i) {
+            CharSequence erlaubteZeichen = "";
+            int index = (int) (Math.random() * erlaubteZeichen.length());
+            passwort.append(erlaubteZeichen.charAt(index));
+        }
 
         // 3. Passwort zurück geben
+        System.out.println();
         return "";
     }
 }
+
+
+
+
