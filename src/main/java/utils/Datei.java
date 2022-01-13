@@ -29,8 +29,7 @@ public class Datei {
         StringBuffer inhalt = new StringBuffer();
         // einlesen der Datei
         try (BufferedReader reader = new BufferedReader(new FileReader(datei))) {
-            String zeile = "";
-            zeile = reader.readLine();
+            String zeile = reader.readLine();
             inhalt.append(zeile);
             while ((zeile = reader.readLine()) != null) {
                 inhalt.append("\n" + zeile);

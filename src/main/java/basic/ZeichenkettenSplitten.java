@@ -24,12 +24,10 @@ public class ZeichenkettenSplitten {
             String key = bestandteile[1];
             int value = Integer.parseInt(bestandteile[2]);
             summe += value;
-            if (!statistik.containsKey(key)) {
-                statistik.put(key, value);
-            } else {
+            if (statistik.containsKey(key)) {
                 value += statistik.get(key);
-                statistik.replace(key, value);
             }
+            statistik.put(key, value);
         }
         statistik.entrySet().forEach(entry -> {
             System.out.println(entry.getKey() + ": " + entry.getValue());
