@@ -1,6 +1,6 @@
-package basic;
+package basic.aufgabe9;
 
-public class Zeichenketten {
+public class ZeichenkettenLoesung {
     static String kleinBuchstaben = "abcdefghijklmnopqrstuvwxyz";
     static String zahlen = "0123456789";
     static String grossBuchstaben = kleinBuchstaben.toUpperCase();
@@ -45,48 +45,26 @@ public class Zeichenketten {
 
     private static String generierePasswort(int laengePasswort, boolean mitGrossbuchstaben,
                                             boolean mitZahlen, boolean mitSonderzeichen) {
-
-
-        /* mit Großbuchstaben und Sonderzeichen
-        String erlaubteZeichen = kleinBuchstaben + grossBuchstaben + sonderzeichen;
-        passwort = new StringBuilder();
-        for (int i = 0; i < 12; ++i) {
-            index = (int) (Math.random() * erlaubteZeichen.length());
-            passwort.append(erlaubteZeichen.charAt(index)); */
-
-
-        // mit Großbuchstaben und Sonderzeichen
-        //String finpasswort = new finPasswort;
-
         // 1. erlaubte Zeichen zusammen basteln
         String erlaubteZeichen = kleinBuchstaben;
-        String finPasswort = "";
-
-
-        if (mitZahlen) {
-            erlaubteZeichen += (zahlen);
-        }
         if (mitGrossbuchstaben) {
-            erlaubteZeichen += (grossBuchstaben);
+            erlaubteZeichen += grossBuchstaben;
+        }
+        //erlaubteZeichen = mitZahlen ? erlaubteZeichen + zahlen : erlaubteZeichen;
+        if (mitZahlen) {
+            erlaubteZeichen += zahlen;
         }
         if (mitSonderzeichen) {
-            erlaubteZeichen += (sonderzeichen);
+            erlaubteZeichen += sonderzeichen;
         }
-
         // 2. Passwort erstellen
+        StringBuilder passwort = new StringBuilder();
         for (int i = 0; i < laengePasswort; ++i) {
             int index = (int) (Math.random() * erlaubteZeichen.length());
-
-            finPasswort += (erlaubteZeichen.charAt(index));
+            passwort.append(erlaubteZeichen.charAt(index));
         }
 
-
         // 3. Passwort zurück geben
-
-        return finPasswort;
+        return passwort.toString();
     }
-
-
-
-
 }
