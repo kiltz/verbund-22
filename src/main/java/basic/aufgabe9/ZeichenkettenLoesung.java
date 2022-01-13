@@ -1,6 +1,6 @@
-package basic.aufgabe8;
+package basic.aufgabe9;
 
-public class Zeichenketten {
+public class ZeichenkettenLoesung {
     static String kleinBuchstaben = "abcdefghijklmnopqrstuvwxyz";
     static String zahlen = "0123456789";
     static String grossBuchstaben = kleinBuchstaben.toUpperCase();
