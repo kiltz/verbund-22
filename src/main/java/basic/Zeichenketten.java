@@ -60,7 +60,7 @@ public class Zeichenketten {
         //String finpasswort = new finPasswort;
 
         // 1. erlaubte Zeichen zusammen basteln
-        String erlaubteZeichen = kleinBuchstaben + grossBuchstaben + sonderzeichen + zahlen;
+        String erlaubteZeichen = kleinBuchstaben;
         String finPasswort = new String();
 
 
