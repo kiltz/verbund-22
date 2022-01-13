@@ -7,7 +7,6 @@ public class Zeichenketten {
     static String sonderzeichen = "!§$%&/()=?*'@#";
 
     public static void main(String[] args) {
-        //                        01234567890123456789012345
 
         char einA = kleinBuchstaben.charAt(0);
         System.out.println(einA);
@@ -47,7 +46,17 @@ public class Zeichenketten {
     private static String generierePasswort(int laengePasswort, boolean mitGrossbuchstaben,
                                             boolean mitZahlen, boolean mitSonderzeichen) {
         // 1. erlaubte Zeichen zusammen basteln
-
+        String erlaubteZeichen = kleinBuchstaben;
+        if (mitGrossbuchstaben) {
+            erlaubteZeichen += grossBuchstaben;
+        }
+        //erlaubteZeichen = mitZahlen ? erlaubteZeichen + zahlen : erlaubteZeichen;
+        if (mitZahlen) {
+            erlaubteZeichen += zahlen;
+        }
+        if (mitSonderzeichen) {
+            erlaubteZeichen += sonderzeichen;
+        }
         // 2. Passwort erstellen
 
         // 3. Passwort zurück geben
