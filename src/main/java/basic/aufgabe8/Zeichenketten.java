@@ -1,4 +1,4 @@
-package basic;
+package basic.aufgabe8;
 
 public class Zeichenketten {
     static String kleinBuchstaben = "abcdefghijklmnopqrstuvwxyz";
@@ -46,10 +46,25 @@ public class Zeichenketten {
     private static String generierePasswort(int laengePasswort, boolean mitGrossbuchstaben,
                                             boolean mitZahlen, boolean mitSonderzeichen) {
         // 1. erlaubte Zeichen zusammen basteln
-
+        String erlaubteZeichen = kleinBuchstaben;
+        if (mitGrossbuchstaben) {
+            erlaubteZeichen += grossBuchstaben;
+        }
+        //erlaubteZeichen = mitZahlen ? erlaubteZeichen + zahlen : erlaubteZeichen;
+        if (mitZahlen) {
+            erlaubteZeichen += zahlen;
+        }
+        if (mitSonderzeichen) {
+            erlaubteZeichen += sonderzeichen;
+        }
         // 2. Passwort erstellen
+        StringBuilder passwort = new StringBuilder();
+        for (int i = 0; i < laengePasswort; ++i) {
+            int index = (int) (Math.random() * erlaubteZeichen.length());
+            passwort.append(erlaubteZeichen.charAt(index));
+        }
 
         // 3. Passwort zurück geben
-        return "";
+        return passwort.toString();
     }
 }
