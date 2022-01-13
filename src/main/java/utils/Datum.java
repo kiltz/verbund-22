@@ -9,6 +9,8 @@ public class Datum {
 
         System.out.println(dateToString(LocalDate.now()));
         System.out.println(string2Date("13.01.2022"));
+        LocalDate gestern = LocalDate.now().minusDays(1);
+        System.out.println(gestern);
     }
 
     private static LocalDate string2Date(String date) {
