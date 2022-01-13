@@ -1,7 +1,5 @@
 package features.inout.aufgabe;
 
-import utils.Datei;
-
 /**
  * Invariante: Ändere diese Klasse nicht!
  * 
@@ -29,11 +27,9 @@ public class DateiTester {
 		System.out.println("'" + inhalt + "'");
 		System.out.println("'" + zeile1 + zeile2 + "'");
 		if (!inhalt.equals(zeile1 + zeile2)) {
-			System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
+			System.err.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
 		}
 
-		// Zusatzaufgabe (für die die Klasse geändert werden darf):
-		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
 	}
 
