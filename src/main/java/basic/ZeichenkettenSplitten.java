@@ -11,22 +11,32 @@ public class ZeichenkettenSplitten {
 
         String[] teile = eineZeile.split(";");
         if (teile.length == 3) {
-            System.out.println("Betrag: " + teile[2]);
-            int zahl = Integer.parseInt(teile[2]);
-            System.out.println(zahl);
+            System.out.println("Betrag: " + teile[2] + "\n");
         }
+
         // 1. Splittet den text nach dem \n => zeilen
+        String[] zeilen = text.split("\n");
 
         // (definiere eine Summe)
+        int summe = 0;
 
         // 2. für jede Zeile
+        for (int i = 0; i < zeilen.length; ++i) {
 
-        // 3. Splitte nach dem ;
+            // 3. Splitte nach dem ;
+            teile = zeilen[i].split(";");
 
-        // 4. summiere die Beträge (Umwandeln String -> int, summe += betrag)
-
+            // 4. summiere die Beträge (Umwandeln String -> int, summe += betrag)
+            if (teile.length == 3) {
+                int zahl = Integer.parseInt(teile[2]);
+                summe += zahl;
+            }
+        }
 
         // 5. Summe ausgeben.
+
+        System.out.println("Summe: " + summe);
+
 
         // Zusatz: Statistik für gleiche Bezeichnungen (Map?)
     }
