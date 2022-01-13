@@ -26,7 +26,7 @@ public class Datei {
         }
     }
 
-    public String lese() {
+    public String lese() { // verwendung: String text = d.lese();
         StringBuffer inhalt = new StringBuffer();
         BufferedReader reader = null;
         File datei = null;
