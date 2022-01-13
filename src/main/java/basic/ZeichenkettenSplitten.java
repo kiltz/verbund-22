@@ -53,7 +53,7 @@ public class ZeichenkettenSplitten {
             int summe = 0;
             System.out.println("Kategorie: " + e.getKey());
             for (String[] str : e.getValue()) {
-                System.out.println(String.format("\t(%s) %s Euro", str[0], str[1]));
+                System.out.println(String.format("\t(%s) %s,00 Euro", str[0], str[1]));
                 summe += Integer.parseInt(str[1]);
             }
             alleAusgaben += summe;
@@ -61,6 +61,6 @@ public class ZeichenkettenSplitten {
             System.out.println(String.format("Summe von allen Ausgaben in Kategorie %s: %d", e.getKey(), summe));
             System.out.println("-----------------------------------------------------");
         }
-        System.out.println("Ausgaben: " + alleAusgaben);
+        System.out.println("Ausgaben: " + alleAusgaben + ",00 Euro");
     }
 }
