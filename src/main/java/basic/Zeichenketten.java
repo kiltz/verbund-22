@@ -61,7 +61,7 @@ public class Zeichenketten {
 
         // 1. erlaubte Zeichen zusammen basteln
         String erlaubteZeichen = kleinBuchstaben;
-        String finPasswort = new String();
+        String finPasswort = "";
 
 
         if (mitZahlen) {
