@@ -29,10 +29,13 @@ public class Datei {
         StringBuffer inhalt = new StringBuffer();
         // einlesen der Datei
         try (BufferedReader reader = new BufferedReader(new FileReader(datei))) {
-            String zeile = reader.readLine();
-            inhalt.append(zeile);
-            while ((zeile = reader.readLine()) != null) {
-                inhalt.append("\n" + zeile);
+            String zeile = "";
+            while ((zeile = reader.readLine()) != null) // bis alles drin ist
+            {
+                if (!inhalt.isEmpty()) {
+                    inhalt.append("\n");
+                }
+                inhalt.append(zeile);
             }
         }
         // Etwas schief gegangen?
