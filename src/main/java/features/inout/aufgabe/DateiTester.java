@@ -35,6 +35,16 @@ public class DateiTester {
 		// Zusatzaufgabe (für die die Klasse geändert werden darf):
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
+		Datei f = new Datei("dummy.txt");
+		for (int i = 0; i < 1073741824; i++) {
+			f.schreibe("a", true);
+		}
+
+		System.out.println(f.lese());
+
+
 	}
+
+
 
 }
