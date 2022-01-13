@@ -46,10 +46,19 @@ public class Zeichenketten {
     private static String generierePasswort(int laengePasswort, boolean mitGrossbuchstaben,
                                             boolean mitZahlen, boolean mitSonderzeichen) {
         // 1. erlaubte Zeichen zusammen basteln
+        if (mitGrossbuchstaben) {
+            //erlaubteZeichen += grossBuchstaben;
+        } else if (mitZahlen) {
+            //erlaubteZeichen += zahlen;
+        } else if (mitSonderzeichen) {
+            //erlaubteZeichen += sonderzeichen;
+        }
+
 
         // 2. Passwort erstellen
 
+
         // 3. Passwort zurück geben
-        return "";
+        return "ABC";
     }
 }
