@@ -1,4 +1,4 @@
-package features.inout.aufgabe;
+package utils;
 
 public class Datei {
     public Datei(String dateiName) {

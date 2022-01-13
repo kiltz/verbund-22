@@ -8,9 +8,14 @@ public class KaffeeAutomat {
         // Welche Münzen bekommen wir als Rückgeld?
 
         // 1. definiere den Preis und das gezahlte Geld am Anfang der Methode
-        int preis = 45;
-        int gegeben = 100;
+        int preis = 30;
+        int gegeben = 200;
 
+        ermittleWechselgeld(preis, gegeben);
+
+    }
+
+    private static void ermittleWechselgeld(int preis, int gegeben) {
         // 2. Ermittle mit Hilfe von Modulo die Anzahl der einzelnen
         // 		Münzen und arbeite mit dem Rest weiter.
         int rest = gegeben - preis;
@@ -26,23 +31,6 @@ public class KaffeeAutomat {
             System.out.println(anzahl + " " + bezeichnung[i] + "-Münzen (Rest: " + rest + ")");
 
         }
-        for (int muenze : muenzen) {
-            int anzahl = rest / muenze;
-            rest = rest % muenze;
-            String art = muenze == 100 ? "1-EUR" : muenze+"-Cent";
-            /* bedeutet:
-            if (muenze == 100) {
-                art = "1-EUR";
-            } else {
-                art = muenze+"-Cent";
-            }
-            */
-
-            System.out.println(anzahl + " " + art+"-Münzen (Rest: " + rest + ")");
-
-        }
-
-
     }
 
 }
