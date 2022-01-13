@@ -12,19 +12,19 @@ package basic.aufgabe2;
  *
  * Gebe die Statistik aus.
  *
-**/
+ **/
 
-public class WuerfelStatistik {
-	public static void main(String[] args) {
+public class WuerfelStatistikArray {
+    public static void main(String[] args) {
 
-		//double zufall = Math.random();
+        //double zufall = Math.random();
 
-		int zahleins = 0;
-		int zahlzwei = 0;
-		int zahldrei = 0;
-		int zahlvier = 0;
-		int zahlfuenf = 0;
-		int zahlsechs = 0;
+        int zahleins = 0;
+        int zahlzwei = 0;
+        int zahldrei = 0;
+        int zahlvier = 0;
+        int zahlfuenf = 0;
+        int zahlsechs = 0;
 
 		for (int i = 1; i <= 10000; i++) {
 			double zufall = Math.random();
