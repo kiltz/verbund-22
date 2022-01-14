@@ -36,7 +36,7 @@ public class Datei {
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                if (!inhalt.isEmpty()) {
+                if (inhalt.length() > 0) {//!inhalt.isEmpty()) {
                     inhalt.append("\n");
                 }
                 inhalt.append(zeile);
