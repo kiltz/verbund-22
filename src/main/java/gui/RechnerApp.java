@@ -27,18 +27,21 @@ public class RechnerApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         HBox root = new HBox();
-        TextField text1 = new TextField("");
+        TextField text1 = new TextField("5");
         root.getChildren().add(text1);
-        TextField text2 = new TextField("");
-        root.getChildren().add(text2);
-        Button button5 = new Button("5");
-        root.getChildren().add(button5);
+
         Label plus = new Label(" + ");
         root.getChildren().add(plus);
-        Button button2 = new Button("2");
-        root.getChildren().add(button2);
-        Label l = new Label(" = 7");
+
+        TextField text2 = new TextField("2");
+        root.getChildren().add(text2);
+
+        Button equals = new Button("=");
+        root.getChildren().add(equals);
+
+        Label l = new Label(" 7 ");
         root.getChildren().add(l);
+
         Scene scene = new Scene(root, 500, 200);
         primaryStage.setScene(scene);
         primaryStage.show();
