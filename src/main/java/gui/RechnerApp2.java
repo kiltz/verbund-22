@@ -36,6 +36,16 @@ public class RechnerApp2 extends Application {
         Scene scene = new Scene(root, 400, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
+        button2.setOnAction(h -> {
+
+            Integer num1 = Integer.parseInt(t.getText());
+            Integer num2 = Integer.parseInt(r.getText());
+            Integer res;
+            res = num1 + num2;
+            e.setText(String.format("%d", res));
+        });
     }
 
 
