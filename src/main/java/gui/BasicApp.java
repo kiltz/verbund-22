@@ -2,7 +2,9 @@ package gui;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -19,18 +21,32 @@ Keine Funktionalität!
 public class BasicApp extends Application {
 
 
+
     public static void main(String[] args) {
         launch();
     }
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Label l = new Label("Hallo JavaFX!");
+        TextField t = new TextField("5");
+        TextField r = new TextField("2");
+        Button button2 = new Button("=");
+        Label l = new Label(" + ");
+        Label e = new Label("  7 ");
+
+
         HBox root = new HBox();
+        root.getChildren().add(t);
         root.getChildren().add(l);
-        Scene scene = new Scene(root, 300, 400);
+        root.getChildren().add(r);
+        root.getChildren().add(button2);
+        root.getChildren().add(e);
+
+        Scene scene = new Scene(root, 400, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
 
 }

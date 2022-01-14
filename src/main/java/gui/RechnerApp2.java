@@ -24,7 +24,7 @@ public class RechnerApp2 extends Application {
         Button button2 = new Button("=");
         Label l = new Label(" + ");
         Label e = new Label("  7 ");
-
+        //YourButton d = new YourButton();
 
         HBox root = new HBox();
         root.getChildren().add(t);
@@ -38,6 +38,7 @@ public class RechnerApp2 extends Application {
         primaryStage.show();
 
 
+        button2.setDefaultButton(true);
         button2.setOnAction(h -> {
 
             Integer num1 = Integer.parseInt(t.getText());
@@ -46,6 +47,8 @@ public class RechnerApp2 extends Application {
             res = num1 + num2;
             e.setText(String.format("%d", res));
         });
+
+
     }
 
 
