@@ -12,6 +12,7 @@ public class Bank {
         Konto k = new Konto();
         k.setDispo(1000);
         k.einzahlen(500);
+
         if (k.getKontoStand() != 500) {
             System.out.println("Fehler 1");
         }
