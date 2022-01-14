@@ -37,7 +37,7 @@ public class RechnerApp extends Application {
         root.getChildren().add(plus);
         Button button2 = new Button("2");
         root.getChildren().add(button2);
-        Label l = new Label("= 7");
+        Label l = new Label(" = 7");
         root.getChildren().add(l);
         Scene scene = new Scene(root, 500, 200);
         primaryStage.setScene(scene);
