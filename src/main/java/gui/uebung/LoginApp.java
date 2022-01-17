@@ -46,6 +46,7 @@ public class LoginApp extends Application {
         root.setPadding(new Insets(20));
         root.setSpacing(15);
         primaryStage.setTitle("Login");
+        // tz: ausgelagert in extra Methoden: gut!
         root.getChildren().addAll(getUsernameAndPassword(), loginButton(), pruefeEingabe());
         Scene scene = new Scene(root, 300, 100);
         primaryStage.setScene(scene);
@@ -53,10 +54,12 @@ public class LoginApp extends Application {
 
     }
 
+    // tz: trenne erstmaliger Aufbau und spätere Validierung
     private Node pruefeEingabe() {
         VBox vBox = new VBox();
 //        if (loginButton().isPressed()) { // Funktioniert vielleicht nicht?
         if (tfUserName.getText().trim().isEmpty()) {
+            // erstelle den Label gleich (leer) und fülle ihn bei Bedarf
             Label unErr = new Label();
             vBox.getChildren().add(unErr);
         } else {
