@@ -42,7 +42,9 @@ public class LoginApp extends Application {
     }
 
     @Override
+    // tz: Methode in mehrere Methoden aufteilen
     public void start(Stage primaryStage) throws Exception {
+        // tz: lokale Variable, wenn immer möglich!
         lBN = new Label("Benutzername:");
         lPW = new Label("Passwort:");
         benutzername = new TextField();
@@ -76,8 +78,10 @@ public class LoginApp extends Application {
     private void setLogin(ActionEvent e, Stage primaryStage) {
         if (benutzername.getText().equals("benutzername") && passwort.getText().equals("passwort")) {
             System.out.println("yes");
+            // tz: Applicationen schließt man sauber mit Platform.exit()
             primaryStage.close();
-            Kontaktliste kontakt = new Kontaktliste();
+            // tz: Kontaktliste ist nicht in GIT
+//            Kontaktliste kontakt = new Kontaktliste();
         } else if (benutzername.getText().isEmpty()) {
             benutzername.requestFocus();
             benutzername.setPromptText("Bitte Benutzernamen eingeben...");
@@ -86,6 +90,8 @@ public class LoginApp extends Application {
             passwort.setPromptText("Bitte Passwort eingeben...");
         } else {
             passwort.requestFocus();
+            // tz: das funktioniert nicht schön. Der Fehler sollte ordentlich ausgegeben werden.
+            // Status-Feld (extra-label)?
             passwort.setPromptText("Falsches Passwort...");
         }
     }

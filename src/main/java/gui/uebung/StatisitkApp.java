@@ -33,12 +33,14 @@ public class StatisitkApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // tz: kann gerne auf Methoden aufgeteilt werden.
         zahlEingabe = new TextField();
         min = new Label();
         max = new Label();
         summe = new Label();
         durchschnitt = new Label();
         anz = new Label();
+        // tz: wäre schön, wenn der Button Default wäre
         Button hinzufuegenButton = new Button("Zahl hinzufügen");
         hinzufuegenButton.setOnAction(e -> zahlHinzufuegen(e));
         Button eingebenButton = new Button("Statistik ausgeben");
@@ -69,11 +71,14 @@ public class StatisitkApp extends Application {
     }
 
     private void zahlHinzufuegen(ActionEvent e) {
+        // tz: hier ist für den Benutzer nicht wirkjlich ersichtlich,
+        // dass die Zahl hinzugefügt wurde...
         try {
             alleZahlen.add(Integer.parseInt(zahlEingabe.getText()));
             zahlEingabe.requestFocus();
         } catch (NumberFormatException ex) {
             zahlEingabe.requestFocus();
+            // tz: Der Text wird nicht angezeigt, wenn das Feld nicht leer ist.
             zahlEingabe.setPromptText("Bitte gültige Zahl eingeben");
         }
     }
@@ -102,6 +107,7 @@ public class StatisitkApp extends Application {
             durchschnitt.setText("Durchschnitt: " + durchschnittZahl);
         } catch (IndexOutOfBoundsException ex) {
             zahlEingabe.requestFocus();
+            // tz: s.o. schöner wäre es, wenn die Ex nicht gebraucht werden würde.
             zahlEingabe.setPromptText("Bitte eingeben");
         }
     }
