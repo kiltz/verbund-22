@@ -29,9 +29,14 @@ public class Konto {
         return kontostand;
     }
 
+    // 2. gebe die Exception weiter
     public void auszahlen(int betrag) {
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
+        } else {
+            // mecker!
+            // 1. Wirf eine "KeineKontoDeckungException"
+            // analog zu den "RadiusZuKleinException"
         }
     }
 }
