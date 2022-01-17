@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -33,7 +34,7 @@ public class LoginApp extends Application {
     Label lBN;
     Label lPW;
     TextField benutzername;
-    TextField passwort;
+    PasswordField passwort;
     Button login;
 
     public static void main(String[] args) {
@@ -45,7 +46,7 @@ public class LoginApp extends Application {
         lBN = new Label("Benutzername:");
         lPW = new Label("Passwort:");
         benutzername = new TextField();
-        passwort = new TextField();
+        passwort = new PasswordField();
         login = new Button("Login");
         login.setOnAction(e -> setLogin(e));
 
