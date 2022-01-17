@@ -52,7 +52,6 @@ public class LoginApp extends Application {
                 new Button("LOGIN"));
         root.getChildren().addAll(vBox);
 
-
     }
 
 

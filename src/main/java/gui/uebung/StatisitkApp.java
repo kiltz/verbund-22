@@ -16,9 +16,13 @@ import javafx.stage.Stage;
  * Aufgabe:
  * Zahleneingabe
  * Min, Max, Summe, Durchschnitt, anzahl Zahlen ausgeben
- *
  */
 public class StatisitkApp extends Application {
+
+    private Label summe;
+    private Label min;
+    private Label max;
+    private Label durchschnitt;
 
     public static void main(String[] args) {
         launch(null);
@@ -37,10 +41,10 @@ public class StatisitkApp extends Application {
         ScrollPane scrolli = new ScrollPane();
         scrolli.setContent(root);
 
-
         Scene scene = new Scene(scrolli, 700, 200);
         root.setSpacing(10);
         primaryStage.setScene(scene);
+        primaryStage.setTitle("Mo's Statistik");
         primaryStage.show();
     }
 
@@ -49,26 +53,11 @@ public class StatisitkApp extends Application {
         Button button = new Button("Ergebnis");
         button.setOnAction(event -> button.setText("Done"));
 
-        // Nach erneuter eingabe soll wieder zurückspringen auf Eingabe
-        // button.setOnAction(event -> button.setText("Ergebnis"));
 
         box.getChildren().add(button);
         return box;
     }
 
-    private Node getLabels() {
-        // Wie stelle ich sie untereinander
-        VBox box = new VBox();
-        Label summe = new Label("Summe: ");
-        Label min = new Label("Min: ");
-        Label max = new Label("Max: ");
-        Label durchschnitt = new Label("Durchschnitt: ");
-
-
-        box.getChildren().addAll(summe, min, max, durchschnitt);
-        return box;
-
-    }
 
     private Node getTextFelder() {
 
@@ -80,26 +69,62 @@ public class StatisitkApp extends Application {
         tf.setOnAction(e ->
                 System.out.println("Eingabe: " + tf.getText())
         );
-        TextField tfNurZahlen = new TextField() {
-            @Override
-            public void replaceText(int start, int end, String text) {
-                if (text.isEmpty() || text.matches("[0-9]")) {
-                    super.replaceText(start, end, text);
-                }
-            }
-
-            @Override
-            public void replaceSelection(String text) {
-                if (text.matches("[0-9]")) {
-                    super.replaceSelection(text);
-                }
-            }
-        };
 
 
         box.getChildren().addAll(tf);
         return box;
     }
 
+
+    private Node getLabels() {
+        VBox box = new VBox();
+        summe = new Label("Summe: 0");
+        min = new Label("Min: 0");
+        max = new Label("Max: 0");
+        durchschnitt = new Label("Durschnitt: 0");
+
+        // Integer.parseInt();
+
+        /*
+        int i;
+
+        int arr;
+        for(i=0 ; i<arr.length ; i++)  // Array ausgeben
+            System.out.println(arr[i]);
+
+        // Maximum bestimmen
+        max = arr[0];
+        for( i=0 ; i<arr.length ; i++)
+            if (max<arr[i])
+                max = arr[i] ;
+
+        System.out.println("max = " + max);
+
+        // Minimum bestimmen
+        min = arr[0];
+        for( i=0 ; i<arr.length ; i++)
+            if (min>arr[i])
+                min = arr[i] ;
+
+        System.out.println("min = " + min);
+
+        // Mittelwert bestimmen
+        double mittel = 0 ;
+        // Summe bilden
+        for( i=0 ; i<arr.length ; i++)
+            mittel += arr[i] ;
+
+        mittel /= arr.length ;
+        System.out.println("Mittelwert = " + durchschnitt);
+
+
+
+
+         */
+
+
+        box.getChildren().addAll(summe, min, max, durchschnitt);
+        return box;
+    }  // end main
 
 }
