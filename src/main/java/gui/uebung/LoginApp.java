@@ -62,6 +62,8 @@ public class LoginApp extends Application {
                 Label l_fehlerpass2 = new Label("Ihr Passwort muss mindestens 8 Zeichen lang sein.");
                 eingabe.getChildren().add(l_fehlerpass2);
             } else {
+                Label l_erfolgreich = new Label("Login erfolgreich");
+                eingabe.getChildren().add(l_erfolgreich);
                 b_login.setDefaultButton(true);
                 b_login.setOnAction(exit -> Platform.exit());
             }
