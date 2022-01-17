@@ -23,9 +23,7 @@ public class Zahlen {
 
     public static double stringToDouble(String zahlAlsString) throws ParseException {
         NumberFormat nf = NumberFormat.getInstance();
-
         double zahl = nf.parse(zahlAlsString).doubleValue();
-
         return zahl;
     }
 }

@@ -1,7 +1,7 @@
 package oop;
 
 public class KreisNutzer {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws RadiusZuKleinException {
 
         // Erzeugen einer Instanz der Klasse Kreis
         Kreis k1 = new Kreis();
