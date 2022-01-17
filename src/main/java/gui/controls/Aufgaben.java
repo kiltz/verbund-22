@@ -28,6 +28,7 @@ public class Aufgaben extends Application {
 
         Button bAufgabe3 = new Button("Aufgabe 3");
         bAufgabe3.setFont(myFont);
+        bAufgabe3.setOnAction(event -> Aufgabe3.show(primaryStage));
 
         VBox vbStart = new VBox(bAufgabe1, bAufgabe2, bAufgabe3);
         vbStart.setPadding(new Insets(10, 10, 10, 10));
