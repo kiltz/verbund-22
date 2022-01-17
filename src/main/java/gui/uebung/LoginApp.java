@@ -67,7 +67,7 @@ public class LoginApp extends Application {
 
     private Node loginButton() {
         HBox box = new HBox();
-        box.setSpacing(15);
+        box.setSpacing(10);
         Button bLogin = new Button("Login");
         box.getChildren().addAll(bLogin);
         bLogin.setDefaultButton(true);
@@ -87,6 +87,7 @@ public class LoginApp extends Application {
         HBox box = new HBox();
         Label lLoggedIn = new Label("Logged in");
         // wenn Validation ok --> "Logged in"
+        box.getChildren().addAll(lLoggedIn);
         return box;
     }
 }
