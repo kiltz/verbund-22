@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,13 +28,17 @@ public class RechnerApp2 extends Application {
         //YourButton d = new YourButton();
 
         HBox root = new HBox();
+        root.setSpacing(10);
+        Insets insets = new Insets(20, 10, 20, 10);
+        root.setPadding(insets);
         root.getChildren().add(t);
         root.getChildren().add(l);
         root.getChildren().add(r);
         root.getChildren().add(button2);
         root.getChildren().add(e);
 
-        Scene scene = new Scene(root, 400, 500);
+        Scene scene = new Scene(root, 440, 250);
+        primaryStage.setTitle("Mo's Rechner");
         primaryStage.setScene(scene);
         primaryStage.show();
 
