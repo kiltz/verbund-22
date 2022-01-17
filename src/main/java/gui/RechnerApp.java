@@ -40,13 +40,19 @@ public class RechnerApp extends Application {
         primaryStage.show();
     }
 
-    private void berechne(ActionEvent e) {
+    private void berechne(ActionEvent b) {
         String s_text1 = tf_eingabe1.getText();
-
+        String s_text2 = tf_eingabe2.getText();
         try {
             double d_zahl1 = Zahlen.stringToDouble(s_text1);
+            double d_zahl2 = Zahlen.stringToDouble(s_text2);
+
+            double d_ergebnis = d_zahl1 + d_zahl2;
+
+            l_ergebnis.setText(Zahlen.doubleToString(d_ergebnis));
+
         } catch (ParseException ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
     }
 }
