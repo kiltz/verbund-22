@@ -36,11 +36,11 @@ public class RechnerApp extends Application {
         TextField text2 = new TextField("2");
         root.getChildren().add(text2);
 
-        Button equals = new Button("=");
-        root.getChildren().add(equals);
+        Button lEquals = new Button("=");
+        root.getChildren().add(lEquals);
 
-        Label l = new Label(" 7 ");
-        root.getChildren().add(l);
+        Label lErgebnis = new Label(" 7 ");
+        root.getChildren().add(lErgebnis);
 
         Scene scene = new Scene(root, 500, 200);
         primaryStage.setScene(scene);
