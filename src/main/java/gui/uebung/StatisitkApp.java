@@ -58,14 +58,14 @@ public class StatisitkApp extends Application {
 
     private Node getLabels() {
         // Wie stelle ich sie untereinander
-        HBox box = new HBox();
-        Label summe = new Label();
-        Label min = new Label();
-        Label max = new Label();
-        Label durschnitt = new Label();
+        VBox box = new VBox();
+        Label summe = new Label("Summe: ");
+        Label min = new Label("Min: ");
+        Label max = new Label("Max: ");
+        Label durchschnitt = new Label("Durchschnitt: ");
 
 
-        box.getChildren().addAll(summe, min, max, durschnitt);
+        box.getChildren().addAll(summe, min, max, durchschnitt);
         return box;
 
     }
