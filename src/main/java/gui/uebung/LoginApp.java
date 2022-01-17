@@ -48,7 +48,7 @@ public class LoginApp extends Application {
         benutzername = new TextField();
         passwort = new PasswordField();
         login = new Button("Login");
-        login.setOnAction(e -> setLogin(e));
+        login.setOnAction(e -> setLogin(e, primaryStage));
 
         VBox root = new VBox();
         HBox inputBox = new HBox();
@@ -67,19 +67,26 @@ public class LoginApp extends Application {
         root.getChildren().add(inputBox);
         root.getChildren().add(login);
         Scene scene = new Scene(root, 300, 100);
+        primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
-    private void setLogin(ActionEvent e) {
-        if (benutzername.getText().matches("benutzername") && passwort.getText().matches("passwort")) {
-            System.out.println("Anmeldung erfolgt...");
+    private void setLogin(ActionEvent e, Stage primaryStage) {
+        if (benutzername.getText().equals("benutzername") && passwort.getText().equals("passwort")) {
+            System.out.println("yes");
+            primaryStage.close();
+            Kontaktliste kontakt = new Kontaktliste();
         } else if (benutzername.getText().isEmpty()) {
             benutzername.requestFocus();
             benutzername.setPromptText("Bitte Benutzernamen eingeben...");
         } else if (passwort.getText().isEmpty()) {
             passwort.requestFocus();
             passwort.setPromptText("Bitte Passwort eingeben...");
+        } else {
+            passwort.requestFocus();
+            passwort.setPromptText("Falsches Passwort...");
         }
     }
 

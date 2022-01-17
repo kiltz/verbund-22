@@ -65,6 +65,7 @@ public class StatisitkApp extends Application {
         durchschnitt.setText("");
         anz.setText("");
         zahlEingabe.requestFocus();
+        zahlEingabe.setPromptText("Bitte eingeben");
     }
 
     private void zahlHinzufuegen(ActionEvent e) {
@@ -72,30 +73,36 @@ public class StatisitkApp extends Application {
             alleZahlen.add(Integer.parseInt(zahlEingabe.getText()));
             zahlEingabe.requestFocus();
         } catch (NumberFormatException ex) {
-            System.out.println(ex.getMessage());
+            zahlEingabe.requestFocus();
+            zahlEingabe.setPromptText("Bitte gültige Zahl eingeben");
         }
     }
 
     private void statistikAusgeben(ActionEvent e) {
-        int maxZahl = alleZahlen.get(0);
-        int minZahl = alleZahlen.get(0);
-        int summeZahl = 0;
-        int anzZahlen = 0;
-        double durchschnittZahl = 0;
-        for (int zahl : alleZahlen) {
-            if (maxZahl < zahl) {
-                maxZahl = zahl;
-            } else if (minZahl > zahl) {
-                minZahl = zahl;
+        try {
+            int maxZahl = alleZahlen.get(0);
+            int minZahl = alleZahlen.get(0);
+            int summeZahl = 0;
+            int anzZahlen = 0;
+            double durchschnittZahl = 0;
+            for (int zahl : alleZahlen) {
+                if (maxZahl < zahl) {
+                    maxZahl = zahl;
+                } else if (minZahl > zahl) {
+                    minZahl = zahl;
+                }
+                summeZahl += zahl;
             }
-            summeZahl += zahl;
+            anzZahlen = alleZahlen.size();
+            durchschnittZahl = summeZahl / anzZahlen;
+            max.setText("Max: " + maxZahl);
+            min.setText("Min: " + minZahl);
+            summe.setText("Summe: " + summeZahl);
+            anz.setText("Anzahl: " + anzZahlen);
+            durchschnitt.setText("Durchschnitt: " + durchschnittZahl);
+        } catch (IndexOutOfBoundsException ex) {
+            zahlEingabe.requestFocus();
+            zahlEingabe.setPromptText("Bitte eingeben");
         }
-        anzZahlen = alleZahlen.size();
-        durchschnittZahl = summeZahl / anzZahlen;
-        max.setText("Max: " + maxZahl);
-        min.setText("Min: " + minZahl);
-        summe.setText("Summe: " + summeZahl);
-        anz.setText("Anzahl: " + anzZahlen);
-        durchschnitt.setText("Durchschnitt: " + durchschnittZahl);
     }
 }
