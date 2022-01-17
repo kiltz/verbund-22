@@ -36,8 +36,6 @@ public class LoginApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         TextField tf_eingabe1 = new TextField("Benutzername");
         TextField tf_eingabe2 = new TextField("Passwort");
-        Integer i_laenge1 = 0;
-        Integer i_laenge2 = 0;
         Label l_beschreibung1 = new Label("Bitte geben Sie Ihren Benutzernamen ein:");
         Label l_beschreibung2 = new Label("Bitte geben Sie Ihr Passwort ein:");
         Button b_login = new Button("Login");
@@ -45,9 +43,9 @@ public class LoginApp extends Application {
         eingabe.setSpacing(15);
         primaryStage.setTitle("Login");
         eingabe.getChildren().addAll(l_beschreibung1, tf_eingabe1, l_beschreibung2, tf_eingabe2, b_login);
-        if (b_login.isPressed() == true) {
-            i_laenge1 = tf_eingabe1.getLength();
-            i_laenge2 = tf_eingabe2.getLength();
+        b_login.setOnAction(event -> {
+            Integer i_laenge1 = tf_eingabe1.getLength();
+            Integer i_laenge2 = tf_eingabe2.getLength();
             if (i_laenge1 == 0) {
                 Label l_fehlerbenutzer1 = new Label("Ihr Benutzername darf nicht leer sein.\nBitte geben Sie Ihren Benutzernamen ein.");
                 eingabe.getChildren().add(l_fehlerbenutzer1);
@@ -67,7 +65,7 @@ public class LoginApp extends Application {
                 b_login.setDefaultButton(true);
                 b_login.setOnAction(exit -> Platform.exit());
             }
-        }
+        });
 
         Scene scene = new Scene(eingabe, 300, 400);
         primaryStage.setScene(scene);
