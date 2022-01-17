@@ -36,19 +36,6 @@ public class LoginApp extends Application {
         launch(args);
     }
 
-    /*private Node getButtons() {
-        HBox box = new HBox();
-        box.setSpacing(15);
-        Button b1 = new Button("Login!");
-
-        b1.setOnAction(e -> b1.setText("Geklickt!"));
-
-        box.getChildren().addAll(b1);
-        return box;
-    }
-
-     */
-
     @Override
     public void init() {
         Button button = new Button("OPEN");
@@ -56,6 +43,7 @@ public class LoginApp extends Application {
 
         vBox.setSpacing(8);
         vBox.setPadding(new Insets(10, 10, 10, 10));
+
         vBox.getChildren().addAll(
                 new Label("Your Username"),
                 new TextField(),
@@ -64,7 +52,9 @@ public class LoginApp extends Application {
                 new Button("LOGIN"));
         root.getChildren().addAll(vBox);
 
+
     }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -72,10 +62,8 @@ public class LoginApp extends Application {
         Scene scene = new Scene(root, 400, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.setTitle("Login Example JavaFX");
         primaryStage.setAlwaysOnTop(true);
         primaryStage.setTitle("UniversalMode");
-
 
     }
 }
