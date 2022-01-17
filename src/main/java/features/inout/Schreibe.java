@@ -14,14 +14,14 @@ public class Schreibe {
 		String dateiName = "test.txt";
 		String txt = "Ein kleiner I/O-Test.";
 		datei = new File(dateiName);
-		try (FileWriter outStream = new FileWriter(datei)) {
+		try (FileWriter outStream = new FileWriter(datei, false)) {
 
-			outStream.write(txt);
+            outStream.write(txt);
 
-		} catch (IOException e) {
-			// Fehlerbehandlung
-			e.printStackTrace();
-		}
+        } catch (IOException e) {
+            // Fehlerbehandlung
+            e.printStackTrace();
+        }
 
 	}
 }
