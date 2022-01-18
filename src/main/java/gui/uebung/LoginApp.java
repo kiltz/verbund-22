@@ -34,6 +34,7 @@ public class LoginApp extends Application {
 
     private TextField tfUserName;
     private TextField tfPassword;
+    private Label eingabeErr = new Label("");
 
 
     public static void main(String[] args) {
@@ -47,34 +48,11 @@ public class LoginApp extends Application {
         root.setSpacing(15);
         primaryStage.setTitle("Login");
         // tz: ausgelagert in extra Methoden: gut!
-        root.getChildren().addAll(getUsernameAndPassword(), loginButton(), pruefeEingabe());
+        root.getChildren().addAll(getUsernameAndPassword(), loginButton(), buttonClicked());
         Scene scene = new Scene(root, 300, 100);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-    }
-
-    // tz: trenne erstmaliger Aufbau und spätere Validierung
-    private Node pruefeEingabe() {
-        VBox vBox = new VBox();
-//        if (loginButton().isPressed()) { // Funktioniert vielleicht nicht?
-        if (tfUserName.getText().trim().isEmpty()) {
-            // erstelle den Label gleich (leer) und fülle ihn bei Bedarf
-            Label unErr = new Label();
-            vBox.getChildren().add(unErr);
-        } else {
-            vBox = new VBox();
-        }
-        if (tfPassword.getText().trim().isEmpty()) {
-            Label pwErr = new Label();
-            vBox.getChildren().add(pwErr);
-
-        } else {
-            vBox = new VBox();
-        }
-        tfUserName.setPromptText("Enter Username");
-        tfPassword.setPromptText("Enter Password");
-        return vBox;
     }
 
     private Node loginButton() {
@@ -83,11 +61,40 @@ public class LoginApp extends Application {
         Button bLogin = new Button("Login");
         box.getChildren().addAll(bLogin);
         bLogin.setDefaultButton(true);
-        bLogin.setStyle("-fx-background-color: #dfdfdf; ");
-        bLogin.setOnAction(event -> pruefeEingabe());
+        tfUserName.setPromptText("Enter Username");
+        tfPassword.setPromptText("Enter Password");
+//        bLogin.setStyle("-fx-background-color: #dfdfdf; ");
+        box.getChildren().add(eingabeErr);
+        bLogin.setOnAction(event -> buttonClicked());
         return box;
 
     }
+
+    private Node buttonClicked() {
+        VBox vBox = new VBox();
+        eingabeErr.setText("");
+        pruefeEingabe();
+        return vBox;
+    }
+
+    private void pruefeEingabe() {
+        eingabeErr.setStyle("-fx-text-fill: red;");
+        if (tfUserName.getText().trim().isEmpty()) {
+            eingabeErr.setText("Username can't be empty");
+        } else if (tfPassword.getText().trim().isEmpty()) {
+            eingabeErr.setText("Password can't be empty");
+        } else if (tfPassword.getText().trim().length() < 4) {
+            eingabeErr.setText("Password must be longer");
+        } else {
+            eingabeErr.getStyleClass().clear();
+            eingabeErr.setStyle(null);
+            eingabeErr.setText("Logged in as: " + tfUserName.getText());
+            tfUserName.clear();
+            tfPassword.clear();
+//            System.exit(0); // braucht timer
+        }
+    }
+
 
     private Node getUsernameAndPassword() {
         HBox hBox = new HBox();
