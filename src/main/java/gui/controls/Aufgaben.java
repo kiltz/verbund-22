@@ -38,6 +38,7 @@ public class Aufgaben extends Application {
         Scene sStart = new Scene(vbStart, 200, 250);
         primaryStage.setTitle("Aufgaben");
         primaryStage.setScene(sStart);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
