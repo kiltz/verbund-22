@@ -1,6 +1,7 @@
 package gui.uebung;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -19,10 +20,13 @@ import javafx.stage.Stage;
  */
 public class StatisitkApp extends Application {
 
-    private Label summe;
-    private Label min;
-    private Label max;
-    private Label durchschnitt;
+    private Label lSumme;
+    private Label lMin;
+    private Label lMax;
+    private Label lDurchschnitt;
+    private TextField tfEingabe;
+    private Label lAnzahl;
+
 
     public static void main(String[] args) {
         launch(null);
@@ -34,7 +38,7 @@ public class StatisitkApp extends Application {
         root.setPadding(new Insets(10, 20, 20, 20));
         root.setSpacing(15);
 
-        root.getChildren().add(getTextFelder());
+        //root.getChildren().add(getTextFelder());
         root.getChildren().add(getButtons());
         root.getChildren().add(getLabels());
 
@@ -51,15 +55,60 @@ public class StatisitkApp extends Application {
     private Node getButtons() {
         HBox box = new HBox();
         Button button = new Button("Ergebnis");
-        button.setOnAction(event -> button.setText("Done"));
+        tfEingabe = new TextField();
 
 
+        button.setOnAction(e -> rechne(e));
+
+        box.getChildren().add(tfEingabe);
         box.getChildren().add(button);
+        button.setDefaultButton(true);
+        //button.setOnAction(e -> button.setText("Done"));
         return box;
     }
 
+    private void rechne(ActionEvent e) {
+        // 1. Textfeld auslesen
+        String eingabe = tfEingabe.getText();
+        if (eingabe.isEmpty()) {
+            tfEingabe.setPromptText("Bitte Zahlen Eingeben!");
+        } else {
+            berechneEingabe(eingabe);
+        }
+        //button.setText("Done");
+    }
 
-    private Node getTextFelder() {
+    private void berechneEingabe(String eingabe) {
+        // 2. Zahlen ermittlen (splitten und Umwandeln)
+        String[] teile = eingabe.split(" ");
+        int[] zahlen = new int[teile.length];
+        for (int i = 0; i < teile.length; ++i) {
+            zahlen[i] = Integer.parseInt(teile[i]);
+        }
+        // 3. Werte berechnen
+        int max = 0;
+        int min = zahlen[0];
+        int summe = 0;
+        for (int zahl : zahlen) {
+            summe += zahl;
+            if (zahl > max) {
+                max = zahl;
+            }
+            if (zahl < min) {
+                min = zahl;
+            }
+        }
+        // 4. Werte ausgeben
+        lSumme.setText("Summe: " + summe);
+        lMax.setText("Maximum: " + max);
+        lMin.setText("Minimum: " + min);
+        lDurchschnitt.setText("Durchschnitt: " + (summe * 1.0 / zahlen.length));
+        lAnzahl.setText("Anzahl: " + zahlen.length);
+
+    }
+
+
+   /* private Node getTextFelder() {
 
         // rechnungen fehlen
         HBox box = new HBox();
@@ -75,55 +124,20 @@ public class StatisitkApp extends Application {
         return box;
     }
 
+    */
+
 
     private Node getLabels() {
         VBox box = new VBox();
-        summe = new Label("Summe: 0");
-        min = new Label("Min: 0");
-        max = new Label("Max: 0");
-        durchschnitt = new Label("Durschnitt: 0");
+        lSumme = new Label("Summe: ", lSumme);
+        lMax = new Label("Maximum: ", lMax);
+        lMin = new Label("Minimum: ", lMin);
+        lDurchschnitt = new Label("Durchschnitt: ", lDurchschnitt);
+        lAnzahl = new Label("Anzahl: ", lAnzahl);
 
         // Integer.parseInt();
 
-        /*
-        int i;
-
-        int arr;
-        for(i=0 ; i<arr.length ; i++)  // Array ausgeben
-            System.out.println(arr[i]);
-
-        // Maximum bestimmen
-        max = arr[0];
-        for( i=0 ; i<arr.length ; i++)
-            if (max<arr[i])
-                max = arr[i] ;
-
-        System.out.println("max = " + max);
-
-        // Minimum bestimmen
-        min = arr[0];
-        for( i=0 ; i<arr.length ; i++)
-            if (min>arr[i])
-                min = arr[i] ;
-
-        System.out.println("min = " + min);
-
-        // Mittelwert bestimmen
-        double mittel = 0 ;
-        // Summe bilden
-        for( i=0 ; i<arr.length ; i++)
-            mittel += arr[i] ;
-
-        mittel /= arr.length ;
-        System.out.println("Mittelwert = " + durchschnitt);
-
-
-
-
-         */
-
-
-        box.getChildren().addAll(summe, min, max, durchschnitt);
+        box.getChildren().addAll(lSumme, lMin, lMax, lDurchschnitt, lAnzahl);
         return box;
     }  // end main
 
