@@ -1,13 +1,17 @@
 package oop.aufgabe4.muloe;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class BuchungTab extends BasisTab {
     private final Konto konto;
     //private TextField tfEingabe;
+    private TextField tfEingabe;
+    private Label anzeige;
 
     public BuchungTab(Konto konto) {
         this.konto = konto;
@@ -16,13 +20,13 @@ public class BuchungTab extends BasisTab {
     @Override
     public Tab getTab() {
         VBox box = new VBox();
-        Label anzeige = new Label("Dialog für Buchungen");
+        anzeige = new Label("Dialog für Buchungen");
         Button bEinzahlen = new Button("Einzahlen");
         Button bAbheben = new Button("Abheben");
-        bEinzahlen.setOnAction(e -> {
-            konto.einzahlen(100);
-            anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
-        });
+        bEinzahlen.setDefaultButton(true);
+        tfEingabe = new TextField();
+
+        bEinzahlen.setOnAction(e -> rechne(e));
         bAbheben.setOnAction(e -> {
             try {
                 konto.auszahlen(50);
@@ -33,10 +37,27 @@ public class BuchungTab extends BasisTab {
         });
         box.setSpacing(10);
         //box.getChildren().add(tfEingabe);
+        box.getChildren().add(tfEingabe);
         box.getChildren().add(anzeige);
         box.getChildren().add(bEinzahlen);
         box.getChildren().add(bAbheben);
         Tab tab = new Tab("Buchungen", box);
         return tab;
+    }
+
+    private void rechne(ActionEvent e) {
+        String eingabe = tfEingabe.getText();
+        if (eingabe.isEmpty()) {
+            tfEingabe.setPromptText("Bitte Zahlen Eingeben!");
+        } else {
+            berechneEingabe(eingabe);
+
+        }
+    }
+
+    private void berechneEingabe(String eingabe) {
+        konto.einzahlen(Double.parseDouble(eingabe));
+        anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
+
     }
 }
