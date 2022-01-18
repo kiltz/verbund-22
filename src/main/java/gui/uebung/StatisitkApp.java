@@ -55,8 +55,9 @@ public class StatisitkApp extends Application {
 
     private Node getButtons() {
         HBox box = new HBox();
-        Button button = new Button("Ergebnis");
+        button = new Button("Ergebnis");
         tfEingabe = new TextField();
+        //tfEingabe.
 
 
         button.setOnAction(e -> rechne(e));
@@ -64,7 +65,7 @@ public class StatisitkApp extends Application {
         box.getChildren().add(tfEingabe);
         box.getChildren().add(button);
         button.setDefaultButton(true);
-        //button.setOnAction(e -> button.setText("Done"));
+
         return box;
     }
 
@@ -75,8 +76,9 @@ public class StatisitkApp extends Application {
             tfEingabe.setPromptText("Bitte Zahlen Eingeben!");
         } else {
             berechneEingabe(eingabe);
+            button.setText("Done");
         }
-        //button.setText("Done");
+
     }
 
     private void berechneEingabe(String eingabe) {
@@ -105,7 +107,7 @@ public class StatisitkApp extends Application {
         lMin.setText("Minimum: " + min);
         lDurchschnitt.setText("Durchschnitt: " + (summe * 1.0 / zahlen.length));
         lAnzahl.setText("Anzahl: " + zahlen.length);
-        button.setText("Done");
+
 
     }
 

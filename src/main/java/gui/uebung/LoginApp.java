@@ -1,8 +1,8 @@
 package gui.uebung;
 
-import javafx.application.Application;
+import gui.controls.panes.Seiten;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -28,16 +28,17 @@ import javafx.stage.Stage;
  * Hinweis: Schachtelt VBox und HBox
  *
  */
-public class LoginApp extends Application {
+public abstract class LoginApp extends Seiten {
     private StackPane root = new StackPane();
     private Stage stage;
+    private javafx.scene.Node Node;
 
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void init() {
+    public Node getRoot() {
         Button button = new Button("OPEN");
         VBox vBox = new VBox();
 
@@ -52,10 +53,11 @@ public class LoginApp extends Application {
                 new Button("LOGIN"));
         root.getChildren().addAll(vBox);
 
+        return root;
     }
 
 
-    @Override
+   /* @Override
     public void start(Stage primaryStage) throws Exception {
 
         Scene scene = new Scene(root, 400, 600);
@@ -65,4 +67,6 @@ public class LoginApp extends Application {
         primaryStage.setTitle("UniversalMode");
 
     }
+
+    */
 }
