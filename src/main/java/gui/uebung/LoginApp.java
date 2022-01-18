@@ -31,8 +31,6 @@ import javafx.stage.Stage;
  */
 public class LoginApp extends Application {
 
-    Label lBN;
-    Label lPW;
     TextField benutzername;
     PasswordField passwort;
     Button login;
@@ -45,8 +43,6 @@ public class LoginApp extends Application {
     // tz: Methode in mehrere Methoden aufteilen
     public void start(Stage primaryStage) throws Exception {
         // tz: lokale Variable, wenn immer möglich!
-        lBN = new Label("Benutzername:");
-        lPW = new Label("Passwort:");
         benutzername = new TextField();
         passwort = new PasswordField();
         login = new Button("Login");
@@ -59,7 +55,7 @@ public class LoginApp extends Application {
 
         benutzername.setMaxWidth(250);
         passwort.setMaxWidth(250);
-        labels.getChildren().addAll(lBN, lPW);
+        labels.getChildren().addAll(new Label("Benutzername:"), new Label("Passwort:"));
         labels.setSpacing(6);
         textFields.getChildren().addAll(benutzername, passwort);
         inputBox.getChildren().addAll(labels, textFields);
@@ -79,6 +75,7 @@ public class LoginApp extends Application {
         if (benutzername.getText().equals("benutzername") && passwort.getText().equals("passwort")) {
             System.out.println("yes");
             // tz: Applicationen schließt man sauber mit Platform.exit()
+            // Nur das aktuelle Fenster schließen
             primaryStage.close();
             // tz: Kontaktliste ist nicht in GIT
 //            Kontaktliste kontakt = new Kontaktliste();
