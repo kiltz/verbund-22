@@ -1,7 +1,7 @@
 package oop.aufgabe4;
 
-import oop.aufgabe4.muloe.KeineKontoDeckungException;
-import oop.aufgabe4.muloe.Konto;
+// import oop.aufgabe4.muloe.KeineKontoDeckungException;
+// import oop.aufgabe4.muloe.Konto;
 
 /*
 Aufgabe 4:
