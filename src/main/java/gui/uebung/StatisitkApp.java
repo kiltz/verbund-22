@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -17,6 +16,7 @@ import java.text.ParseException;
  * Aufgabe:
  * Zahleneingabe
  * Min, Max, Summe, Durchschnitt, anzahl Zahlen ausgeben
+ *
  */
 public class StatisitkApp extends Application {
 
@@ -73,7 +73,6 @@ public class StatisitkApp extends Application {
         Label l_durchschnitt = new Label("Durchschnitt: ");
         Label l_anzahl = new Label("Anzahl:");
         Text t_anzahl = new Text("2");
-        HBox root = new HBox();
         VBox zahleneingabe = new VBox();
         zahleneingabe.setSpacing(10);
         zahleneingabe.getChildren().addAll(tf_zahleneingabe1, tf_zahleneingabe2, b_berechne);

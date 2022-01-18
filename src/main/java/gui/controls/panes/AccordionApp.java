@@ -20,7 +20,7 @@ public class AccordionApp  extends Application {
             HBox box = new HBox();
             box.getChildren().add(new Label("Label der Box "+i));
             TitledPane pane = new TitledPane("Box "+i, box);
-            root.getPanes().add(pane);
+             root.getPanes().add(pane);
 
         }
         Scene scene = new Scene(root, 300, 250);
