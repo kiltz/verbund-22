@@ -1,4 +1,4 @@
-package gui.uebung.mueloe;
+package gui.uebung;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
