@@ -26,6 +26,7 @@ public class StatisitkApp extends Application {
     private Label lDurchschnitt;
     private TextField tfEingabe;
     private Label lAnzahl;
+    private Button button;
 
 
     public static void main(String[] args) {
@@ -104,6 +105,7 @@ public class StatisitkApp extends Application {
         lMin.setText("Minimum: " + min);
         lDurchschnitt.setText("Durchschnitt: " + (summe * 1.0 / zahlen.length));
         lAnzahl.setText("Anzahl: " + zahlen.length);
+        button.setText("Done");
 
     }
 
