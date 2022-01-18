@@ -44,12 +44,12 @@ public class LoginApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox root = new VBox();
-        root.setPadding(new Insets(20));
+        root.setPadding(new Insets(20, 10, 0, 10));
         root.setSpacing(15);
         primaryStage.setTitle("Login");
         // tz: ausgelagert in extra Methoden: gut!
         root.getChildren().addAll(getUsernameAndPassword(), loginButton(), buttonClicked());
-        Scene scene = new Scene(root, 300, 100);
+        Scene scene = new Scene(root, 300, 110);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -64,6 +64,7 @@ public class LoginApp extends Application {
         tfUserName.setPromptText("Enter Username");
         tfPassword.setPromptText("Enter Password");
 //        bLogin.setStyle("-fx-background-color: #dfdfdf; ");
+        eingabeErr.setMaxHeight(200);
         box.getChildren().add(eingabeErr);
         bLogin.setOnAction(event -> buttonClicked());
         return box;
@@ -84,7 +85,7 @@ public class LoginApp extends Application {
         } else if (tfPassword.getText().trim().isEmpty()) {
             eingabeErr.setText("Password can't be empty");
         } else if (tfPassword.getText().trim().length() < 4) {
-            eingabeErr.setText("Password must be longer");
+            eingabeErr.setText("Password must be longer\nthen 4 characters");
         } else {
             eingabeErr.getStyleClass().clear();
             eingabeErr.setStyle(null);
