@@ -1,7 +1,8 @@
-package gui.controls;
+package gui.controls.panes;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -10,29 +11,25 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
 import java.util.function.Predicate;
 
-public class Aufgabe1 {
-    private static TextField tfVorname;
-    private static TextField tfNachname;
-    private static TextField tfEmail;
-    private static TextField tfAnfrage;
-    private static Label lVorname;
-    private static Label lNachname;
-    private static Label lEmail;
-    private static Label lAnfrage;
-    private static Label lMeldung;
-    private static Scene sAufgabe1;
+public class Kontaktformular extends Seiten {
 
-    private static Scene newAufgabe1(Stage primaryStage) {
-        //zurück
-        Button bZurueck = new Button("ZURÜCK");
-        bZurueck.setFont(new Font("Arial", 10));
-        bZurueck.setOnAction(event -> Aufgaben.showStart(primaryStage));
+    private TextField tfVorname;
+    private TextField tfNachname;
+    private TextField tfEmail;
+    private TextField tfAnfrage;
+    private Label lVorname;
+    private Label lNachname;
+    private Label lEmail;
+    private Label lAnfrage;
+    private Label lMeldung;
 
+    public Node getRoot() {
         //erste Zeile
         Label lAnrede = new Label("Anrede: ");
         ComboBox<String> cbAnrede = new ComboBox<>();
@@ -82,20 +79,20 @@ public class Aufgabe1 {
         //fünfte Zeile
 
         Button bAbschicken = new Button("Anfrage abschicken");
-        bAbschicken.setOnAction(event -> checkAnfrage(primaryStage));
+        bAbschicken.setOnAction(event -> checkAnfrage());
 
         //sechste Zeile
         lMeldung = new Label();
 
-        VBox vbAufgabe1_1 = new VBox(bZurueck, hbZ1, hbZ2, vbZ3, vbZ4, bAbschicken, lMeldung);
-        vbAufgabe1_1.setPadding(new Insets(10));
-        vbAufgabe1_1.setAlignment(Pos.TOP_LEFT);
-        vbAufgabe1_1.setSpacing(10);
+        VBox vbKontaktformular = new VBox(hbZ1, hbZ2, vbZ3, vbZ4, bAbschicken, lMeldung);
+        vbKontaktformular.setPadding(new Insets(10));
+        vbKontaktformular.setAlignment(Pos.TOP_LEFT);
+        vbKontaktformular.setSpacing(10);
 
-        return new Scene(vbAufgabe1_1, 300, 430);
+        return vbKontaktformular;
     }
 
-    private static void checkAnfrage(Stage primaryStage) {
+    private void checkAnfrage() {
         Predicate<TextField> checkFeld = tf -> tf.getText().length() > 0;
         Predicate<TextField> checkEmail = email ->
                 email.getText().matches("(\\S.*\\S)(@)(\\S.*\\S)(.\\S[a-z]{2,3})");
@@ -126,7 +123,8 @@ public class Aufgabe1 {
 
         if (checkFeld.test(tfVorname) && checkFeld.test(tfNachname) &&
                 checkFeld.test(tfAnfrage) && checkEmail.test(tfEmail)) {
-            showAufgabe1Antwort(primaryStage);
+            lMeldung.setText("");
+            showAntwort();
         } else if (checkFeld.test(tfVorname) && checkFeld.test(tfNachname) &&
                 checkFeld.test(tfAnfrage) && !checkEmail.test(tfEmail)) {
             lMeldung.setText("Die E-Mail-Adresse hat ein ungültiges Format!");
@@ -137,32 +135,23 @@ public class Aufgabe1 {
         }
     }
 
-    private static void showAufgabe1Antwort(Stage primaryStage) {
-        //zurück
-        Button bZurueck1 = new Button("ZURÜCK");
-        bZurueck1.setFont(new Font("Arial", 10));
-        bZurueck1.setOnAction(event -> Aufgaben.showStart(primaryStage));
+    private void showAntwort() {
+
+        final Stage antwort = new Stage();
+        antwort.initModality(Modality.NONE);
 
         Label lAntwort = new Label("Anfrage erfolgreich abgeschickt!");
-        VBox vbAufgabe1_2 = new VBox(bZurueck1, lAntwort);
-        vbAufgabe1_2.setSpacing(10);
-        vbAufgabe1_2.setAlignment(Pos.CENTER);
+        lAntwort.setTextFill(Color.BLUE);
+        VBox vbAntwort = new VBox(lAntwort);
+        vbAntwort.setSpacing(10);
+        vbAntwort.setAlignment(Pos.CENTER);
 
-        Scene sAufgabe1_2 = new Scene(vbAufgabe1_2, 300, 430);
+        Scene dialogScene = new Scene(vbAntwort, 200, 100);
+        antwort.setScene(dialogScene);
+        antwort.show();
 
-        primaryStage.setTitle("Erfolg");
-        primaryStage.setScene(sAufgabe1_2);
-        primaryStage.show();
-    }
-
-    public static void show(Stage primaryStage) {
-        if (sAufgabe1 == null) {
-            sAufgabe1 = newAufgabe1(primaryStage);
+        for (TextField tf : Arrays.asList(tfVorname, tfNachname, tfEmail, tfAnfrage)) {
+            tf.setText("");
         }
-
-        primaryStage.setTitle("Kontaktformular");
-        primaryStage.setScene(sAufgabe1);
-        primaryStage.show();
-
     }
 }
