@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import utils.Zahlen;
 
 /**
  * Aufgabe:
@@ -32,15 +33,14 @@ public class StatisitkApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        lErgebnis = new Label("0");
         VBox root = new VBox();
         root.setPadding(new Insets(10, 20, 20, 20));
         root.setSpacing(15);
-        // TODO: Buttons und Textfelder dem root hinzufügen
-
-        // TODO: lErgebnis erzeugen und root hinzufügen
-
-        // TODO Breite und Höhe setzen
-        Scene scene = new Scene(root);
+        root.getChildren().add(getTextFelder());
+        root.getChildren().add(getButtons());
+        root.getChildren();
+        Scene scene = new Scene(root, 300, 200);
         primaryStage.setTitle("Rechner");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -57,13 +57,13 @@ public class StatisitkApp extends Application {
 
     private void rechne(ActionEvent e) {
         String eingabe = tf.getText();
-        System.out.println(eingabe);
         // TODO: eingabe in Zahl umwandeln Integer.parseInt(...)
-
+        int zahlInt = Integer.parseInt(eingabe);
         // TODO: Zahl mal 2 nehmen
-
+        System.out.println(zahlInt * 2);
         // TODO: Ergebnis im Label lErgebnis ausgeben (int in String umwandeln ""+zahl)
-
+        System.out.println("Before conversion: " + zahlInt);
+        System.out.println("After conversion: " + ("" + zahlInt));
     }
 
     private Node getTextFelder() {
