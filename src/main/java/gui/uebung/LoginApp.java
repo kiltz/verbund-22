@@ -31,14 +31,14 @@ import javafx.stage.Stage;
 public abstract class LoginApp extends Seiten {
     private StackPane root = new StackPane();
     private Stage stage;
-    private javafx.scene.Node Node;
+
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    @Override
-    public Node getRoot() {
+    //@Override
+    public LoginApp() {
         Button button = new Button("OPEN");
         VBox vBox = new VBox();
 
@@ -53,6 +53,9 @@ public abstract class LoginApp extends Seiten {
                 new Button("LOGIN"));
         root.getChildren().addAll(vBox);
 
+    }
+
+    public Node getRoot() {
         return root;
     }
 
