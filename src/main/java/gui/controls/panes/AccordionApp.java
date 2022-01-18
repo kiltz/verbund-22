@@ -32,7 +32,7 @@ public class AccordionApp extends Application {
                 //TitledPane pane = new TitledPane("Box "+i, box);
                 box.getChildren().add(o.getRoot());
                 //TitledPane pane = new TitledPane(o.getRoot(), box);
-                // root.getPanes().add(pane);
+                //root.getPanes().add(pane);
 
             }
         }

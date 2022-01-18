@@ -112,25 +112,6 @@ public class StatisitkApp extends Application {
     }
 
 
-   /* private Node getTextFelder() {
-
-        // rechnungen fehlen
-        HBox box = new HBox();
-        box.setSpacing(8);
-        TextField tf = new TextField();
-        tf.setPromptText("Eingabe");
-        tf.setOnAction(e ->
-                System.out.println("Eingabe: " + tf.getText())
-        );
-
-
-        box.getChildren().addAll(tf);
-        return box;
-    }
-
-    */
-
-
     private Node getLabels() {
         VBox box = new VBox();
         lSumme = new Label("Summe: ", lSumme);
