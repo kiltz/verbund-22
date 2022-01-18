@@ -30,6 +30,7 @@ public class RechnerApp extends Application {
     private TextField tfZwei;
     private Label lErgebnis;
 
+
     public static void main(String[] args) {
         launch();
     }

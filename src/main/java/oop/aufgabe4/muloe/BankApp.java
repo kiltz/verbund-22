@@ -10,7 +10,7 @@ import java.util.List;
 
 /*
 Aufgabe:
-1. Erweitere die BuchungTab mit Eingabefelder für die Betragseingabe und Einzahlen/Auszahlen
+1. Erweitere die BuchungTab mit Eingabefeldern für die Betragseingabe und Einzahlen/Auszahlen
     und Anzeige des Kontostands
 
 2. Erweiterung der BuchungTab durch setzen und Anzeigen des Dispo
