@@ -23,21 +23,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class Aufgabe3 {
+public class Login {
 
-    private static Label lName, lPasswort, lMeldung;
-    private static final String path = "src/main/resources/logins.txt";
-    private static final Predicate<TextField> checkTF = tf -> tf.getText().length() > 0;
-    private static Scene sAufgabe3;
-    private static Map<String, String> eintraege = new HashMap<>();
-    private static TextField tfName;
-    private static PasswordField tfPasswort;
+    private final String path = "src/main/resources/logins.txt";
+    private final Predicate<TextField> checkTF = tf -> tf.getText().length() > 0;
+    private final Startseite parent;
+    private final Stage primaryStage;
+    private Label lName, lPasswort, lMeldung;
+    private Scene sLogin;
+    private Map<String, String> eintraege = new HashMap<>();
+    private TextField tfName;
+    private PasswordField tfPasswort;
 
-    private static Scene newAufgabe3(Stage primaryStage) {
+    public Login(Startseite parent) {
+        this.parent = parent;
+        this.primaryStage = parent.getPrimaryStage();
+    }
+
+    private Scene newLogin() {
         //zurück
         Button bZurueck = new Button("ZURÜCK");
         bZurueck.setFont(new Font("Arial", 10));
-        bZurueck.setOnAction(event -> Aufgaben.showStart(primaryStage));
+        bZurueck.setOnAction(event -> parent.show());
 
         lName = new Label("Name:");
         tfName = new TextField();
@@ -57,15 +64,15 @@ public class Aufgabe3 {
 
         lMeldung = new Label();
 
-        VBox vbAufgabe3 = new VBox(bZurueck, lName, tfName, lPasswort, tfPasswort, hBox, lMeldung);
-        vbAufgabe3.setPadding(new Insets(10));
-        vbAufgabe3.setAlignment(Pos.TOP_LEFT);
-        vbAufgabe3.setSpacing(10);
+        VBox vbLogin = new VBox(bZurueck, lName, tfName, lPasswort, tfPasswort, hBox, lMeldung);
+        vbLogin.setPadding(new Insets(10));
+        vbLogin.setAlignment(Pos.TOP_LEFT);
+        vbLogin.setSpacing(10);
 
-        return new Scene(vbAufgabe3, 300, 230);
+        return new Scene(vbLogin, 300, 230);
     }
 
-    private static void einloggen() {
+    private void einloggen() {
         if (checkTF.test(tfName) || checkTF.test(tfPasswort)) {
             List<String> logins = null;
             try {
@@ -92,7 +99,7 @@ public class Aufgabe3 {
         }
     }
 
-    private static void eintragen() {
+    private void eintragen() {
         if (tfName.getText().length() < 1 || tfPasswort.getText().length() < 1) {
             lMeldung.setText("Nicht alle Felder ausgefüllt!");
             lMeldung.setTextFill(Color.RED);
@@ -125,13 +132,13 @@ public class Aufgabe3 {
         }
     }
 
-    public static void show(Stage primaryStage) {
-        if (sAufgabe3 == null) {
-            sAufgabe3 = newAufgabe3(primaryStage);
+    public void show() {
+        if (sLogin == null) {
+            sLogin = newLogin();
         }
 
         primaryStage.setTitle("Login");
-        primaryStage.setScene(sAufgabe3);
+        primaryStage.setScene(sLogin);
         primaryStage.show();
     }
 }

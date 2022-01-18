@@ -18,21 +18,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 
-public class Aufgabe2 {
+public class Statistik {
 
-    private static TextField tfEingabe;
-    private static Scene sAufgabe2;
-    private static Label lAusgabeW;
-    private static Label lAusgabeZ;
-    private static CheckBox box1;
-    private static CheckBox box2;
-    private static List<String> zeilen = new ArrayList<>();
+    private final Startseite parent;
+    private final Stage primaryStage;
+    private TextField tfEingabe;
+    private Scene sStatistik;
+    private Label lAusgabeW;
+    private Label lAusgabeZ;
+    private CheckBox box1;
+    private CheckBox box2;
+    private List<String> zeilen = new ArrayList<>();
 
-    private static Scene newAufgabe2(Stage primaryStage) {
+    public Statistik(Startseite parent) {
+        this.parent = parent;
+        this.primaryStage = parent.getPrimaryStage();
+    }
+
+    private Scene newStatistik() {
         //zurück
         Button bZurueck = new Button("ZURÜCK");
         bZurueck.setFont(new Font("Arial", 10));
-        bZurueck.setOnAction(event -> Aufgaben.showStart(primaryStage));
+        bZurueck.setOnAction(event -> parent.show());
 
         Label lEingabe = new Label("Geben Sie etwas ein:");
 
@@ -62,15 +69,15 @@ public class Aufgabe2 {
         lAusgabeZ = new Label();
 
 
-        VBox vbAufgabe2 = new VBox(bZurueck, lEingabe, tfEingabe, hb1, hb2, new VBox(lAusgabeW, lAusgabeZ));
-        vbAufgabe2.setPadding(new Insets(10));
-        vbAufgabe2.setAlignment(Pos.TOP_LEFT);
-        vbAufgabe2.setSpacing(10);
+        VBox vbStatistik = new VBox(bZurueck, lEingabe, tfEingabe, hb1, hb2, new VBox(lAusgabeW, lAusgabeZ));
+        vbStatistik.setPadding(new Insets(10));
+        vbStatistik.setAlignment(Pos.TOP_LEFT);
+        vbStatistik.setSpacing(10);
 
-        return new Scene(vbAufgabe2, 300, 280);
+        return new Scene(vbStatistik, 300, 280);
     }
 
-    private static void showStatistik() {
+    private void showStatistik() {
         zeilen.add(tfEingabe.getText());
         tfEingabe.setText("");
 
@@ -95,13 +102,13 @@ public class Aufgabe2 {
 
     }
 
-    public static void show(Stage primaryStage) {
-        if (sAufgabe2 == null) {
-            sAufgabe2 = newAufgabe2(primaryStage);
+    public void show() {
+        if (sStatistik == null) {
+            sStatistik = newStatistik();
         }
 
         primaryStage.setTitle("Statistik");
-        primaryStage.setScene(sAufgabe2);
+        primaryStage.setScene(sStatistik);
         primaryStage.show();
 
     }
