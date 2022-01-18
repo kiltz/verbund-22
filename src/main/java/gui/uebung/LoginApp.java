@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 /**
  * Aufgabe:
  * Zeigt zwei Eingabefelder für Benutzername und Passwort
- * Beschribt die Eingabefelder mit einem Label
+ * Beschreibt die Eingabefelder mit einem Label
  *
  * Erzeugt einen Button (Login)
  *
