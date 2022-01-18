@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
+import oop.aufgabe4.DispoException;
+import oop.aufgabe4.EinzahlungException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +26,8 @@ public class BankApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        Konto konto = new Konto();
+    public void start(Stage primaryStage) throws EinzahlungException, DispoException {
+        Konto konto = new Konto(900, 1000);
         TabPane root = new TabPane();
         List<BasisTab> tabs = new ArrayList<>();
         tabs.add(new BuchungTab(konto));

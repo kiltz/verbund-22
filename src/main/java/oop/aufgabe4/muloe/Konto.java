@@ -1,53 +1,50 @@
 package oop.aufgabe4.muloe;
 
-import java.util.ArrayList;
-import java.util.List;
+import oop.aufgabe4.DispoException;
+import oop.aufgabe4.EinzahlungException;
+import oop.aufgabe4.KeineKontoDeckungException;
 
 public class Konto {
-    private double dispo = 0;
-    private double kontostand = 0;
-    private List<Double> buchungen;
-
+    private double kontoStand;
+    private int dispo;
 
     public Konto() {
-        this(0);
+        this.kontoStand = 0;
+        this.dispo = 0;
     }
 
-    public Konto(double dispo) {
-        this.dispo = dispo;
-        buchungen = new ArrayList<>();
+    public Konto(double kontoStand, int dispo) throws DispoException, EinzahlungException {
+        einzahlen(kontoStand);
+        setDispo(dispo);
     }
 
-    public Konto(double dispo, double kontostand) {
-        this.dispo = dispo;
-        this.kontostand = kontostand;
-    }
-
-    public void setDispo(double neuerDispo) {
-        dispo = neuerDispo;
-    }
-
-    public void einzahlen(double betrag) {
-        //kontostand = kontostand + betrag;
-        kontostand += betrag;
-        buchungen.add(betrag);
-    }
-
-    public double getKontoStand() {
-        return kontostand;
-    }
-
-    // 2. gebe die Exception weiter
-    public void auszahlen(double betrag) throws KeineKontoDeckungException {
-        if (kontostand + dispo >= betrag) {
-            kontostand -= betrag;
-            buchungen.add(betrag * -1);
+    public void setDispo(int dispo) throws DispoException {
+        if (dispo >= 0) {
+            this.dispo = dispo;
         } else {
-            throw new KeineKontoDeckungException(kontostand, kontostand + dispo);
+            throw new DispoException("Dispo kann nicht negativ sein!");
         }
     }
 
-    public List<Double> getBuchungen() {
-        return buchungen;
+    public void einzahlen(double summe) throws EinzahlungException {
+        if (summe > 0) {
+            kontoStand += summe;
+        } else {
+            throw new EinzahlungException("Summe ist zu klein!");
+        }
+
+    }
+
+    public void auszahlen(double summe) throws oop.aufgabe4.KeineKontoDeckungException {
+        summe = summe >= 0 ? summe : summe * -1;
+        if (kontoStand + dispo >= summe) {
+            kontoStand -= summe;
+        } else {
+            throw new KeineKontoDeckungException("Nicht ausreichende Kontodeckung!");
+        }
+    }
+
+    public double getKontoStand() {
+        return kontoStand;
     }
 }
