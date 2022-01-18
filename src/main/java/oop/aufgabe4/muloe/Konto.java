@@ -46,4 +46,8 @@ public class Konto {
             throw new KeineKontoDeckungException(kontostand, kontostand + dispo);
         }
     }
+
+    public List<Double> getBuchungen() {
+        return buchungen;
+    }
 }
