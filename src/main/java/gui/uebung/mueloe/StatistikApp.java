@@ -93,11 +93,47 @@ public class StatistikApp extends Application {
         box.getChildren().add(tfEingabe);
         Button bRechne = new Button("berechne");
         bRechne.setOnAction(e -> rechne(e));
+        bRechne.setDefaultButton(true);
         box.getChildren().add(bRechne);
         return box;
     }
 
     private void rechne(ActionEvent e) {
-        System.out.println("Rechne....");
+        // 1. Textfeld auslesen
+        String eingabe = tfEingabe.getText();
+        if (eingabe.isEmpty()) {
+            tfEingabe.setPromptText("Bitte Zahlen Eingeben!");
+        } else {
+            berechneEingabe(eingabe);
+        }
+    }
+
+    private void berechneEingabe(String eingabe) {
+
+        // 2. Zahlen ermittlen (splitten und Umwandeln)
+        String[] teile = eingabe.split(" ");
+        int[] zahlen = new int[teile.length];
+        for (int i = 0; i < teile.length; ++i) {
+            zahlen[i] = Integer.parseInt(teile[i]);
+        }
+        // 3. Werte berechnen
+        int max = 0;
+        int min = zahlen[0];
+        int summe = 0;
+        for (int zahl : zahlen) {
+            summe += zahl;
+            if (zahl > max) {
+                max = zahl;
+            }
+            if (zahl < min) {
+                min = zahl;
+            }
+        }
+        // 4. Werte ausgeben
+        lSumme.setText("" + summe);
+        lMax.setText("" + max);
+        lMin.setText("" + min);
+        lDurchschnitt.setText("" + (summe * 1.0 / zahlen.length));
+        lAnzahl.setText("" + zahlen.length);
     }
 }
