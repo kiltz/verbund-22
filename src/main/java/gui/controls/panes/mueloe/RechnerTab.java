@@ -1,45 +1,22 @@
 package gui.controls.panes.mueloe;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import utils.Zahlen;
 
 import java.text.ParseException;
 
-public class TabAufgabeApp extends Application {
+public class RechnerTab {
     private TextField tfEins;
     private TextField tfZwei;
     private Label lErgebnis;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-        TabPane root = new TabPane();
-        // ein Tab
-        Tab tab = new Tab("Rechner", getRechnerNodes());
-        tab.setClosable(true);
-        root.getTabs().add(tab);
-        // noch ein Tab
-
-        //...
-
-        Scene scene = new Scene(root, 300, 250);
-        primaryStage.setTitle("Einige Tabbies!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-    private Node getRechnerNodes() {
+    public Node getRechnerNodes() {
         lErgebnis = new Label("7");
         Label lPlus = new Label(" + ");
         tfEins = new TextField("5");
@@ -82,4 +59,5 @@ public class TabAufgabeApp extends Application {
         }
 
     }
+
 }
