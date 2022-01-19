@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +26,10 @@ public class KontoAuszug {
         }
     }
 
-    public void eintragHinzufuegen(String neuerEintrag) {
+    public void eintragHinzufuegen(double summe, String kategorie) {
         try (FileWriter fw = new FileWriter(path, true)) {
-            fw.write(neuerEintrag);
+            fw.write(String.format("%s;%s;%.2f\n", LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
+                    kategorie, summe));
         } catch (IOException ignore) {
         }
     }

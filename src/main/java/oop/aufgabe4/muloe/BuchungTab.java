@@ -43,6 +43,7 @@ public class BuchungTab extends BasisTab {
         }
     }
     private void auszahlen(String kategorie) {
+        lAnzeige.setText("");
         if (tfBetrag.getText().length() > 0) {
             try {
                 konto.auszahlen(Double.parseDouble(tfBetrag.getText().replace(",", ".")), kategorie);
@@ -52,10 +53,12 @@ public class BuchungTab extends BasisTab {
             } catch (NumberFormatException ex) {
                 lAnzeige.setText("Unerwarteter Fehler");
             }
+            tfBetrag.requestFocus();
             tfBetrag.setText("");
         }
     }
     private void einzahlen() {
+        lAnzeige.setText("");
         if (tfBetrag.getText().length() > 0) {
             try {
                 konto.einzahlen(Double.parseDouble(tfBetrag.getText().replace(",", ".")));
@@ -65,6 +68,7 @@ public class BuchungTab extends BasisTab {
             } catch (NumberFormatException ex) {
                 lAnzeige.setText("Unerwarteter Fehler");
             }
+            tfBetrag.requestFocus();
             tfBetrag.setText("");
         }
     }
@@ -83,10 +87,7 @@ public class BuchungTab extends BasisTab {
 
     private Node getEinzahlungZeile() {
         Button bEinzahlen = new Button("Einzahlen");
-        bEinzahlen.setOnAction(e -> {
-            lAnzeige.setText("");
-            einzahlen();
-        });
+        bEinzahlen.setOnAction(e -> einzahlen());
 
         HBox hBox = new HBox(bEinzahlen, getMeldungenZeile());
         hBox.setAlignment(Pos.CENTER_LEFT);
@@ -97,7 +98,7 @@ public class BuchungTab extends BasisTab {
     private Node getAuszahlungZeile() {
         Button bAuszahlen = new Button("Auszahlen");
         bAuszahlen.setOnAction(e -> {
-            lAnzeige.setText("");
+
             if (cbKategorien.getSelectionModel().isEmpty()) {
                 lAnzeige.setText("Wählen Sie eine Kategorie");
             } else {

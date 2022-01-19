@@ -16,7 +16,6 @@ import java.util.List;
 public class AuszugTab extends BasisTab {
     private final Konto konto;
     private final KontoAuszug kontoAuszug;
-    private Label lKontostand;
     private Label lAnzeige;
     private ComboBox<String> cbKategorien;
     private TableView<Eintrag> tabelle;
@@ -29,15 +28,10 @@ public class AuszugTab extends BasisTab {
     @Override
     public Tab getTab() {
         VBox box = new VBox(getMeldungenZeile(), getAuszugsZeile(), getAuszugOhneKategorieZeile(), getTabelle());
-
         box.setSpacing(10);
         box.setPadding(new Insets(10));
 
-        Tab tab = new Tab("Auszüge", box);
-        tab.setOnSelectionChanged(e -> {
-            lKontostand = new Label(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
-        });
-        return tab;
+        return new Tab("Auszüge", box);
     }
 
     private Node getAuszugsZeile() {
