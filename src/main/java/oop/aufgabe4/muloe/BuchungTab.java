@@ -31,6 +31,7 @@ public class BuchungTab extends BasisTab {
 
         bEinzahlen.setOnAction(e -> einzahlen(e));
         bAbheben.setOnAction(e -> abheben(e));
+
         anzeige.setText(String.format("Kontostand: %.2f€", konto.getKontoStand()));
         box.setSpacing(10);
 
@@ -92,6 +93,8 @@ public class BuchungTab extends BasisTab {
         konto.einzahlen(Double.parseDouble(eingabe));
         anzeige.setText(String.format("Kontostand: %.2f€", konto.getKontoStand()));
         anzeige.setTextFill(Color.web("#000000"));
+        tfEingabe.setText("");
+        tfEingabe.requestFocus();
 
     }
 
@@ -100,6 +103,7 @@ public class BuchungTab extends BasisTab {
             konto.auszahlen(Double.parseDouble(eingabe));
             anzeige.setText(String.format("Kontostand: %.2f€", konto.getKontoStand()));
             anzeige.setTextFill(Color.web("#000000"));
+            tfEingabe.setText("");
         } catch (KeineKontoDeckungException e) {
             anzeige.setText("Auszahlung nicht möglich: " + e.getMessage());
             anzeige.setTextFill(Color.web("#990000"));

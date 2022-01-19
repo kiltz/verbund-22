@@ -58,7 +58,7 @@ public class AuszugTab extends BasisTab {
         if (button.getText().equals("Historie")) {
             liste.getItems().clear();
             for (double betrag : konto.getBuchungen()) {
-                String art = betrag > 0 ? "Einzahlung" : "Auszahlung";
+                String art = betrag > 0 ? "Einzahlung:" : "Auszahlung:";
                 String eintrag = String.format("%s %.2f€%n", art, betrag);
                 liste.getItems().add(eintrag);
             }
