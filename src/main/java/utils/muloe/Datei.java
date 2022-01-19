@@ -42,9 +42,9 @@ public class Datei {
                 }
                 inhalt.append(zeile);
             }
-        }
-        // Etwas schief gegangen?
-        catch (IOException e) {
+        } catch (FileNotFoundException e) {
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return inhalt.toString();

@@ -19,6 +19,8 @@ public class Editor extends Application {
     ComboBox<String> cbDateiOeffnen;
     Datei datei;
     Datei alleDateienNamen = new Datei("alleDateiNamen.txt");
+    Button bTextAuswaehlen;
+    Button bSpeichern;
 
     public static void main(String[] args) {
         launch();
@@ -48,7 +50,7 @@ public class Editor extends Application {
         TextField eingabeFeld = new TextField();
         Button bDateiAntragErstellen = new Button("Datei erstellen");
         bDateiAntragErstellen.setOnAction(e -> dateiAntragErstellen());
-        Button bTextAuswaehlen = new Button("Einlesen");
+        bTextAuswaehlen = new Button("Einlesen");
         bTextAuswaehlen.setOnAction(e -> {
             textArea.setText(textArea.getText() + eingabeFeld.getText());
         });
@@ -64,15 +66,19 @@ public class Editor extends Application {
         HBox box = new HBox();
         TextField eingabeDateiName = new TextField();
         Button bDateiErstellen = new Button("Erstellen");
-        bDateiErstellen.setOnAction(e -> {
-            alleDateienNamen.schreibe(eingabeDateiName.getText() + ".txt\n", true);
-        });
         box.getChildren().addAll(eingabeDateiName, bDateiErstellen);
         Stage stage = new Stage();
         stage.setTitle("Datei erstellen");
         StackPane pane = new StackPane(box);
         stage.setScene(new Scene(pane));
         stage.show();
+        bDateiErstellen.setOnAction(e -> {
+            alleDateienNamen.schreibe(eingabeDateiName.getText() + ".txt\n", true);
+            cbDateiOeffnen.getItems().add(eingabeDateiName.getText() + ".txt");
+            cbDateiOeffnen.getSelectionModel().select(eingabeDateiName.getText() + ".txt");
+            stage.close();
+        });
+
     }
 
     private void lesen() {
@@ -97,7 +103,7 @@ public class Editor extends Application {
 
     private Node erstelleUnten() {
         AnchorPane anchor = new AnchorPane();
-        Button bSpeichern = new Button("Speichern");
+        bSpeichern = new Button("Speichern");
         bSpeichern.setOnAction(e -> speichern(textArea.getText()));
         Button bAbbruch = new Button("Abbruch");
         bAbbruch.setOnAction(e -> {
@@ -107,13 +113,18 @@ public class Editor extends Application {
         buttons.setSpacing(10);
         buttons.getChildren().addAll(bAbbruch, bSpeichern);
         anchor.getChildren().add(buttons);
+        anchor.setPadding(new Insets(10));
         AnchorPane.setRightAnchor(buttons, 10.0);
         AnchorPane.setBottomAnchor(buttons, 20.0);
         return anchor;
     }
 
     private void speichern(String text) {
-        datei = new Datei(cbDateiOeffnen.getValue());
-        datei.schreibe(text);
+        if (cbDateiOeffnen.getValue().isEmpty()) {
+            datei = new Datei(cbDateiOeffnen.getValue());
+            datei.schreibe(text);
+        } else {
+            bSpeichern.requestFocus();
+        }
     }
 }
