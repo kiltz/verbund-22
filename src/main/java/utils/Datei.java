@@ -34,7 +34,7 @@ public class Datei {
             reader = new BufferedReader(inStream);
             String zeile = "";
             while ((zeile = reader.readLine()) != null) {
-                if (inhalt.isEmpty()) {
+                if (inhalt.length() > 0) {
                     inhalt.append("\n");
                 }
                 inhalt.append(zeile);
