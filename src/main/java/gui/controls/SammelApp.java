@@ -159,7 +159,7 @@ public class SammelApp extends Application {
         einLabel.setTextFill(Color.web("#005091"));
         einLabel.setOnMouseClicked(e -> einLabel.setText("Danke!"));
         Label labelMitBild = new Label("Mit Icon");
-//        Image image = new Image("http://www.kiltz.de/icon_biggrin.gif");
+
         Image image = new Image("img/wtf-code.jpg");
         labelMitBild.setGraphic(new ImageView(image));
         labelMitBild.setContentDisplay(ContentDisplay.RIGHT);
