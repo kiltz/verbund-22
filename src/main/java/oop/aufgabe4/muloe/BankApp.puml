@@ -1,0 +1,28 @@
+@startuml
+class Application {
+}
+class BankApp {
+}
+Application <|--BankApp
+
+class AuszugTab {
+}
+class BuchungTab {
+}
+BasisTab <|-- BuchungTab
+BasisTab <|-- AuszugTab
+class BasisTab {
+    + abstract getTab() : Tab
+}
+
+class Konto {
+}
+
+BankApp *-- Konto
+BankApp *-- AuszugTab
+BankApp *-- BuchungTab
+
+AuszugTab ..> Konto
+BuchungTab ..> Konto
+
+@enduml
