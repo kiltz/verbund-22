@@ -29,7 +29,6 @@ public class EditorApp extends Application {
         root.setBottom(getUnterenBereich());
         root.setCenter(getTextArea());
 
-
         Scene scene = new Scene(root, 300, 250);
         primaryStage.setTitle("Mo's Editor");
 
