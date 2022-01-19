@@ -9,18 +9,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 import java.io.*;
+import java.util.Optional;
 
 
 public class EditorApp extends Application {
     private TextArea taText;
-    private TextField tfPfad;
+    private Label lPfad;
     private Stage primaryStage;
     private FileChooser fileChooser = new FileChooser();
     private File datei;
@@ -35,7 +34,7 @@ public class EditorApp extends Application {
         this.primaryStage = primaryStage;
 
         Node suche = getSuche();
-        Node text = getTextfeld();
+        Node text = getTextArea();
         Node buttons = getButtons();
 
         BorderPane root = new BorderPane();
@@ -43,17 +42,19 @@ public class EditorApp extends Application {
         root.setBottom(buttons);
         root.setCenter(text);
 
-        Scene scene = new Scene(root, 500, 450);
+        Scene scene = new Scene(root, 800, 700);
         primaryStage.setTitle("Editor");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        primaryStage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, this::appSchliessen);
     }
 
     private Node getButtons() {
         Button bSpeichern = new Button("Speichern");
         bSpeichern.setOnAction(e -> speichern());
         Button bBeenden = new Button("Beenden");
-        bBeenden.setOnAction(e -> appSchliessen());
+        bBeenden.setOnAction(e -> appSchliessen(null));
         HBox hBox = new HBox(bSpeichern, bBeenden);
         hBox.setSpacing(10);
         hBox.setAlignment(Pos.CENTER_RIGHT);
@@ -66,30 +67,40 @@ public class EditorApp extends Application {
         try (FileWriter fw = new FileWriter(datei.getAbsolutePath(), false)) {
             fw.write(taText.getText());
         } catch (IOException ignore) {
+
+        } catch (NullPointerException e) {
+            Alert meldung = new Alert(Alert.AlertType.INFORMATION);
+            meldung.setHeaderText("");
+            meldung.setContentText("Sie haben noch keine Datei geöffnet.");
+            meldung.initOwner(primaryStage.getOwner());
+            Optional<ButtonType> res = meldung.showAndWait();
         }
+
     }
 
-    private Node getTextfeld() {
+    private Node getTextArea() {
         taText = new TextArea("");
-        taText.setPrefWidth(480);
-        taText.setPrefHeight(350);
-
+        taText.setVisible(false);
 
         ScrollPane scrolli = new ScrollPane();
         scrolli.setContent(taText);
-        scrolli.setPadding(new Insets(10));
+        scrolli.setPadding(new Insets(5));
+        scrolli.setFitToHeight(true);
+        scrolli.setFitToWidth(true);
 
         return scrolli;
     }
 
     private Node getSuche() {
         Label lDatei = new Label("Datei:");
-        tfPfad = new TextField("");
-        tfPfad.setPrefWidth(250);
+        lPfad = new Label("");
+        lPfad.setPrefWidth(250);
+        lPfad.setPrefHeight(23);
+        lPfad.setStyle("-fx-border-color: black; -fx-background-color: white;");
         Button bOeffnen = new Button("Öffnen");
         bOeffnen.setOnAction(e -> dateiWaehlen());
 
-        HBox hBox = new HBox(lDatei, tfPfad, bOeffnen);
+        HBox hBox = new HBox(lDatei, lPfad, bOeffnen);
         hBox.setSpacing(10);
         hBox.setAlignment(Pos.CENTER);
         hBox.setPadding(new Insets(10));
@@ -110,36 +121,35 @@ public class EditorApp extends Application {
             }
 
             taText.setText(tempDatei.toString());
-            tfPfad.setText(datei.getAbsolutePath());
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            lPfad.setText(" " + datei.getAbsolutePath());
+            taText.setVisible(true);
+        } catch (NullPointerException | IOException ignore) {
         }
     }
 
-    private void appSchliessen() {
-        final Stage antwort = new Stage();
-        antwort.initModality(Modality.NONE);
-        antwort.initStyle(StageStyle.UNDECORATED);
-
-        Label lSchliessen = new Label("Wollen Sie die Datei wirklich schließen?");
-
-        Button bJa = new Button("Ja");
-        bJa.setOnAction(e -> {
+    private void appSchliessen(WindowEvent event) {
+        if (datei == null) {
             Platform.exit();
             System.exit(0);
-        });
-        Button bNein = new Button("Nein");
-        bNein.setOnAction(e -> antwort.close());
-        HBox hBox = new HBox(bJa, bNein);
-        hBox.setSpacing(10);
-        hBox.setAlignment(Pos.CENTER);
+        } else {
+            Alert meldung = new Alert(Alert.AlertType.INFORMATION);
+            meldung.getButtonTypes().remove(ButtonType.OK);
+            meldung.getButtonTypes().add(ButtonType.CANCEL);
+            meldung.getButtonTypes().add(ButtonType.YES);
+            meldung.setHeaderText("");
+            meldung.setContentText("Wollen Sie die Datei wirklich schließen?");
+            meldung.initOwner(primaryStage.getOwner());
+            Optional<ButtonType> res = meldung.showAndWait();
 
-        VBox vBox = new VBox(lSchliessen, hBox);
-        vBox.setSpacing(10);
-        vBox.setAlignment(Pos.CENTER);
+            if (res.isPresent()) {
+                if (res.get().equals(ButtonType.CANCEL) && event != null) {
+                    event.consume();
+                } else if (res.get().equals(ButtonType.YES)) {
+                    Platform.exit();
+                    System.exit(0);
+                }
+            }
+        }
 
-        Scene sSchliessen = new Scene(vBox, 220, 80);
-        antwort.setScene(sSchliessen);
-        antwort.show();
     }
 }
