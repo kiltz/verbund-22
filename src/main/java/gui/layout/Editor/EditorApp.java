@@ -25,7 +25,7 @@ public class EditorApp extends Application {
     public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
 
-        root.setPadding(new Insets(10, 10, 10, 10));
+        root.setPadding(new Insets(10, 1, 10, 1));
 
         root.setTop(getOberenBereich());
         root.setBottom(getUnterenBereich());
@@ -43,7 +43,7 @@ public class EditorApp extends Application {
 
     private Node getTextArea() {
         ScrollPane scrolli = new ScrollPane();
-
+        scrolli.setPadding(new Insets(10, 1, 10, 1));
         scrolli.setMaxWidth(250);
         scrolli.setMaxHeight(150);
 
@@ -63,9 +63,9 @@ public class EditorApp extends Application {
         buttons.setSpacing(12);
         buttons.getChildren().addAll(save, help);
         pane.getChildren().add(buttons);
-        pane.setPadding(new Insets(10, 10, 10, 10));
+        pane.setPadding(new Insets(10, 10, 5, 10));
         AnchorPane.setRightAnchor(buttons, 10.0);
-        AnchorPane.setBottomAnchor(buttons, 20.0);
+        AnchorPane.setBottomAnchor(buttons, 10.0);
 
         return pane;
     }
@@ -74,7 +74,7 @@ public class EditorApp extends Application {
         FlowPane node = new FlowPane();
         node.setVgap(10.0);
         node.setHgap(10.0);
-        node.setPadding(new Insets(10, 10, 10, 10));
+        node.setPadding(new Insets(10, 1, 10, 1));
         node.setAlignment(Pos.CENTER);
         node.getChildren().addAll(new Label("Datei"), new TextField(), new Button("Lesen"));
 
