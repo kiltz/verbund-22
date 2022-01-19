@@ -61,7 +61,7 @@ public class SammelApp extends Application {
         liste.getSelectionModel().selectedItemProperty().addListener(
                 (ObservableValue<? extends String> ov, String o, String n) ->
                         System.out.println("Liste: "+n));
-//        liste.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         liste.setMaxWidth(100);
         ScrollPane scrolli = new ScrollPane();
         scrolli.setMaxWidth(100);
