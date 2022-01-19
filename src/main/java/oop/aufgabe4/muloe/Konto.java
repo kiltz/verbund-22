@@ -69,9 +69,13 @@ public class Konto {
         return liste;
     }
 
-    public void setDispo(double neuerDispo) {
+    public void setDispo(double neuerDispo, boolean schreibe) {
         dispo = neuerDispo;
         schreibeBuchung(new Dispo(neuerDispo));
+    }
+
+    public void setDispo(double neuerDispo) {
+        dispo = neuerDispo;
     }
 
     public double getDispo() {
@@ -79,6 +83,11 @@ public class Konto {
     }
 
     public void einzahlen(double betrag) {
+        //kontostand = kontostand + betrag;
+        kontostand += betrag;
+    }
+
+    public void einzahlen(double betrag, boolean schreibe) {
         //kontostand = kontostand + betrag;
         kontostand += betrag;
         schreibeBuchung(new Einzahlung(betrag));
@@ -90,6 +99,14 @@ public class Konto {
 
     // 2. gebe die Exception weiter
     public void auszahlen(double betrag) throws KeineKontoDeckungException {
+        if (kontostand + dispo >= betrag) {
+            kontostand -= betrag;
+        } else {
+            throw new KeineKontoDeckungException(kontostand, kontostand + dispo);
+        }
+    }
+
+    public void auszahlen(double betrag, boolean schreibe) throws KeineKontoDeckungException {
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
             schreibeBuchung(new Auszahlung(betrag));

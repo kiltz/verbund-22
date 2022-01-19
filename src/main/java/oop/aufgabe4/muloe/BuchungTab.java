@@ -72,7 +72,7 @@ public class BuchungTab extends BasisTab {
         Button bDispoSetzen = buttonHinzufuegen("Dispo setzen", 3150);
         bDispoSetzen.setOnAction(e -> {
             try {
-                konto.setDispo(Zahlen.stringToDouble((betrag.getText())));
+                konto.setDispo(Zahlen.stringToDouble((betrag.getText())), true);
                 lDispoAntrag.setText(String.format("Dispo: %.2f Euro", konto.getDispo()));
                 lDispo.setText(lDispoAntrag.getText());
                 lWarnung.setText("");
@@ -90,7 +90,7 @@ public class BuchungTab extends BasisTab {
         Button bEinzahlen = buttonHinzufuegen("Einzahlen", 150);
         bEinzahlen.setOnAction(e -> {
             try {
-                konto.einzahlen(Zahlen.stringToDouble((betrag.getText())));
+                konto.einzahlen(Zahlen.stringToDouble((betrag.getText())), true);
                 lKontostandAntrag.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
                 lKontostand.setText(lKontostandAntrag.getText());
                 lWarnung.setText("");
@@ -108,7 +108,7 @@ public class BuchungTab extends BasisTab {
         Button bAuszahlen = buttonHinzufuegen("Auszahlen", 150);
         bAuszahlen.setOnAction(e -> {
             try {
-                konto.auszahlen(Zahlen.stringToDouble(betrag.getText()));
+                konto.auszahlen(Zahlen.stringToDouble(betrag.getText()), true);
                 lKontostandAntrag.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
                 lKontostand.setText(lKontostandAntrag.getText());
                 lWarnung.setText("");
