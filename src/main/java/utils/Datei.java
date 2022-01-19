@@ -3,18 +3,18 @@ package utils;
 import java.io.*;
 
 public class Datei {
-    private String dateiName;
+    private static String dateiName;
     private StringBuffer inhalt;
 
     public Datei(String dateiName) {
         this.dateiName = dateiName;
     }
 
-    public void schreibe(String text) {
+    public static void schreibe(String text) {
         schreibe(text, false); //
     }
 
-    public void schreibe(String text, boolean append) {
+    public static void schreibe(String text, boolean append) {
         File datei = null;
         datei = new File(dateiName);
         try (FileWriter outStream = new FileWriter(datei, append)) {
@@ -26,7 +26,7 @@ public class Datei {
         }
     }
 
-    public String lese() { // verwendung: String text = d.lese();
+    public static String lese() { // verwendung: String text = d.lese();
         StringBuffer inhalt = new StringBuffer();
         BufferedReader reader = null;
         File datei = null;
