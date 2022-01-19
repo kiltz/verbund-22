@@ -14,4 +14,10 @@ public class Auszahlung extends Buchung {
         setBuchungArt("Auszahlung");
         setDatum(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
     }
+
+    public Auszahlung(double betrag, String datum) {
+        setBetrag(betrag);
+        setBuchungArt("Auszahlung");
+        setDatum(datum);
+    }
 }

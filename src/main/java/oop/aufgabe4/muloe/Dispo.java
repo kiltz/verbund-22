@@ -3,20 +3,20 @@ package oop.aufgabe4.muloe;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Einzahlung extends Buchung {
+public class Dispo extends Buchung {
     String art;
     double betrag;
     String datum;
 
-    public Einzahlung(double betrag) {
+    public Dispo(double betrag) {
         setBetrag(betrag);
-        setBuchungArt("Einzahlung");
+        setBuchungArt("Dispo");
         setDatum(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
     }
 
-    public Einzahlung(double betrag, String datum) {
+    public Dispo(double betrag, String datum) {
         setBetrag(betrag);
-        setBuchungArt("Einzahlung");
+        setBuchungArt("Dispo");
         setDatum(datum);
     }
 }

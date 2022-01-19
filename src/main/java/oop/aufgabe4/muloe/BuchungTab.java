@@ -73,8 +73,8 @@ public class BuchungTab extends BasisTab {
         bDispoSetzen.setOnAction(e -> {
             try {
                 konto.setDispo(Zahlen.stringToDouble((betrag.getText())));
-                lDispo.setText(String.format("Dispo: %.2f Euro", konto.getDispo()));
                 lDispoAntrag.setText(String.format("Dispo: %.2f Euro", konto.getDispo()));
+                lDispo.setText(lDispoAntrag.getText());
                 lWarnung.setText("");
             } catch (ParseException ex) {
                 lWarnung.setText("Geben Sie bitte einen gültigen Betrag an.");
@@ -91,8 +91,8 @@ public class BuchungTab extends BasisTab {
         bEinzahlen.setOnAction(e -> {
             try {
                 konto.einzahlen(Zahlen.stringToDouble((betrag.getText())));
-                lKontostand.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
                 lKontostandAntrag.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
+                lKontostand.setText(lKontostandAntrag.getText());
                 lWarnung.setText("");
             } catch (ParseException ex) {
                 lWarnung.setText("Geben Sie bitte einen gültigen Betrag an.");
@@ -109,8 +109,8 @@ public class BuchungTab extends BasisTab {
         bAuszahlen.setOnAction(e -> {
             try {
                 konto.auszahlen(Zahlen.stringToDouble(betrag.getText()));
-                lKontostand.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
                 lKontostandAntrag.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
+                lKontostand.setText(lKontostandAntrag.getText());
                 lWarnung.setText("");
             } catch (ParseException ex) {
                 lWarnung.setText("Geben Sie bitte einen gültigen Betrag an.");

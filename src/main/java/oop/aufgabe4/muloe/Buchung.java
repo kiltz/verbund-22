@@ -29,7 +29,7 @@ abstract class Buchung {
         this.betrag = betrag;
     }
 
-    public String buchungInfosAusgeben() {
-        return String.format("%s | %s | %.2f Euro", buchungArt, datum, betrag);
+    public String buchungInfosGeben() {
+        return String.format("%s;%s;%.2f\n", buchungArt, datum, betrag);
     }
 }
