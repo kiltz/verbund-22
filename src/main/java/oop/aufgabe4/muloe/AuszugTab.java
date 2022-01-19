@@ -26,7 +26,7 @@ public class AuszugTab extends BasisTab {
                 anzeige.setText(String.format("Historie", konto.getKontoStand(),
                         box.getChildren().add(zurueck))
                 ));
-
+        //zurueck.setOnAction(e -> box.removeEventFilter(box.getChildren(zurueck)));
 
         box.setSpacing(10);
 
