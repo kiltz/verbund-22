@@ -27,8 +27,6 @@ public class EditorApp extends Application {
         root.setTop(getOberenBereich());
         root.setBottom(getUnterenBereich());
         root.setCenter(getTextArea());
-        ScrollPane scrolli = new ScrollPane();
-        scrolli.setContent(root);
 
 
         Scene scene = new Scene(root, 300, 250);
@@ -41,17 +39,17 @@ public class EditorApp extends Application {
     private Node getTextArea() {
         HBox box = new HBox();
         TextArea tf = new TextArea();
-        box.setMaxWidth(250);
-        box.setMaxHeight(150);
+
         tf.setPromptText("Hier ist ein Böser Smilie >:((");
+
         tf.setPadding(new Insets(0, 0, 0, 0));
 
 
         ScrollPane scrolli = new ScrollPane();
 
         scrolli.setPadding(new Insets(10, 1, 10, 1));
-        scrolli.setMaxWidth(250);
-        scrolli.setMaxHeight(150);
+        scrolli.fitToWidthProperty();
+        scrolli.fitToHeightProperty();
         scrolli.setContent(tf);
 
         box.setAlignment(Pos.CENTER);
