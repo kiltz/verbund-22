@@ -21,7 +21,7 @@ Aufgabe:
  */
 
 public class BankApp extends Application {
-    //private TextField tfEingabe;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -31,7 +31,7 @@ public class BankApp extends Application {
     public void start(Stage primaryStage) {
         Konto konto = new Konto();
         TabPane root = new TabPane();
-        //TextField tfEingabe = new TextField();
+
         List<BasisTab> tabs = new ArrayList<>();
         tabs.add(new BuchungTab(konto));
         tabs.add(new AuszugTab(konto));
