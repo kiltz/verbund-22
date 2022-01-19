@@ -108,7 +108,6 @@ public class StatisitkApp extends Application {
         lDurchschnitt.setText("Durchschnitt: " + (summe * 1.0 / zahlen.length));
         lAnzahl.setText("Anzahl: " + zahlen.length);
 
-
     }
 
 

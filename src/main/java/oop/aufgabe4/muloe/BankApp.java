@@ -19,6 +19,7 @@ Aufgabe:
 3. Anzeige der Historie (Unterscheidung zwischen Einzahlung und Auszahlung) in der AuszugTab
 
  */
+
 public class BankApp extends Application {
     //private TextField tfEingabe;
 

@@ -49,7 +49,6 @@ public class Konto {
     }
 
 
-
     public List<Double> getBuchungen() {
         return buchungen;
     }
