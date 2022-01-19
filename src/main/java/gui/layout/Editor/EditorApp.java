@@ -30,6 +30,8 @@ public class EditorApp extends Application {
         root.setTop(getOberenBereich());
         root.setBottom(getUnterenBereich());
         root.setCenter(getTextArea());
+        ScrollPane scrolli = new ScrollPane();
+        scrolli.setContent(root);
 
 
         Scene scene = new Scene(root, 300, 250);
@@ -44,7 +46,9 @@ public class EditorApp extends Application {
 
         scrolli.setMaxWidth(250);
         scrolli.setMaxHeight(150);
-        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrolli.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
         return scrolli;
     }
