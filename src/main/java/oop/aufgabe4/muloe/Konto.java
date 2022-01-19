@@ -4,9 +4,20 @@ import oop.aufgabe4.DispoException;
 import oop.aufgabe4.EinzahlungException;
 import oop.aufgabe4.KeineKontoDeckungException;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Konto {
     private double kontoStand;
     private int dispo;
+
+    private final KontoAuszug kontoAuszug = new KontoAuszug();
+    private final DateTimeFormatter muster = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private String heute;
+
+    public KontoAuszug getKontoAuszug() {
+        return kontoAuszug;
+    }
 
     public Konto() {
         this.kontoStand = 0;
@@ -35,10 +46,12 @@ public class Konto {
 
     }
 
-    public void auszahlen(double summe) throws oop.aufgabe4.KeineKontoDeckungException {
+    public void auszahlen(double summe, String kategorie) throws oop.aufgabe4.KeineKontoDeckungException {
         summe = summe >= 0 ? summe : summe * -1;
         if (kontoStand + dispo >= summe) {
             kontoStand -= summe;
+            heute = LocalDate.now().format(muster);
+            kontoAuszug.eintragHinzufuegen(String.format("%s;%s;%.2f\n", heute, kategorie, summe));
         } else {
             throw new KeineKontoDeckungException("Nicht ausreichende Kontodeckung!");
         }
