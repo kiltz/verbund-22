@@ -32,31 +32,31 @@ public class BuchungTab extends BasisTab {
         return tab;
     }
 
-    public void Konto() {
-        this(0);
+    public Konto() {
+        this();
     }
 
-    public void Konto(double dispo) {
+    public Konto(double dispo) {
         this.dispo = dispo;
         buchungen = new ArrayList<>();
     }
 
-    public void Konto(double dispo, double kontostand) {
+    public Konto(double dispo, double kontostand) {
         this.dispo = dispo;
         this.kontostand = kontostand;
     }
 
-    public void setDispo(double neuerDispo) {
+    public setDispo(double neuerDispo) {
         dispo = neuerDispo;
     }
 
-    public void einzahlen(double betrag) {
+    public einzahlen(double betrag) {
         //kontostand = kontostand + betrag;
         kontostand += betrag;
         buchungen.add(betrag);
     }
 
-    public void auszahlen(double betrag) throws KeineKontoDeckungException {
+    public auszahlen(double betrag) throws KeineKontoDeckungException {
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
             buchungen.add(betrag * -1);
@@ -65,5 +65,7 @@ public class BuchungTab extends BasisTab {
         }
     }
 
-
+    public List<Double> getBuchungen() {
+        return buchungen;
+    }
 }

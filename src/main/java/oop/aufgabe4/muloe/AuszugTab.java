@@ -17,11 +17,17 @@ public class AuszugTab extends BasisTab {
         HBox box = new HBox();
         Label anzeige = new Label("Dialog für Auzüge");
         Button bEinzahlen = new Button("aktualisieren");
+        Button bAuszahlen = new Button("aktualisieren");
         bEinzahlen.setOnAction(e ->
                 anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()))
         );
-        box.getChildren().addAll(anzeige, bEinzahlen);
+        bAuszahlen.setOnAction(e ->
+                anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand())));
+        box.getChildren().addAll(anzeige, bEinzahlen
+        );
         Tab tab = new Tab("Auszüge", box);
+        tab.setOnSelectionChanged(e ->
+                anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand())));
         return tab;
     }
 }

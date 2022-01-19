@@ -38,6 +38,5 @@ public class BankApp extends Application {
         primaryStage.setTitle("Bank Applikation");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 }
