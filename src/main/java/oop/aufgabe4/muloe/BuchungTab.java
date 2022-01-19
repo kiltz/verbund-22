@@ -105,7 +105,7 @@ public class BuchungTab extends BasisTab {
             anzeige.setTextFill(Color.web("#000000"));
             tfEingabe.setText("");
         } catch (KeineKontoDeckungException e) {
-            anzeige.setText("Auszahlung nicht möglich: " + e.getMessage());
+            anzeige.setText("Auszahlung nicht möglich:\n " + e.getMessage());
             anzeige.setTextFill(Color.web("#990000"));
         }
 
