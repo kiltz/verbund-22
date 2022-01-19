@@ -7,6 +7,7 @@ public class Konto {
     private double dispo = 0;
     private double kontostand = 0;
     private List<Double> buchungen;
+    private String lAnzahl;
 
 
     public Konto() {
@@ -45,6 +46,13 @@ public class Konto {
         } else {
             throw new KeineKontoDeckungException(kontostand, kontostand + dispo);
         }
+    }
+
+    public void zeigeHistorie() {
+        this.lAnzahl = lAnzahl;
+
+        //lAnzahl.setText("Anzahl: " + buchungen);
+
     }
 
     public List<Double> getBuchungen() {

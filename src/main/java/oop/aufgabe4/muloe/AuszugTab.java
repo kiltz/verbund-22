@@ -40,6 +40,8 @@ public class AuszugTab extends BasisTab {
 
     private void andereAnsicht() {
         if (button.getText().equals("Historie")) {
+            konto.zeigeHistorie();
+            //anzeige.setText();
             button.setText("Zurück");
         } else {
             button.setText("Historie");
