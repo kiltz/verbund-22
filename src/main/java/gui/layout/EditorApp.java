@@ -55,18 +55,17 @@ public class EditorApp extends Application {
         AnchorPane.setBottomAnchor(hb_box2, 10.0);
         AnchorPane.setTopAnchor(hb_box2, 10.0);
 
-        ScrollPane sp_auflistung = new ScrollPane();
+        ScrollPane sp_auflistung = new ScrollPane(ta_dateiliste);
+        ta_dateiliste.setPadding(new Insets(15, 15, 15, 15));
         sp_auflistung.setFitToWidth(true);
         sp_auflistung.setFitToHeight(true);
-        sp_auflistung.setPadding(new Insets(10, 10, 10, 10));
-        sp_auflistung.setContent(ta_dateiliste);
         sp_auflistung.setHbarPolicy((ScrollPane.ScrollBarPolicy.ALWAYS));
         sp_auflistung.setVbarPolicy((ScrollPane.ScrollBarPolicy.ALWAYS));
 
         BorderPane bp_root = new BorderPane();
         bp_root.setBottom(ap_unterenbereich);
         bp_root.setTop(fp_oberenbereich);
-        bp_root.setCenter(sp_auflistung);
+        bp_root.setCenter(ta_dateiliste);
 
         Scene scene = new Scene(bp_root, 300, 400);
         primaryStage.setScene(scene);
