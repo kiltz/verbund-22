@@ -17,10 +17,10 @@ public class AnchorPaneApp extends Application {
         AnchorPane root = new AnchorPane();
         Button save = new Button("Speichern");
         Button help = new Button("Hilfe");
-        Button cancel = new Button("Abbruch");
+
         HBox buttons = new HBox();
         buttons.setSpacing(12);
-        buttons.getChildren().addAll(cancel, save, help);
+        buttons.getChildren().addAll(save, help);
         root.getChildren().add(buttons);
         AnchorPane.setRightAnchor(buttons, 10.0);
         AnchorPane.setBottomAnchor(buttons, 20.0);
