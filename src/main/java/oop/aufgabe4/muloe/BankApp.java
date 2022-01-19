@@ -29,8 +29,8 @@ public class BankApp extends Application {
         Konto konto = new Konto();
         TabPane root = new TabPane();
         List<BasisTab> tabs = new ArrayList<>();
-        tabs.add(new BuchungTab());
-        tabs.add(new AuszugTab());
+        tabs.add(new BuchungTab(konto));
+        tabs.add(new AuszugTab(konto));
 
         for (BasisTab tab : tabs) {
             root.getTabs().add(tab.getTab());

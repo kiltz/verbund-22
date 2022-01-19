@@ -6,7 +6,9 @@ import java.util.List;
 public class Konto {
     private double dispo = 0;
     private double kontostand = 0;
-    private List<Double> buchungen;
+    private List<Double> buchungen = new ArrayList<>();
+    private List<Double> al_einzahlungen = new ArrayList<>();
+    private List<Double> al_auszahlungen = new ArrayList<>();
 
 
     public Konto() {
@@ -15,7 +17,6 @@ public class Konto {
 
     public Konto(double dispo) {
         this.dispo = dispo;
-        buchungen = new ArrayList<>();
     }
 
     public Konto(double dispo, double kontostand) {
@@ -31,6 +32,7 @@ public class Konto {
         //kontostand = kontostand + betrag;
         kontostand += betrag;
         buchungen.add(betrag);
+        al_einzahlungen.add(betrag);
     }
 
     public double getKontoStand() {
@@ -42,12 +44,21 @@ public class Konto {
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
             buchungen.add(betrag * -1);
+            al_auszahlungen.add(betrag * -1);
         } else {
-            throw new KeineKontoDeckungException(kontostand, kontostand + dispo);
+            throw new KeineKontoDeckungException(kontostand, betrag);
         }
     }
 
     public List<Double> getBuchungen() {
         return buchungen;
+    }
+
+    public List<Double> getEinzahlungen() {
+        return al_einzahlungen;
+    }
+
+    public List<Double> getAuszahlungen() {
+        return al_auszahlungen;
     }
 }

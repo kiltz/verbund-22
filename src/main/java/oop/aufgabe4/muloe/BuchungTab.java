@@ -8,53 +8,56 @@ import utils.Zahlen;
 import java.text.ParseException;
 
 public class BuchungTab extends BasisTab {
-    public double d_kontostand = 0;
+    public Konto konto;
     public TextField tf_betragseingabe = new TextField();
     public TextField tf_dispo = new TextField();
     public CheckBox cb_einzahlen = new CheckBox("Einzahlen");
     public CheckBox cb_auszahlen = new CheckBox("Auszahlen");
     public Label l_anzeigekontostand = new Label("Dialog für Buchungen");
+    public Label l_dispo = new Label();
     public Button b_buchen = new Button("buchen");
     public Button b_disposetzen = new Button("Dispo setzen");
 
+    public BuchungTab(Konto konto) {
+        this.konto = konto;
+    }
+
     public void kontostand() {
-        String s_betragseingabe = tf_betragseingabe.getText();
 
-        try {
-            double d_betragseingabe = Zahlen.stringToDouble(s_betragseingabe);
-
-            b_buchen.setOnAction(event -> {
+        b_buchen.setOnAction(event -> {
+            try {
+                String s_betragseingabe = tf_betragseingabe.getText();
+                double d_betragseingabe = Zahlen.stringToDouble(s_betragseingabe);
 
                 if (cb_einzahlen.isSelected()) {
-                    d_kontostand += d_betragseingabe;
-                    l_anzeigekontostand.setText(String.format("Kontostand: %.2f", d_kontostand));
+                    konto.einzahlen(d_betragseingabe);
+                    l_anzeigekontostand.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
                 }
 
                 if (cb_auszahlen.isSelected()) {
-                    d_kontostand = d_kontostand - d_betragseingabe;
-                    l_anzeigekontostand.setText(String.format("Kontostand: %.2f", d_kontostand));
+                    konto.auszahlen(d_betragseingabe);
+                    l_anzeigekontostand.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
                 }
-            });
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        //l_anzeigekontostand.setText(String.format("Kontostand: %.2f", d_kontostand));
+            } catch (ParseException parseException) {
+                parseException.printStackTrace();
+            } catch (KeineKontoDeckungException keineKontoDeckungException) {
+                l_dispo.setText(keineKontoDeckungException.getMessage());
+            }
+        });
     }
 
     public void dispo() {
-        String s_dispoeingabe = tf_dispo.getText();
+        b_disposetzen.setOnAction(event -> {
+            try {
+                String s_dispoeingabe = tf_dispo.getText();
+                double d_dispoeingabe = Zahlen.stringToDouble(s_dispoeingabe);
+                konto.setDispo(d_dispoeingabe);
+                l_anzeigekontostand.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
 
-        try {
-            double d_dispoeingabe = Zahlen.stringToDouble(s_dispoeingabe);
-
-            b_disposetzen.setOnAction(event -> {
-                d_kontostand += d_dispoeingabe;
-                l_anzeigekontostand.setText(String.format("Kontostand: %.2f", d_kontostand));
-            });
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
+            } catch (ParseException ex) {
+                ex.printStackTrace();
+            }
+        });
     }
 
     public Tab getTab() {
@@ -79,6 +82,7 @@ public class BuchungTab extends BasisTab {
         vb_box1.getChildren().add(hb_box1);
         vb_box1.getChildren().add(hb_box2);
         vb_box1.getChildren().add(hb_box3);
+        vb_box1.getChildren().add(l_dispo);
         vb_box1.setSpacing(10);
 
         Tab tab = new Tab("Buchungen", vb_box1);
