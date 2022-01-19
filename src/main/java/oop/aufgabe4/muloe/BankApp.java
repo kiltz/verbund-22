@@ -24,12 +24,13 @@ public class BankApp extends Application {
     }
 
     @Override
+
     public void start(Stage primaryStage) {
         Konto konto = new Konto();
         TabPane root = new TabPane();
         List<BasisTab> tabs = new ArrayList<>();
-        tabs.add(new BuchungTab(konto));
-        tabs.add(new AuszugTab(konto));
+        tabs.add(new BuchungTab());
+        tabs.add(new AuszugTab());
 
         for (BasisTab tab : tabs) {
             root.getTabs().add(tab.getTab());
