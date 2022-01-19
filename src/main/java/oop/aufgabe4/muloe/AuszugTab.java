@@ -49,7 +49,7 @@ public class AuszugTab extends BasisTab {
 
         Tab tab = new Tab("Auszüge", box);
         tab.setOnSelectionChanged(e ->
-                anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()))
+                anzeige.setText(String.format("Kontostand: %.2f€", konto.getKontoStand()))
         );
         return tab;
     }
@@ -59,7 +59,7 @@ public class AuszugTab extends BasisTab {
             liste.getItems().clear();
             for (double betrag : konto.getBuchungen()) {
                 String art = betrag > 0 ? "Einzahlung" : "Auszahlung";
-                String eintrag = String.format("%s %.2f%n", art, betrag);
+                String eintrag = String.format("%s %.2f€%n", art, betrag);
                 liste.getItems().add(eintrag);
             }
             //anzeige.setText();
