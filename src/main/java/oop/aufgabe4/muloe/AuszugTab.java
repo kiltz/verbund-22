@@ -64,10 +64,10 @@ public class AuszugTab extends BasisTab {
     }
 
     private Node getAuszugOhneKategorieZeile() {
-        Button bAlleAuszuegeZeigen = new Button("Alle Ausgabe anzeigen");
+        Button bAlleAuszuegeZeigen = new Button("Alle Ausgaben anzeigen");
         bAlleAuszuegeZeigen.setOnAction(e -> {
             lAnzeige.setText("");
-            auszugAnzeigen();
+            auszugAnzeigen(null);
         });
 
         HBox hBox = new HBox(bAlleAuszuegeZeigen);
@@ -109,14 +109,6 @@ public class AuszugTab extends BasisTab {
 
     private void auszugAnzeigen(String kategorie) {
         List<Eintrag> liste = kontoAuszug.getEintraege(kategorie);
-
-        ObservableList<Eintrag> pw = FXCollections
-                .observableArrayList(liste);
-        tabelle.setItems(pw);
-    }
-
-    private void auszugAnzeigen() {
-        List<Eintrag> liste = kontoAuszug.getEintraege();
 
         ObservableList<Eintrag> pw = FXCollections
                 .observableArrayList(liste);
