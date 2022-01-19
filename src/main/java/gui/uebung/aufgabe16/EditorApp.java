@@ -1,6 +1,7 @@
 package gui.uebung.aufgabe16;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -76,7 +77,7 @@ public class EditorApp extends Application {
         bSave = new Button("Speichern");
         Button bEnd = new Button("Beenden");
         bSave.setOnAction(event -> speichern());
-        bEnd.setOnAction(event -> System.exit(0));
+        bEnd.setOnAction(event -> Platform.exit());
         // wenn nach speichern, text in file == text in scrolli -->
         // Button text = "Gespeichert"
         // wenn text geändert wird --> Button text = "Speichern"
@@ -89,7 +90,8 @@ public class EditorApp extends Application {
     }
 
     private void speichern() {
-        File f = new File(String.format("\"C:\\%s.txt"), dateiName);
+        File f = new File(dateiName);
+        System.out.println(f);
         dateiPfad = f.getAbsolutePath();
         try {
             if (dateiPfad.length() >= 0) {
