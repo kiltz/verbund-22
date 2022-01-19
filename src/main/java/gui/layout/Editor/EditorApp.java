@@ -42,21 +42,18 @@ public class EditorApp extends Application {
 
         tf.setPromptText("Hier ist ein Böser Smilie >:((");
 
-        tf.setPadding(new Insets(0, 0, 0, 0));
-
-
         ScrollPane scrolli = new ScrollPane();
 
-        scrolli.setPadding(new Insets(10, 1, 10, 1));
-        scrolli.fitToWidthProperty();
-        scrolli.fitToHeightProperty();
+        scrolli.setPadding(new Insets(10, 10, 10, 10));
+        scrolli.setFitToWidth(true);
+        scrolli.setFitToHeight(true);
         scrolli.setContent(tf);
 
         box.setAlignment(Pos.CENTER);
 
 
-        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        scrolli.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrolli.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
         box.getChildren().addAll(tf, scrolli);
         return box;
