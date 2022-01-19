@@ -1,7 +1,9 @@
 package oop.aufgabe4.muloe;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 public class AuszugTab extends BasisTab {
     private final Konto konto;
@@ -40,6 +42,9 @@ public class AuszugTab extends BasisTab {
         box.getChildren().add(anzeige);
         box.getChildren().add(button);
         box.getChildren().add(scrolli);
+        // box.setSpacing(10);
+        box.setPadding(new Insets(35, 20, 20, 0));
+        anzeige.setFont(Font.font("Verdana", 14));
         //box.getChildren().add(zurueck);
 
         Tab tab = new Tab("Auszüge", box);

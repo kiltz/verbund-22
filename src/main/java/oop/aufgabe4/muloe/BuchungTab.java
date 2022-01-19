@@ -7,6 +7,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class BuchungTab extends BasisTab {
     private final Konto konto;
@@ -37,6 +38,7 @@ public class BuchungTab extends BasisTab {
         box.getChildren().add(anzeige);
         box.getChildren().add(bEinzahlen);
         box.getChildren().add(bAbheben);
+        anzeige.setFont(Font.font("Verdana", 14));
         Tab tab = new Tab("Buchungen", box);
         return tab;
     }

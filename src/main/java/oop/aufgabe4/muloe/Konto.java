@@ -48,12 +48,7 @@ public class Konto {
         }
     }
 
-    public void zeigeHistorie() {
-        this.lAnzahl = lAnzahl;
 
-        //lAnzahl.setText("Anzahl: " + buchungen);
-
-    }
 
     public List<Double> getBuchungen() {
         return buchungen;

@@ -1,6 +1,7 @@
 package oop.aufgabe4.muloe;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
@@ -33,6 +34,7 @@ public class BankApp extends Application {
         List<BasisTab> tabs = new ArrayList<>();
         tabs.add(new BuchungTab(konto));
         tabs.add(new AuszugTab(konto));
+        root.setPadding(new Insets(10, 20, 20, 20));
 
         for (BasisTab tab : tabs) {
             root.getTabs().add(tab.getTab());
