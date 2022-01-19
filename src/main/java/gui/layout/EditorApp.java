@@ -38,6 +38,7 @@ public class EditorApp extends Application {
 
         b_beenden.setOnAction(event -> {
         Fenster soll geschlossen werden
+        platformexit()
         }
         */
 
