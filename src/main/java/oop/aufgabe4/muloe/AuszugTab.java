@@ -22,10 +22,7 @@ public class AuszugTab extends BasisTab {
         anzeige = new Label("Dialog für Auzüge");
         button = new Button("Historie");
         zurueck = new Button("Zurück");
-        button.setOnAction(e ->
-                anzeige.setText(String.format("Historie", konto.getKontoStand(),
-                        box.getChildren().add(zurueck))
-                ));
+        button.setOnAction(e -> andereAnsicht());
         //zurueck.setOnAction(e -> box.removeEventFilter(box.getChildren(zurueck)));
 
         box.setSpacing(10);
@@ -39,5 +36,14 @@ public class AuszugTab extends BasisTab {
                 anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()))
         );
         return tab;
+    }
+
+    private void andereAnsicht() {
+        if (button.getText().equals("Historie")) {
+            button.setText("Zurück");
+        } else {
+            button.setText("Historie");
+        }
+
     }
 }
