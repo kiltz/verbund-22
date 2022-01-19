@@ -7,6 +7,7 @@ public class Konto {
     private double dispo = 0;
     private double kontostand = 0;
     private List<Double> buchungen;
+    private String lAnzahl;
 
 
     public Konto() {
@@ -47,7 +48,10 @@ public class Konto {
         }
     }
 
+
     public List<Double> getBuchungen() {
         return buchungen;
     }
+
+
 }
