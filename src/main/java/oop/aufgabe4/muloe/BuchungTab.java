@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class BuchungTab extends BasisTab {
     private final Konto konto;
@@ -27,15 +28,9 @@ public class BuchungTab extends BasisTab {
 
         tfEingabe = new TextField();
 
-        bEinzahlen.setOnAction(e -> rechne(e));
+        bEinzahlen.setOnAction(e -> einzahlen(e));
         bAbheben.setOnAction(e -> abheben(e));
-        {
-
-            anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
-        }
-        ;
-
-
+        anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
         box.setSpacing(10);
 
         box.getChildren().add(tfEingabe);
@@ -46,7 +41,7 @@ public class BuchungTab extends BasisTab {
         return tab;
     }
 
-    private void rechne(ActionEvent e) {
+    private void einzahlen(ActionEvent e) {
         String eingabe = tfEingabe.getText();
         if (eingabe.isEmpty()) {
             tfEingabe.setPromptText("Bitte Zahlen Eingeben!");
@@ -69,16 +64,19 @@ public class BuchungTab extends BasisTab {
     private void berechneEingabe(String eingabe) {
         konto.einzahlen(Double.parseDouble(eingabe));
         anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
+        anzeige.setTextFill(Color.web("#000000"));
 
     }
 
     private void berechneAbhebung(String eingabe) {
         try {
             konto.auszahlen(Double.parseDouble(eingabe));
+            anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
+            anzeige.setTextFill(Color.web("#000000"));
         } catch (KeineKontoDeckungException e) {
-            e.printStackTrace();
+            anzeige.setText("Auszahlung nicht möglich: " + e.getMessage());
+            anzeige.setTextFill(Color.web("#990000"));
         }
-        anzeige.setText(String.format("Kontostand: %.2f", konto.getKontoStand()));
 
     }
 }

@@ -1,8 +1,6 @@
 package oop.aufgabe4.muloe;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 public class AuszugTab extends BasisTab {
@@ -10,6 +8,8 @@ public class AuszugTab extends BasisTab {
     private Label anzeige;
     private Button button;
     private Button zurueck;
+    private ListView<Object> liste;
+    private ScrollPane scrolli;
 
 
     public AuszugTab(Konto konto) {
@@ -27,8 +27,19 @@ public class AuszugTab extends BasisTab {
 
         box.setSpacing(10);
 
+
+        liste = new ListView<>();
+        liste.setMaxWidth(200);
+        scrolli = new ScrollPane();
+        scrolli.setMaxWidth(200);
+        scrolli.setMaxHeight(200);
+        scrolli.setContent(liste);
+        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrolli.setVisible(false);
+
         box.getChildren().add(anzeige);
         box.getChildren().add(button);
+        box.getChildren().add(scrolli);
         //box.getChildren().add(zurueck);
 
         Tab tab = new Tab("Auszüge", box);
@@ -40,10 +51,17 @@ public class AuszugTab extends BasisTab {
 
     private void andereAnsicht() {
         if (button.getText().equals("Historie")) {
-            konto.zeigeHistorie();
+            liste.getItems().clear();
+            for (double betrag : konto.getBuchungen()) {
+                String art = betrag > 0 ? "Einzahlung" : "Auszahlung";
+                String eintrag = String.format("%s %.2f%n", art, betrag);
+                liste.getItems().add(eintrag);
+            }
             //anzeige.setText();
+            scrolli.setVisible(true);
             button.setText("Zurück");
         } else {
+            scrolli.setVisible(false);
             button.setText("Historie");
         }
 
