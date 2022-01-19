@@ -44,7 +44,7 @@ public class EditorApp extends Application {
 
         scrolli.setMaxWidth(250);
         scrolli.setMaxHeight(150);
-
+        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         return scrolli;
     }
@@ -70,6 +70,7 @@ public class EditorApp extends Application {
         FlowPane node = new FlowPane();
         node.setVgap(10.0);
         node.setHgap(10.0);
+        node.setPadding(new Insets(10, 10, 10, 10));
         node.setAlignment(Pos.CENTER);
         node.getChildren().addAll(new Label("Datei"), new TextField(), new Button("Lesen"));
 
