@@ -1,6 +1,7 @@
 package gui.layout.Editor;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -31,6 +32,8 @@ public class EditorApp extends Application {
 
         Scene scene = new Scene(root, 300, 250);
         primaryStage.setTitle("Mo's Editor");
+
+
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -72,6 +75,7 @@ public class EditorApp extends Application {
         pane.setPadding(new Insets(10, 10, 5, 10));
         AnchorPane.setRightAnchor(buttons, 10.0);
         AnchorPane.setBottomAnchor(buttons, 10.0);
+        help.setOnAction(e -> Platform.exit());
 
         return pane;
     }
@@ -86,5 +90,6 @@ public class EditorApp extends Application {
 
         return node;
     }
+
 
 }
