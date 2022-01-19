@@ -36,7 +36,7 @@ public class BankApp extends Application {
         for (BasisTab tab : tabs) {
             root.getTabs().add(tab.getTab());
         }
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root, 300, 450);
         primaryStage.setTitle("Bank Applikation");
         primaryStage.setScene(scene);
         primaryStage.show();

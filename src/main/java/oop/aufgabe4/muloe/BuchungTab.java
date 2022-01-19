@@ -42,7 +42,6 @@ public class BuchungTab extends BasisTab {
             tfBetrag.setText(temp);
         }
     }
-
     private void auszahlen(String kategorie) {
         if (tfBetrag.getText().length() > 0) {
             try {
@@ -56,7 +55,6 @@ public class BuchungTab extends BasisTab {
             tfBetrag.setText("");
         }
     }
-
     private void einzahlen() {
         if (tfBetrag.getText().length() > 0) {
             try {
