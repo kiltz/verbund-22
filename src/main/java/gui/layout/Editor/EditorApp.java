@@ -83,6 +83,7 @@ public class EditorApp extends Application {
         FlowPane node = new FlowPane();
         node.setVgap(10.0);
         node.setHgap(10.0);
+
         node.setPadding(new Insets(10, 1, 10, 1));
         node.setAlignment(Pos.CENTER);
         node.getChildren().addAll(new Label("Datei"), new TextField(), new Button("Lesen"));
