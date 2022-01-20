@@ -25,38 +25,20 @@ package basic.aufgabe2;
 public class WuerfelStatistik {
 	public static void main(String[] args) {
 
-		int anzahlEinser = 0;
-		int anzahlZweier = 0;
-		int anzahlDreier = 0;
-		int anzahlVierer = 0;
-		int anzahlFuenfer = 0;
-		int anzahlSechser = 0;
+		int[] anzahl = new int[6];
+
 		// tue es 10.000 mal
 		for (int i = 1; i <= 10000; ++i) {
-			double zufall = Math.random();          // etwas zwischen 0.00 und 0.999
+			double zufall = Math.random();          // etwas zwischen 0.000 und 0.999
 			int zahl = (int) (zufall * 6) + 1;      // etwas zwischen 1 und 6
-			if (zahl == 1) {
-				anzahlEinser++;
-			} else if (zahl == 2) {
-				anzahlZweier++;
-			} else if (zahl == 3) {
-				anzahlDreier++;
-			} else if (zahl == 4) {
-				anzahlVierer++;
-			} else if (zahl == 5) {
-				anzahlFuenfer++;
-			} else {
-				anzahlSechser++;
-			}
-		}
-		System.out.println("\n" + "Ergebniss nach 10.000 Würfen: " + "\n");
-		System.out.println(
-				"Sie haben" + " " + anzahlEinser + " " + "Einser gewürfelt" + "\n" +
-				"Sie haben" + " " + anzahlZweier  + " " + "Zweier gewürfelt" + "\n" +
-				"Sie haben" + " " + anzahlDreier  + " " + "Dreier gewürfelt" + "\n" +
-				"Sie haben" + " " + anzahlVierer  + " " + "Vierer gewürfelt" + "\n" +
-				"Sie haben" + " " + anzahlFuenfer + " " + "Fünfer gewürfelt" + "\n" +
-				"Sie haben" + " " + anzahlSechser + " " + "Sechser gewürfelt" + "\n");
 
+			int index = zahl - 1;
+			anzahl[index]++;
+		}
+
+		System.out.println("\n" + "Ergebniss nach 10.000 Würfen: " + "\n");
+		for (int i = 0; i < 6; ++i) {
+				System.out.println("Sie haben " + anzahl[i] + " " + (i + 1) + "er gewürfelt.");
+		}
 	}
 }
