@@ -23,14 +23,14 @@ public class MWStRechnerGui extends Application {
     @Override
     public void start(Stage primaryStage) {
         eingabeBetrag = new TextField();
-        Label lProzent = new Label("19 %");
         lErgebnis = new Label();
+        Label lProzent = new Label("19 %");
         Button bErgebnis = new Button("=");
         bErgebnis.setDefaultButton(true);
         bErgebnis.setOnAction(e -> rechne());
         HBox root = new HBox();
         root.getChildren().addAll(eingabeBetrag, lProzent, bErgebnis, lErgebnis);
-        Scene scene = new Scene(root, 300, 300);
+        Scene scene = new Scene(root, 400, 300);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mehrwertsteuerrechner");
         primaryStage.show();
