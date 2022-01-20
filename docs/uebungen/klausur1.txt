@@ -1,0 +1,43 @@
+Leistungstest
+-------------
+Zeit: 45 Minuten
+Open-Book-Klausur: Alle nicht-personellen Hilfsmittel (Unterlage, Beispieldateien) sind erlaubt.
+
+(2 Punkte)
+1. Erzeuge eine Klasse mit dem Namen "MWStRechnerGui" im Paket "uebungen.uebung1"
+    Hinweis: Wenn von der Namensgebung abgewichen wird, wird der komplette Test mit 0 Punkten bewertet.
+
+(2 Punkte)
+2. Lasse die Klasse "MWStRechnerGui" von der Klasse "javafx.application.Application" erben, überschreibe die Methode
+    "public void start(Stage primaryStage)"
+
+(2 Punkt)
+3. Erweitere die Klasse "MWStRechnerGui" durch die Main-Methode. In dieser Methode soll die Apllication "gelaunched"
+    werden.
+
+(3 Punkte)
+4. Erzeuge in der Start-Methode eine HBox als WurzelKnoten und weise ihn einer Szene zu.
+Übergebe die Szene an die primaryStage, setze den Titel auf "Mehrwertsteuerrechner" und zeige die Bühne an.
+
+(7 Punkte)
+5. Erzeuge ein Textfeld, zwei Label und einen Button.
+    - das Textfeld ist für die Eingabe eines Betrages (mit Komma!)
+    - ein Label enthält ein "19 %" und steht nach dem Eingabefeld
+    - ein Label enthält das Ergebnis
+    - der Button hat den Text "="
+
+(3 Punkte)
+6. Hauch dem Button Leben ein. Wenn man auf den Button klick soll eine Methode "rechne()" aufgerufen werden.
+    Der Button soll der Default-Button sein.
+
+(5 Punkte)
+7. In der Methode "rechne()" soll die Eingabe aus dem Textfeld ausgelesen werden.
+    Wandele sie in eine double um und berechne 19 % WMSt daraus (betrag * 0,19)
+    Gebe das Ergebnis in dem Ergebnis-Label mit zwei NachkommaStellen aus.
+    Die Klasse Zahlen darf genutzt werden.
+
+Auf alle Fälle: Commit und Push.
+    Hinweis: Nur das was zur Endzeit in GitHub ist, wird bewertet.
+
+Gesamt: 24 Punkte
+
