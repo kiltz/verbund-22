@@ -35,6 +35,7 @@ public class MWStRechnerGui extends Application {
         tf_betragseingabe.setPromptText("Betrag (mit Komma!)");
         Label l_mehrwertsteuer = new Label("19%");
         Button b_rechne = new Button("=");
+        b_rechne.setDefaultButton(true);
 
         b_rechne.setOnAction(event -> {
             try {
@@ -42,7 +43,6 @@ public class MWStRechnerGui extends Application {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            b_rechne.setDefaultButton(true);
         });
 
         HBox WurzelKnoten = new HBox();
