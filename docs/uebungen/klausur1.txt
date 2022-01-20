@@ -1,6 +1,6 @@
 Leistungstest
 -------------
-Zeit: 45 Minuten
+Zeit: 45 Minuten - bis 9:50 Uhr
 Open-Book-Klausur: Alle nicht-personellen Hilfsmittel (Unterlage, Beispieldateien) sind erlaubt.
 
 (2 Punkte)
@@ -12,7 +12,7 @@ Open-Book-Klausur: Alle nicht-personellen Hilfsmittel (Unterlage, Beispieldateie
     "public void start(Stage primaryStage)"
 
 (2 Punkt)
-3. Erweitere die Klasse "MWStRechnerGui" durch die Main-Methode. In dieser Methode soll die Apllication "gelaunched"
+3. Erweitere die Klasse "MWStRechnerGui" durch die Main-Methode. In dieser Methode soll die Application "gelaunched"
     werden.
 
 (3 Punkte)
