@@ -1,5 +1,17 @@
 package uebungen.uebung1;
 
+/**
+ * Aufgabe 1: 2 Pt
+ * Aufgabe 2: 2 Pt
+ * Aufgabe 3: 2 Pt
+ * Aufgabe 4: 3 Pt
+ * Aufgabe 5: 7 Pt
+ * Aufgabe 6: 3 Pt
+ * Aufgabe 7: 5 Pt
+ * -----------
+ * 24/24 👍
+ */
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
