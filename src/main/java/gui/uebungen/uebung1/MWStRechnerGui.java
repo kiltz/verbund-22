@@ -55,3 +55,16 @@ public class MWStRechnerGui extends Application {
 
     }
 }
+
+/*
+1. 1 Punkt
+2. 2 Punkte
+3. 2 Punkte
+4. 3 Punkte
+5. 7 Punkte
+6. 2 Punkte
+7. 5 Punkte
+
+22/24
+
+ */
