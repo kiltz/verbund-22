@@ -1,0 +1,26 @@
+@startuml
+
+class BasicApp {
+    +  start() : void
+}
+class Application {
+    + abstract start() : void
+}
+Application <|-- BasicApp
+class Stage {
+}
+BasicApp *-- Stage
+
+class Scene {
+}
+Stage "1" *-- "1" Scene
+
+class HBox {
+}
+Scene *-- HBox
+
+class Label {
+}
+
+HBox *-- Label
+@enduml

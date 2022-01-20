@@ -21,8 +21,7 @@ public class Bank {
         try {
             k.auszahlen(300);
         } catch (KeineKontoDeckungException e) {
-            e.printStackTrace();
-            System.out.println("Ein Fehler ist aufgetreten!");
+            System.out.println("Fehler! ");
         }
         if (k.getKontoStand() != 200) {
             System.out.println("Fehler 2");
@@ -32,8 +31,7 @@ public class Bank {
         try {
             k.auszahlen(300);
         } catch (KeineKontoDeckungException e) {
-            e.printStackTrace();
-            System.out.println("Ein Fehler ist aufgetreten!");
+            System.out.println("Fehler! ");
         }
         if (k.getKontoStand() != -100) {
             System.out.println("Fehler 3");
@@ -42,10 +40,10 @@ public class Bank {
         // => es muss ein Fehler auftauchen
         try {
             k.auszahlen(1000);
-            System.out.println("Ein Fehler ist aufgetreten!");
+            System.out.println("Fehler!");
         } catch (KeineKontoDeckungException e) {
-            e.printStackTrace();
-            System.out.println("Ein Fehler ist aufgetreten aber das ist richtig!");
+            // alles gut!
+            System.out.println(e.getMessage());
         }
         if (k.getKontoStand() != -100) {
             System.out.println("Fehler 4");

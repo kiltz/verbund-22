@@ -1,0 +1,37 @@
+@startuml
+class Klasse1 {
+}
+class Klasse2 {
+}
+Klasse1 -- Klasse2
+note "Assoziation" as N1
+N1 .. Klasse1
+N1 .. Klasse2
+
+class Ganzes {
+}
+
+class Teil {
+}
+Ganzes o-- Teil
+note "Aggregation" as N2
+N2 .. Ganzes
+N2 .. Teil
+
+class ExistenziellAbhaengigesTeil {
+}
+Ganzes *-- ExistenziellAbhaengigesTeil
+note "Komposition" as N3
+N3 .. Ganzes
+N3 .. ExistenziellAbhaengigesTeil
+
+class Superklasse {
+}
+class SubKlasse {
+}
+Superklasse <|-- SubKlasse
+note "Vererbung" as N4
+N4 .. Superklasse
+N4 .. SubKlasse
+
+@enduml
