@@ -1,12 +1,10 @@
 package de.verbund.pwmanager.gui;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 
 
-public class PWManagerController {
+public class PWManagerController /* implements Initializable */ {
 
     private String strSearch;
     @FXML
@@ -17,6 +15,16 @@ public class PWManagerController {
     private TextField tfNewPassword;
     @FXML
     private Label textPassword;
+    @FXML
+    private TextField tfNewName;
+    @FXML
+    private TextField tfNewUser;
+    @FXML
+    private TextField tfNote;
+    @FXML
+    private TextArea taData;
+    @FXML
+    private Accordion acAccount;
 
     public void doSave() {
         System.out.println("It should save with this");
@@ -47,5 +55,14 @@ public class PWManagerController {
             textPassword.setText(null);
             tfNewPassword.setVisible(true);
         }
+    }
+
+    public void doAddNewData() {
+        acAccount.setVisible(true);
+        taData.setText(String.format("%s \n%s \n%s \n%s", tfNewName.getText(), tfNewUser.getText(), tfNewPassword.getText(), tfNote.getText()));
+        tfNewName.clear();
+        tfNewUser.clear();
+        tfNewPassword.clear();
+        tfNote.clear();
     }
 }

@@ -14,7 +14,7 @@ import java.net.URL;
 public class StarterApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL res = getClass().getResource("/de/verbund/pwmanager/gui/pwmanager.fxml");
+        URL res = getClass().getResource("/gui/fxml/pwmanager.fxml");
         Parent root = FXMLLoader.load(res);
         primaryStage.setTitle("Password Manager");
         primaryStage.setScene(new Scene(root, 600, 420));
