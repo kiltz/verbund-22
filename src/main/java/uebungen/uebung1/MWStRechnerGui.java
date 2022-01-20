@@ -1,0 +1,47 @@
+package uebungen.uebung1;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import utils.Zahlen;
+
+import java.text.ParseException;
+
+public class MWStRechnerGui extends Application {
+
+    TextField eingabeBetrag;
+    Label lErgebnis;
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        eingabeBetrag = new TextField();
+        Label lProzent = new Label("19 %");
+        lErgebnis = new Label();
+        Button bErgebnis = new Button("=");
+        bErgebnis.setDefaultButton(true);
+        bErgebnis.setOnAction(e -> rechne());
+        HBox root = new HBox();
+        root.getChildren().addAll(eingabeBetrag, lProzent, bErgebnis, lErgebnis);
+        Scene scene = new Scene(root, 300, 300);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Mehrwertsteuerrechner");
+        primaryStage.show();
+    }
+
+    private void rechne() {
+        try {
+            double ergebnis = Zahlen.stringToDouble(eingabeBetrag.getText()) * 0.19;
+            lErgebnis.setText(String.format("%.2f", ergebnis));
+        } catch (ParseException e) {
+            lErgebnis.setText("Das ist kein gültiger Betrag");
+        }
+    }
+}
