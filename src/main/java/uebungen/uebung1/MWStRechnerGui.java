@@ -1,4 +1,16 @@
 package uebungen.uebung1;
+/*
+Aufgabe 1: 2 Punkte
+Aufgabe 2: 2 Punkte
+Aufgabe 3: 2 Punkte
+Aufgabe 4: 3 Punkte
+Aufgabe 5: 7 Punkte
+Aufgabe 6: 3 Punkte
+Aufgabe 7: 5 Punkte
+
+Resultat: 24 Punkte => Du Viech! :-o
+*/
+
 
 import javafx.application.Application;
 import javafx.scene.Scene;
