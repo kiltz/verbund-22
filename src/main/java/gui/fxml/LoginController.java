@@ -31,8 +31,8 @@ public class LoginController {
     }
 
     public void doLogin() {
-        System.out.println("Login..."+tfEmail.getText()+"/"+tfPasswort.getText());
-        lStatus.setText("Wilkommen...");
+        System.out.println("Login..." + tfEmail.getText() + "/" + tfPasswort.getText());
+        lStatus.setText("Willkommen...");
     }
 
     public void doBeenden(){
