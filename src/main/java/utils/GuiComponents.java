@@ -3,24 +3,66 @@ package utils;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.Map;
 
 public class GuiComponents {
 
-    public static Node setPasswortFieldElement() {
-        HBox box = new HBox();
-        box.getChildren().add(new PasswordField());
+
+    public static Node setTextFieldElementsVertikal(String[] promtTexte) {
+        VBox box = new VBox();
+        for (String promtText : promtTexte) {
+            TextField t = new TextField();
+            t.setPromptText(promtText);
+            box.getChildren().add(t);
+        }
         box.setSpacing(10);
         return box;
     }
 
-    public static Node setTextFieldElement(String[] promtTexte) {
+    public static Node setTextFieldElementsHorizontal(String[] promtTexte) {
         HBox box = new HBox();
         for (String promtText : promtTexte) {
             TextField t = new TextField();
             t.setPromptText(promtText);
             box.getChildren().add(t);
+        }
+        box.setSpacing(10);
+        return box;
+    }
+
+    public static Node kombinierenHorizontal(Node[] elem) {
+        HBox box = new HBox();
+        for (Node e : elem) {
+            box.getChildren().add(e);
+        }
+        box.setSpacing(10);
+        return box;
+    }
+
+    public static Node kombinierenVertikal(Node[] elem) {
+        VBox box = new VBox();
+        for (Node e : elem) {
+            box.getChildren().add(e);
+        }
+        box.setSpacing(10);
+        return box;
+    }
+
+    public static Node setLabelElementsHorizontal(String[] texte, int spacing) {
+        HBox box = new HBox();
+        for (String text : texte) {
+            box.getChildren().add(new Label(text));
+        }
+        box.setSpacing(spacing);
+        return box;
+    }
+
+    public static Node setLabelElementsVertikal(String[] texte) {
+        VBox box = new VBox();
+        for (String text : texte) {
+            box.getChildren().add(new Label(text));
         }
         box.setSpacing(10);
         return box;

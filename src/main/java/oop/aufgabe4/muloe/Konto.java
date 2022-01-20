@@ -45,37 +45,38 @@ public class Konto {
                 String[] teile = eintrag.split(";");
                 double betrag;
                 try {
-                    betrag = Zahlen.stringToDouble(teile[2]);
+                    betrag = Zahlen.stringToDouble(teile[3]);
                     if (teile[0].equals("Einzahlung")) {
-                        liste.add(new Einzahlung(betrag, teile[1]));
-                        einzahlen(betrag);
+                        liste.add(new Einzahlung(betrag, teile[2]));
+                        summeKontostand += betrag;
                     } else if (teile[0].equals("Auszahlung")) {
-                        liste.add(new Auszahlung(betrag, teile[1]));
-                        auszahlen(betrag);
+                        liste.add(new Auszahlung(betrag, teile[3], teile[2]));
+                        summeKontostand -= betrag;
                     } else {
                         liste.add(new Dispo(betrag, teile[1]));
                         setDispo(betrag);
                     }
                 } catch (ParseException e) {
                     System.out.println("Es liegt ein Fehler in der Datei vor");
-                } catch (KeineKontoDeckungException e) {
-                    e.printStackTrace();
                 }
             }
 
         } catch (Exception e) {
 
         }
+        setKontostand(summeKontostand);
         return liste;
     }
 
     public void setDispo(double neuerDispo, boolean schreibe) {
         dispo = neuerDispo;
-        schreibeBuchung(new Dispo(neuerDispo));
+        if (schreibe) {
+            schreibeBuchung(new Dispo(neuerDispo));
+        }
     }
 
     public void setDispo(double neuerDispo) {
-        dispo = neuerDispo;
+        setDispo(neuerDispo, false);
     }
 
     public double getDispo() {
@@ -85,12 +86,11 @@ public class Konto {
     public void einzahlen(double betrag) {
         //kontostand = kontostand + betrag;
         kontostand += betrag;
+        schreibeBuchung(new Einzahlung(betrag));
     }
 
-    public void einzahlen(double betrag, boolean schreibe) {
-        //kontostand = kontostand + betrag;
-        kontostand += betrag;
-        schreibeBuchung(new Einzahlung(betrag));
+    private void setKontostand(double kontostand) {
+        this.kontostand = kontostand;
     }
 
     public double getKontoStand() {
@@ -98,18 +98,10 @@ public class Konto {
     }
 
     // 2. gebe die Exception weiter
-    public void auszahlen(double betrag) throws KeineKontoDeckungException {
+    public void auszahlen(String zweck, double betrag) throws KeineKontoDeckungException {
         if (kontostand + dispo >= betrag) {
             kontostand -= betrag;
-        } else {
-            throw new KeineKontoDeckungException(kontostand, kontostand + dispo);
-        }
-    }
-
-    public void auszahlen(double betrag, boolean schreibe) throws KeineKontoDeckungException {
-        if (kontostand + dispo >= betrag) {
-            kontostand -= betrag;
-            schreibeBuchung(new Auszahlung(betrag));
+            schreibeBuchung(new Auszahlung(zweck, betrag));
         } else {
             throw new KeineKontoDeckungException(kontostand, kontostand + dispo);
         }

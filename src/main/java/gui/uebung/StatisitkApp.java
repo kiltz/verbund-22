@@ -26,7 +26,7 @@ public class StatisitkApp extends Application {
     Label summe;
     Label durchschnitt;
     Label anz;
-
+    Label notificationLabel;
     public static void main(String[] args) {
         launch(null);
     }
@@ -40,6 +40,7 @@ public class StatisitkApp extends Application {
         summe = new Label();
         durchschnitt = new Label();
         anz = new Label();
+        Label notificationLabel;
         // tz: wäre schön, wenn der Button Default wäre
         Button hinzufuegenButton = new Button("Zahl hinzufügen");
         hinzufuegenButton.setOnAction(e -> zahlHinzufuegen(e));
@@ -73,18 +74,21 @@ public class StatisitkApp extends Application {
     private void zahlHinzufuegen(ActionEvent e) {
         // tz: hier ist für den Benutzer nicht wirkjlich ersichtlich,
         // dass die Zahl hinzugefügt wurde...
+
         try {
             alleZahlen.add(Integer.parseInt(zahlEingabe.getText()));
+            notificationLabel.setText("Zahl wurde erfolgreich hinzugefügt");
             zahlEingabe.requestFocus();
         } catch (NumberFormatException ex) {
             zahlEingabe.requestFocus();
+            notificationLabel.setText("Die Eingabe ist keine Zahl.");
             // tz: Der Text wird nicht angezeigt, wenn das Feld nicht leer ist.
-            zahlEingabe.setPromptText("Bitte gültige Zahl eingeben");
+
         }
     }
 
     private void statistikAusgeben(ActionEvent e) {
-        try {
+        if (!alleZahlen.isEmpty()) {
             int maxZahl = alleZahlen.get(0);
             int minZahl = alleZahlen.get(0);
             int summeZahl = 0;
@@ -105,10 +109,10 @@ public class StatisitkApp extends Application {
             summe.setText("Summe: " + summeZahl);
             anz.setText("Anzahl: " + anzZahlen);
             durchschnitt.setText("Durchschnitt: " + durchschnittZahl);
-        } catch (IndexOutOfBoundsException ex) {
+        } else {
             zahlEingabe.requestFocus();
             // tz: s.o. schöner wäre es, wenn die Ex nicht gebraucht werden würde.
-            zahlEingabe.setPromptText("Bitte eingeben");
+            notificationLabel.setText("Es wurde noch keine Zahl hinzugefügt");
         }
     }
 }

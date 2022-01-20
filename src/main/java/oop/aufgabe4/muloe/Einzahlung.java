@@ -7,16 +7,19 @@ public class Einzahlung extends Buchung {
     String art;
     double betrag;
     String datum;
+    String zweck;
 
     public Einzahlung(double betrag) {
         setBetrag(betrag);
         setBuchungArt("Einzahlung");
         setDatum(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        setZweck("");
     }
 
     public Einzahlung(double betrag, String datum) {
         setBetrag(betrag);
         setBuchungArt("Einzahlung");
         setDatum(datum);
+        setZweck("");
     }
 }

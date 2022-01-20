@@ -4,15 +4,18 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import utils.GuiComponents;
 
 import java.util.List;
 
@@ -34,18 +37,22 @@ public class PasswdManagerApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        manager = new Manager();
-        VBox root = new VBox(10);
-        root.getChildren().add(getNameZeile());
-        root.getChildren().add(getBenutzerNameZeile());
-        root.getChildren().add(getPasswdZeile());
-        root.getChildren().add(getEintragenZeile());
-        root.getChildren().add(getSuchZeile());
-        root.getChildren().add(getSuchErgebnisZeile());
-        Scene scene = new Scene(root, 300, 400);
+
+        Scene scene = new Scene((Parent) getRoot(), 300, 400);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Passwort-Manager");
         primaryStage.show();
+    }
+
+    public Node getRoot() {
+        manager = new Manager();
+        BorderPane root = new BorderPane();
+        HBox passwortEingabe = new HBox();
+        root.setTop(getSuchZeile());
+        root.setCenter(GuiComponents.kombinierenVertikal(new Node[]{passwortEingabe, getEintragenZeile()}));
+        root.setBottom(getSuchErgebnisZeile());
+        passwortEingabe.getChildren().addAll(getNameZeile(), getBenutzerNameZeile(), getPasswdZeile());
+        return root;
     }
 
     private Node getSuchErgebnisZeile() {
@@ -110,29 +117,29 @@ public class PasswdManagerApp extends Application {
     }
 
     private Node getPasswdZeile() {
-        HBox box = new HBox(15);
+        VBox box = new VBox();
         box.setPadding(new Insets(10));
         tfPasswort = new TextField();
 
-        box.getChildren().addAll(new Label("Passwort"), tfPasswort);
+        box.getChildren().addAll(new Label("Passwort:"), tfPasswort);
         return box;
     }
 
     private Node getBenutzerNameZeile() {
-        HBox box = new HBox(15);
+        VBox box = new VBox();
         box.setPadding(new Insets(10));
         tfBenutzerName = new TextField();
 
-        box.getChildren().addAll(new Label("Benutzer"), tfBenutzerName);
+        box.getChildren().addAll(new Label("Benutzer:"), tfBenutzerName);
         return box;
     }
 
     private Node getNameZeile() {
-        HBox box = new HBox(15);
+        VBox box = new VBox();
         box.setPadding(new Insets(10));
         tfName = new TextField();
 
-        box.getChildren().addAll(new Label("Name"), tfName);
+        box.getChildren().addAll(new Label("Name:"), tfName);
         return box;
     }
 }

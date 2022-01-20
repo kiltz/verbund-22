@@ -33,7 +33,6 @@ public class LoginApp extends Application {
 
     TextField benutzername;
     PasswordField passwort;
-    Button login;
 
     public static void main(String[] args) {
         launch(null);
@@ -45,7 +44,7 @@ public class LoginApp extends Application {
         // tz: lokale Variable, wenn immer möglich!
         benutzername = new TextField();
         passwort = new PasswordField();
-        login = new Button("Login");
+        Button login = new Button("Login");
         login.setOnAction(e -> setLogin(e, primaryStage));
 
         VBox root = new VBox();
@@ -71,6 +70,7 @@ public class LoginApp extends Application {
 
     }
 
+
     private void setLogin(ActionEvent e, Stage primaryStage) {
         if (benutzername.getText().equals("benutzername") && passwort.getText().equals("passwort")) {
             System.out.println("yes");
@@ -78,7 +78,7 @@ public class LoginApp extends Application {
             // Nur das aktuelle Fenster schließen
             primaryStage.close();
             // tz: Kontaktliste ist nicht in GIT
-//            Kontaktliste kontakt = new Kontaktliste();
+            Kontaktliste kontakt = new Kontaktliste();
         } else if (benutzername.getText().isEmpty()) {
             benutzername.requestFocus();
             benutzername.setPromptText("Bitte Benutzernamen eingeben...");

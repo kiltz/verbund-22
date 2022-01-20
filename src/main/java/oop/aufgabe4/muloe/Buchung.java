@@ -4,6 +4,7 @@ abstract class Buchung {
     String buchungArt;
     String datum;
     double betrag;
+    String zweck;
 
     public String getBuchungArt() {
         return buchungArt;
@@ -29,7 +30,15 @@ abstract class Buchung {
         this.betrag = betrag;
     }
 
+    public String getZweck() {
+        return zweck;
+    }
+
+    public void setZweck(String zweck) {
+        this.zweck = zweck;
+    }
+
     public String buchungInfosGeben() {
-        return String.format("%s;%s;%.2f\n", buchungArt, datum, betrag);
+        return String.format("%s;%s;%.2f;%s\n", buchungArt, datum, betrag, zweck);
     }
 }

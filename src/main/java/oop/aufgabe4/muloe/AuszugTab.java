@@ -62,7 +62,12 @@ public class AuszugTab extends BasisTab {
         betragCol.setText("Betrag");
         betragCol.setPrefWidth(100);
 
-        tabelle.getColumns().addAll(artCol, datumCol, betragCol);
+        TableColumn<Buchung, String> zweckCol = new TableColumn<>();
+        betragCol.setCellValueFactory(new PropertyValueFactory<>("zweck"));
+        betragCol.setText("Zweck");
+        betragCol.setPrefWidth(100);
+
+        tabelle.getColumns().addAll(artCol, datumCol, betragCol, zweckCol);
         return scrolli;
     }
 }

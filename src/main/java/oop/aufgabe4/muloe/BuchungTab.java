@@ -3,10 +3,7 @@ package oop.aufgabe4.muloe;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -90,7 +87,7 @@ public class BuchungTab extends BasisTab {
         Button bEinzahlen = buttonHinzufuegen("Einzahlen", 150);
         bEinzahlen.setOnAction(e -> {
             try {
-                konto.einzahlen(Zahlen.stringToDouble((betrag.getText())), true);
+                konto.einzahlen(Zahlen.stringToDouble((betrag.getText())));
                 lKontostandAntrag.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
                 lKontostand.setText(lKontostandAntrag.getText());
                 lWarnung.setText("");
@@ -105,10 +102,15 @@ public class BuchungTab extends BasisTab {
 
     private void auszahlenAntrag() {
         lWarnung.setText("");
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.getItems().add("Kleidung");
+        comboBox.getItems().add("Miete");
+        comboBox.getItems().add("Bar");
+        comboBox.getItems().add("Essen");
         Button bAuszahlen = buttonHinzufuegen("Auszahlen", 150);
         bAuszahlen.setOnAction(e -> {
             try {
-                konto.auszahlen(Zahlen.stringToDouble(betrag.getText()), true);
+                konto.auszahlen("Kleidung", Zahlen.stringToDouble(betrag.getText()));
                 lKontostandAntrag.setText(String.format("Kontostand: %.2f Euro", konto.getKontoStand()));
                 lKontostand.setText(lKontostandAntrag.getText());
                 lWarnung.setText("");
@@ -120,11 +122,11 @@ public class BuchungTab extends BasisTab {
                 betrag.requestFocus();
             }
         });
-        erstelleAntragFenster(bAuszahlen, "Auszahlen", betrag, new Label[]{lKontostandAntrag, lDispoAntrag, lWarnung});
+        erstelleAntragFenster(bAuszahlen, comboBox, "Auszahlen", betrag, new Label[]{lKontostandAntrag, lDispoAntrag, lWarnung});
 
     }
 
-    private void erstelleAntragFenster(Button zusätzlicherButton, String titel, TextField betrag, Label[] labels) {
+    private void erstelleAntragFenster(Button zusätzlicherButton, ComboBox comboBox, String titel, TextField betrag, Label[] labels) {
 
         Button bSchließen = buttonHinzufuegen("Schließen", 500);
         VBox box = new VBox();
@@ -133,6 +135,9 @@ public class BuchungTab extends BasisTab {
         box.setPadding(insets);
         HBox buttonBox = new HBox();
         buttonBox.setSpacing(10);
+        if (comboBox != null) {
+            buttonBox.getChildren().add(comboBox);
+        }
         buttonBox.getChildren().addAll(zusätzlicherButton, bSchließen);
         box.getChildren().add(betrag);
         for (Label label : labels) {
@@ -142,9 +147,13 @@ public class BuchungTab extends BasisTab {
         Stage stage = new Stage();
         stage.setTitle(titel);
         StackPane pane = new StackPane(box);
-        stage.setScene(new Scene(pane, 250, 150));
+        stage.setScene(new Scene(pane, 300, 150));
         stage.show();
         bSchließen.setOnAction(e -> schließen(stage));
+    }
+
+    private void erstelleAntragFenster(Button zusätzlicherButton, String titel, TextField betrag, Label[] labels) {
+        erstelleAntragFenster(zusätzlicherButton, null, titel, betrag, labels);
     }
 
     private void schließen(Stage stage) {

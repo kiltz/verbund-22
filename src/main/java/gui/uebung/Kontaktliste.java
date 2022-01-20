@@ -19,9 +19,9 @@ public class Kontaktliste {
         absendenButton = new Button("Absenden");
         absendenButton.setOnAction(e -> absenden(e));
         root.getChildren().add(GuiComponents.setRadioButtonElement(new String[]{"Herr", "Frau"}));
-        root.getChildren().add(GuiComponents.setTextFieldElement(new String[]{"Vornamen eingeben"}));
-        root.getChildren().add(GuiComponents.setTextFieldElement(new String[]{"Nachnamen eingeben"}));
-        root.getChildren().add(GuiComponents.setTextFieldElement(new String[]{"E-Mail eingeben"}));
+        root.getChildren().add(GuiComponents.setTextFieldElementsHorizontal(new String[]{"Vornamen eingeben"}));
+        root.getChildren().add(GuiComponents.setTextFieldElementsHorizontal(new String[]{"Nachnamen eingeben"}));
+        root.getChildren().add(GuiComponents.setTextFieldElementsHorizontal(new String[]{"E-Mail eingeben"}));
         String[] tage = new String[31];
         for (int i = 0; i < 31; i++) {
             tage[i] = String.valueOf(i + 1);
