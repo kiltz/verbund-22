@@ -13,16 +13,18 @@ import utils.Zahlen;
 
 import java.text.ParseException;
 
+//2 Punkte Aufgabe 1
 public class MWStRechnerGui extends Application {
 
-
+    //2 Punkte Aufgabe 3
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-
+    //2 Punkte Aufgabe 2
     public void start(Stage primaryStage) {
+        // 3 Punkte Aufgabe 4
         HBox root = new HBox();
 
         root.getChildren().add(getLabels);
@@ -37,6 +39,7 @@ public class MWStRechnerGui extends Application {
 
     }
 
+    //0 Punkte Aufgabe 5
     private Node getTextFeld() {
         HBox box = new HBox();
         box.setSpacing(15);
@@ -47,6 +50,7 @@ public class MWStRechnerGui extends Application {
         return box;
     }
 
+    //2 Punkte Aufgabe 5
     private Node getLabels() {
         HBox box = new HBox();
         box.setSpacing(15);
@@ -56,6 +60,7 @@ public class MWStRechnerGui extends Application {
         return box;
     }
 
+    //1 Punkt Aufgabe 5; 3 Punkte Aufgabe 6
     private Node getButton() {
         HBox box = new HBox();
         box.setSpacing(15);
@@ -66,6 +71,7 @@ public class MWStRechnerGui extends Application {
         return box;
     }
 
+    //2.5 Punkte Aufgabe 7
     private void rechne(ActionEvent e) {
         // 1. Textfelder auslesen
         String textEins = tfEins.getText();
