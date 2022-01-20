@@ -87,6 +87,5 @@ public class MWStRechnerGui extends Application {
             // Mecker!
             System.out.println(ex.getMessage());
         }
-
     }
 }
