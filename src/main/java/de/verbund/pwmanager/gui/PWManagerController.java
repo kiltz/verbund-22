@@ -65,4 +65,9 @@ public class PWManagerController /* implements Initializable */ {
         tfNewPassword.clear();
         tfNote.clear();
     }
+    /*
+    public void doAddNewData() {
+        TODO
+    }
+     */
 }
