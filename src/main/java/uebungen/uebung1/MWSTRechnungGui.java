@@ -1,4 +1,15 @@
 package uebungen.uebung1;
+/*
+Aufgabe1 : 2 Pt (Falscher Name)
+Aufgabe2 : 2 Pt
+Aufgabe3 : 2 Pt
+Aufgabe4 : 3 Pt
+Aufgabe5 : 7 Pt
+Aufgabe6 : 3 Pt
+Aufgabe7 : 5 Pt
+
+Gesamt: 24 Pt
+*/
 
 import javafx.application.Application;
 import javafx.scene.Node;
