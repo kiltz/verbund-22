@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" fx:controller="gui.fxml.PasswortmanagerController">
+   <top>
+      <VBox prefHeight="76.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <TextField/>
+                  <Button mnemonicParsing="false" text="Suche"/>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="22.0" prefWidth="600.0">
+               <children>
+                  <TextField fx:id="tfName" promptText="Name"/>
+                  <TextField fx:id="tfBenutzername" promptText="Benutzername"/>
+                  <TextField fx:id="tfPasswort" promptText="Passwort"/>
+                  <Button mnemonicParsing="false" text="Hinzufügen" onAction="#erstellePasswort"/>
+                  <Button mnemonicParsing="false" text="Ändern"/>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane prefHeight="378.0" prefWidth="542.0" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="tabelle">
+               <columns>
+                  <TableColumn fx:id="nameCol" prefWidth="157.0000001192093" text="Name"/>
+                  <TableColumn fx:id="benutzerCol" prefWidth="146.33331298828125" text="Benutzername"/>
+                  <TableColumn fx:id="passwortCol" prefWidth="175.33333333333331" text="Passwort"/>
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
