@@ -31,7 +31,7 @@ public class WuerfelStatistik {
 		for (int j = 1; j < 7; j++) {
 			System.out.print(String.format("Die zahl %d wurde %d Mal gewürfelt.\n", j, statistik[j-1]));
 		}
-		System.out.println(String.format("Der durchlauf hat %d Millisekunden gedauert.", (danach - bevor)));
+		System.out.println(String.format("Der Durchlauf hat %d Millisekunden gedauert.", (danach - bevor)));
 
 	}
 

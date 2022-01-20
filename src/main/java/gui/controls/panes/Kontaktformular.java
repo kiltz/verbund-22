@@ -136,7 +136,6 @@ public class Kontaktformular extends Seiten {
     }
 
     private void showAntwort() {
-
         final Stage antwort = new Stage();
         antwort.initModality(Modality.NONE);
 

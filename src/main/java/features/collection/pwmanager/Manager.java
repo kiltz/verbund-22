@@ -14,7 +14,6 @@ public class Manager {
     public Manager() {
         datei =new Datei("passwd.txt");
         datensaetze = lese();
-
     }
 
     private Map<String,Passwort> lese() {

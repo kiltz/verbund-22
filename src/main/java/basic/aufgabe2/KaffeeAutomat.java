@@ -18,6 +18,7 @@ public class KaffeeAutomat {
 	static int[] rueckgeldRechnen(int preis, int summe, String muenze) throws IllegalArgumentException {
 		int[] rueckgeld = {0, 0, 0, 0, 0, 0, 0};
 		int[] muenzen = {100, 50, 20, 10, 5, 2, 1};
+
 		boolean check = true;
 
 		if (muenze.equalsIgnoreCase("cent")) {

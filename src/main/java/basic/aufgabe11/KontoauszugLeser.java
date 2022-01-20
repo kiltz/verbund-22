@@ -32,11 +32,11 @@ public class KontoauszugLeser {
 //            kategorie = kategorien[(int) (Math.random() * kategorien.length)];
 //            datum = heute.minusDays((int) (Math.random() * 500)).format(muster);
 //            betrag = String.format("%.2f", (Math.random() * 500));
-//            Files.writeString(Paths.get("auszug.csv"), String.format("%s;%s;%s\n", datum, kategorie, betrag), StandardOpenOption.APPEND);
+//            Files.writeString(Paths.get("auszug.txt"), String.format("%s;%s;%s\n", datum, kategorie, betrag), StandardOpenOption.APPEND);
 //        }
 
 
-        List<String> eintraege = Files.readAllLines(Paths.get("auszug.csv"));
+        List<String> eintraege = Files.readAllLines(Paths.get("auszug.txt"));
 
         KontoAuszug kontoAuszug = new KontoAuszug();
 
@@ -44,7 +44,8 @@ public class KontoauszugLeser {
             kontoAuszug.eintragHinzufuegen(s);
         }
 
-        System.out.println(kontoAuszug.getAusgaben("Kleidung"));
+        kontoAuszug.eintraegeSortieren("betrag");
         kontoAuszug.alleAusgabenZeigen();
+
     }
 }

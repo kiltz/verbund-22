@@ -1,0 +1,32 @@
+@startuml
+
+abstract class Form {
+    +{abstract} berechneUmfang()
+}
+
+Form <|-- Kreis
+Form <|-- Dreieck
+Form <|-- Rechteck
+
+class Kreis {
+    -radius
+    +berechneUmfang()
+    +toString()
+}
+
+class Dreieck {
+    -seiteA
+    -seiteB
+    -seiteC
+    +berechneUmfang()
+    +toString()
+}
+
+class Rechteck {
+    -hoehe
+    -breite
+    +berechneUmfang()
+    +toString()
+}
+
+@enduml

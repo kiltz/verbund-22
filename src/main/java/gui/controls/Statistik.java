@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 
 public class Statistik {
 
-    private final Startseite parent;
+    private final Startseite startseite;
     private final Stage primaryStage;
     private TextField tfEingabe;
     private Scene sStatistik;
@@ -30,16 +30,16 @@ public class Statistik {
     private CheckBox box2;
     private List<String> zeilen = new ArrayList<>();
 
-    public Statistik(Startseite parent) {
-        this.parent = parent;
-        this.primaryStage = parent.getPrimaryStage();
+    public Statistik(Startseite startseite) {
+        this.startseite = startseite;
+        this.primaryStage = startseite.getPrimaryStage();
     }
 
     private Scene newStatistik() {
         //zurück
         Button bZurueck = new Button("ZURÜCK");
         bZurueck.setFont(new Font("Arial", 10));
-        bZurueck.setOnAction(event -> parent.show());
+        bZurueck.setOnAction(event -> startseite.show());
 
         Label lEingabe = new Label("Geben Sie etwas ein:");
 

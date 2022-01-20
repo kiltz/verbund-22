@@ -21,7 +21,7 @@ public class EditorApp extends Application {
     private TextArea taText;
     private Label lPfad;
     private Stage primaryStage;
-    private FileChooser fileChooser = new FileChooser();
+    private final FileChooser fileChooser = new FileChooser();
     private File datei;
 
 
@@ -110,21 +110,26 @@ public class EditorApp extends Application {
 
     private void dateiWaehlen() {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
-        datei = fileChooser.showOpenDialog(primaryStage);
+        File tempDatei = fileChooser.showOpenDialog(primaryStage);
 
-        try (BufferedReader br = new BufferedReader(new FileReader(datei))) {
-            StringBuilder tempDatei = new StringBuilder();
-            String line;
-            while ((line = br.readLine()) != null) {
-                tempDatei.append(line);
-                tempDatei.append("\n");
+        if (tempDatei != null) {
+            datei = tempDatei;
+
+            try (BufferedReader br = new BufferedReader(new FileReader(datei))) {
+                StringBuilder tempText = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    tempText.append(line);
+                    tempText.append("\n");
+                }
+                taText.setText(tempText.toString());
+                lPfad.setText(" " + datei.getAbsolutePath());
+                taText.setVisible(true);
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
-
-            taText.setText(tempDatei.toString());
-            lPfad.setText(" " + datei.getAbsolutePath());
-            taText.setVisible(true);
-        } catch (NullPointerException | IOException ignore) {
         }
+
     }
 
     private void appSchliessen(WindowEvent event) {

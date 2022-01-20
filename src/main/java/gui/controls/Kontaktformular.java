@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.util.function.Predicate;
 
 public class Kontaktformular {
-    private final Startseite parent;
+    private final Startseite startseite;
     private final Stage primaryStage;
     private TextField tfVorname;
     private TextField tfNachname;
@@ -29,16 +29,16 @@ public class Kontaktformular {
     private Label lMeldung;
     private Scene sKontaktformular;
 
-    public Kontaktformular(Startseite parent) {
-        this.parent = parent;
-        this.primaryStage = parent.getPrimaryStage();
+    public Kontaktformular(Startseite startseite) {
+        this.startseite = startseite;
+        this.primaryStage = startseite.getPrimaryStage();
     }
 
     private Scene newKontaktformular() {
         //zurück
         Button bZurueck = new Button("ZURÜCK");
         bZurueck.setFont(new Font("Arial", 10));
-        bZurueck.setOnAction(event -> parent.show());
+        bZurueck.setOnAction(event -> startseite.show());
 
         //erste Zeile
         Label lAnrede = new Label("Anrede: ");
@@ -148,7 +148,7 @@ public class Kontaktformular {
         //zurück
         Button bZurueck1 = new Button("ZURÜCK");
         bZurueck1.setFont(new Font("Arial", 10));
-        bZurueck1.setOnAction(event -> parent.show());
+        bZurueck1.setOnAction(event -> startseite.show());
 
         Label lAntwort = new Label("Anfrage erfolgreich abgeschickt!");
         VBox vbAntwort = new VBox(bZurueck1, lAntwort);

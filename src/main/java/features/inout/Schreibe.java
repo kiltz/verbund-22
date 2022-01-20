@@ -17,7 +17,6 @@ public class Schreibe {
 		try (FileWriter outStream = new FileWriter(datei)) {
 
 			outStream.write(txt);
-
 		} catch (IOException e) {
 			// Fehlerbehandlung
 			e.printStackTrace();

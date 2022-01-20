@@ -27,7 +27,7 @@ public class Login {
 
     private final String path = "src/main/resources/logins.txt";
     private final Predicate<TextField> checkTF = tf -> tf.getText().length() > 0;
-    private final Startseite parent;
+    private final Startseite startseite;
     private final Stage primaryStage;
     private Label lName, lPasswort, lMeldung;
     private Scene sLogin;
@@ -35,16 +35,16 @@ public class Login {
     private TextField tfName;
     private PasswordField tfPasswort;
 
-    public Login(Startseite parent) {
-        this.parent = parent;
-        this.primaryStage = parent.getPrimaryStage();
+    public Login(Startseite startseite) {
+        this.startseite = startseite;
+        this.primaryStage = startseite.getPrimaryStage();
     }
 
     private Scene newLogin() {
         //zurück
         Button bZurueck = new Button("ZURÜCK");
         bZurueck.setFont(new Font("Arial", 10));
-        bZurueck.setOnAction(event -> parent.show());
+        bZurueck.setOnAction(event -> startseite.show());
 
         lName = new Label("Name:");
         tfName = new TextField();
