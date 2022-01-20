@@ -71,9 +71,9 @@ public class PasswdManagerApp extends Application {
 
     private void suche() {
         List<Passwort> erg = manager.suche(tfSuche.getText());
-        StringBuffer txt = new StringBuffer("Name\tBenutzer\tPasswort\n");
+        StringBuffer txt = new StringBuffer("Name\t\tBenutzer\t\tPasswort\n");
         for (Passwort p : erg) {
-            txt.append(p.getName()+"\t"+p.getBenutzername()+"\t"+p.getPasswort()+"\n");
+            txt.append(p.getName() + "\t\t" + p.getBenutzername() + "\t\t" + p.getPasswort() + "\n");
         }
         taErgebnis.setText(txt.toString());
     }

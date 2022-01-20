@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16"
+            fx:controller="features.collection.pwmanager.service.Manager">
+   <children>
+      <Button defaultButton="true" layoutX="270.0" layoutY="155.0" mnemonicParsing="false" text="Passwort suchen"/>
+      <Button defaultButton="true" layoutX="39.0" layoutY="207.0" mnemonicParsing="false" text="Passwort erstellen"/>
+      <Button defaultButton="true" layoutX="39.0" layoutY="281.0" mnemonicParsing="false" text="Passwort ändern"/>
+      <Label layoutX="420.0" layoutY="159.0" text="Vorschlag Passwort"/>
+      <TextField layoutX="39.0" layoutY="48.0" promptText="Name"/>
+      <TextField layoutX="39.0" layoutY="100.0" promptText="Benutzername"/>
+      <PasswordField layoutX="39.0" layoutY="155.0" promptText="Passwort"/>
+      <PasswordField layoutX="195.0" layoutY="281.0" promptText="neues Passwort"/>
+   </children>
+</AnchorPane>

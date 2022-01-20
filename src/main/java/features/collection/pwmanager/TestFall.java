@@ -12,7 +12,7 @@ public class TestFall {
         manager.neu(new Passwort("email", "f@kiltz.de", "keins"));
 
         List<Passwort> liste = manager.suche("m");
-        for (Passwort passwort : liste ) {
+        for (Passwort passwort : liste) {
             System.out.println(passwort);
         }
 
