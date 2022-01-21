@@ -1,15 +1,23 @@
 plugins {
-    id 'eclipse'
-    id 'idea'
     id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.beryx.jlink' version '2.12.0'
 }
-
-sourceCompatibility = 1.8
-
+sourceCompatibility = 1.12
 tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
-application {
-    mainClass = 'de.kiltz.pwmanager.StarterApp'
+repositories {
+    mavenCentral()
+}
+javafx {
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+mainClassName = "de.kiltz.pwmanager.StarterApp"
+jlink {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'fxBasics'
+    }
 }
 
 // für IntelliJ Idea
