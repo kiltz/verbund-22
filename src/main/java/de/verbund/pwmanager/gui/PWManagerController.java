@@ -2,11 +2,12 @@ package de.verbund.pwmanager.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import utils.Datei;
 
 
 public class PWManagerController /* implements Initializable */ {
 
-    private String strSearch;
     @FXML
     public TextField tfSearchbar;
     @FXML
@@ -25,8 +26,17 @@ public class PWManagerController /* implements Initializable */ {
     private TextArea taData;
     @FXML
     private Accordion acAccount;
+    @FXML
+    private Label cantBeNull;
+
+    private String strSearch;
+    private String name;
+    private String user;
+    private String password;
+    private String note;
 
     public void doSave() {
+        writeInTxt();
         System.out.println("It should save with this");
     }
 
@@ -37,7 +47,7 @@ public class PWManagerController /* implements Initializable */ {
 
     public void doSearch() {
         strSearch = tfSearchbar.getText();
-        if (strSearch.isEmpty()) {
+        if (!strSearch.isEmpty()) {
             System.out.println("Searching: " + strSearch + "...");
         } else {
             System.out.println("Searching: nothing...");
@@ -45,8 +55,7 @@ public class PWManagerController /* implements Initializable */ {
     }
 
     public void doTogglePWVis() {
-        boolean isSelected = bPWToggleVis.isSelected();
-        if (isSelected) {
+        if (bPWToggleVis.isSelected()) {
             System.out.println("Toggle On");
             textPassword.setText(tfNewPassword.getText());
             tfNewPassword.setVisible(false);
@@ -58,16 +67,34 @@ public class PWManagerController /* implements Initializable */ {
     }
 
     public void doAddNewData() {
-        acAccount.setVisible(true);
-        taData.setText(String.format("%s \n%s \n%s \n%s", tfNewName.getText(), tfNewUser.getText(), tfNewPassword.getText(), tfNote.getText()));
-        tfNewName.clear();
-        tfNewUser.clear();
-        tfNewPassword.clear();
-        tfNote.clear();
+        name = tfNewName.getText();
+        user = tfNewUser.getText();
+        password = tfNewPassword.getText();
+        note = tfNote.getText();
+        if (!name.isEmpty() && !user.isEmpty() && !password.isEmpty()) {
+            createNewTitledPane();
+            tfNewName.clear();
+            tfNewUser.clear();
+            tfNewPassword.clear();
+            tfNote.clear();
+        } else {
+            cantBeNull.setVisible(true);
+        }
     }
-    /*
-    public void doAddNewData() {
-        TODO
+
+    @FXML
+    private void createNewTitledPane() {
+        AnchorPane newPanelContent = new AnchorPane();
+        newPanelContent.getChildren().add(new TextArea(String.format("%s \n%s \n%s \n%s", name, user, password, note)));
+        TitledPane pane = new TitledPane(tfNewName.getText(), newPanelContent);
+        pane.setMaxSize(441.0, 352.0);
+        System.out.println(acAccount);
+        acAccount.getPanes().add(pane);
+        writeInTxt();
     }
-     */
+
+    private void writeInTxt() {
+        Datei.schreibe(String.format("%s \n%s \n%s \n%s", name, user, password, note));
+    }
 }
+
