@@ -1,8 +1,8 @@
-plugins {
-    id 'eclipse'
-    id 'idea'
-    id 'application'
-}
+ plugins {
+     id 'eclipse'
+     id 'idea'
+     id 'application'
+ }
 
 sourceCompatibility = 1.8
 
