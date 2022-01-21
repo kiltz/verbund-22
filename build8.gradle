@@ -1,0 +1,19 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'application'
+}
+
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
+application {
+    mainClass = 'de.kiltz.pwmanager.StarterApp'
+}
+
+// für IntelliJ Idea
+// gradlew.bat idea
+
+// für Eclipse
+// gradlew.bat eclipse

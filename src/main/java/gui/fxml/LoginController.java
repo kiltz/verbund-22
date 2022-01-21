@@ -31,8 +31,8 @@ public class LoginController {
     }
 
     public void doLogin() {
-        System.out.println("Login..."+tfEmail.getText()+"/"+tfPasswort.getText());
-        lStatus.setText("Wilkommen...");
+        System.out.println("Login..." + tfEmail.getText() + "/" + tfPasswort.getText());
+        lStatus.setText("Willkommen...");
     }
 
     public void doBeenden(){
@@ -41,7 +41,7 @@ public class LoginController {
 
     public void doInfo() throws IOException {
         Stage stage = new Stage();
-        URL res = getClass().getResource("/gui/fxml/info.fxml");
+        URL res = getClass().getResource("info.fxml");
         Parent root = FXMLLoader.load(res);
         stage.setTitle("Info");
         stage.setScene(new Scene(root, 200, 100));
