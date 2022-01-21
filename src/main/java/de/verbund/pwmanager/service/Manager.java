@@ -18,7 +18,7 @@ public class Manager {
 
     }
 
-    private ArrayList<Passwort> lese() {
+    public ArrayList<Passwort> lese() {
         ArrayList<Passwort> liste = new ArrayList<>();
         try {
             String inhalt = datei.lese();
