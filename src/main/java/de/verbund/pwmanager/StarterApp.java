@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 
 /**
- * @author Jan
+ * @author JK
  */
 public class StarterApp extends Application {
     @Override
@@ -17,7 +17,7 @@ public class StarterApp extends Application {
         URL res = getClass().getResource("/gui/fxml/pwmanager.fxml");
         Parent root = FXMLLoader.load(res);
         primaryStage.setTitle("Password Manager");
-        primaryStage.setScene(new Scene(root, 600, 420));
+        primaryStage.setScene(new Scene(root, 610, 425));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

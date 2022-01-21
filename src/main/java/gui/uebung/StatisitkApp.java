@@ -17,7 +17,7 @@ public class StatisitkApp extends Application {
     private Label lMin;
 
     public static void main(String[] args) {
-        launch(null);
+        launch(args);
     }
 
     @Override

@@ -36,7 +36,7 @@ public class StatistikApp extends Application {
     private Label lAnzahl;
 
     public static void main(String[] args) {
-        launch(null);
+        launch(args);
     }
 
     @Override

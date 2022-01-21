@@ -27,7 +27,7 @@ public class TabelleApp extends Application {
     private TextField tfSuche;
 
     public static void main(String[] args) {
-        launch(null);
+        launch(args);
     }
 
 

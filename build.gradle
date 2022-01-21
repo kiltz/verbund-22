@@ -12,7 +12,7 @@ repositories {
 javafx {
     modules = ['javafx.controls', 'javafx.fxml']
 }
-mainClassName = "de.kiltz.pwmanager.StarterApp"
+mainClassName = "de.verbund.pwmanager.StarterApp"
 jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
