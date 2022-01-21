@@ -38,6 +38,8 @@ public class PasswortManagerController implements Initializable {
     private TableColumn colBenutzername;
     @FXML
     private TableColumn colPasswort;
+    @FXML
+    private MenuItem bNeuerEintrag;
 
     @FXML
     private VBox vbButtonBox;
@@ -68,10 +70,13 @@ public class PasswortManagerController implements Initializable {
 
     public void dateiOeffnen(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\Users\\Administrator\\IdeaProjects\\verbund-22\\src\\main\\java\\de\\verbund\\pwmanager"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+
 
         File tempDatei = fileChooser.showOpenDialog(PasswortManagerApp.getPrimaryStage());
         if (tempDatei != null) {
+
             if (manager != null) {
                 manager.neueDateiOeffnen(tempDatei.getAbsolutePath());
             } else {
