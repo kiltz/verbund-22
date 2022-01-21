@@ -3,13 +3,14 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.8'
     id 'org.beryx.jlink' version '2.12.0'
 }
-sourceCompatibility = 1.12
+sourceCompatibility = 1.15
 tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
 repositories {
     mavenCentral()
 }
 javafx {
+    version = "11"
     modules = ['javafx.controls', 'javafx.fxml']
 }
 mainClassName = "de.kiltz.pwmanager.StarterApp"
