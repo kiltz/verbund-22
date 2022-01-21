@@ -1,0 +1,27 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.beryx.jlink' version '2.12.0'
+}
+sourceCompatibility = 1.12
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
+repositories {
+    mavenCentral()
+}
+javafx {
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+mainClassName = "de.kiltz.pwmanager.StarterApp"
+jlink {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'fxBasics'
+    }
+}
+
+// für IntelliJ Idea
+// gradlew.bat idea
+
+// für Eclipse
+// gradlew.bat eclipse

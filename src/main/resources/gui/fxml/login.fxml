@@ -16,25 +16,25 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Hilfe">
                     <items>
-            <MenuItem mnemonicParsing="false" onAction="#doInfo" text="Info" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="200.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
-        <children>
-            <Label layoutX="108.0" layoutY="71.0" text="E-Mail"/>
-            <TextField fx:id="tfEmail" layoutX="155.0" layoutY="66.0" promptText="email">
-                <padding>
-                    <Insets top="10.0"/>
-                </padding>
-            </TextField>
-            <Label layoutX="90.0" layoutY="110.0" text="Passwort"/>
-            <PasswordField fx:id="tfPasswort" layoutX="155.0" layoutY="105.0" promptText="passwort"/>
-            <Button defaultButton="true" layoutX="263.0" layoutY="150.0" mnemonicParsing="false" onAction="#doLogin"
-                    text="Login"/>
-            <Label fx:id="lStatus" layoutX="130.0" layoutY="186.0"/>
-        </children>
-    </AnchorPane>
-  </children>
+                        <MenuItem mnemonicParsing="false" onAction="#doInfo" text="Info"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="200.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Label layoutX="108.0" layoutY="71.0" text="E-Mail"/>
+                <TextField fx:id="tfEmail" layoutX="155.0" layoutY="66.0" promptText="email">
+                    <padding>
+                        <Insets top="10.0"/>
+                    </padding>
+                </TextField>
+                <Label layoutX="90.0" layoutY="110.0" text="Passwort"/>
+                <PasswordField fx:id="tfPasswort" layoutX="155.0" layoutY="105.0" promptText="passwort"/>
+                <Button defaultButton="true" layoutX="263.0" layoutY="150.0" mnemonicParsing="false" onAction="#doLogin"
+                        text="Login"/>
+                <Label fx:id="lStatus" layoutX="130.0" layoutY="186.0"/>
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>
