@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16"
+      fx:controller="gui.fxml.tabs.TabMainController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Datei">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#doBeenden" text="Beenden"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Tabs">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#doTab1" text="Tab1"/>
+                        <MenuItem mnemonicParsing="false" onAction="#doTab2" text="Tab2"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS"/>
+    </children>
+</VBox>
