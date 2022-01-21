@@ -45,6 +45,7 @@ public class Manager {
     }
 
     public List<String> getKategorien() {
+        paswoerter = lese();
         return paswoerter.stream().map(Passwort::getKategorie).distinct().collect(Collectors.toList());
     }
 }

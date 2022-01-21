@@ -27,7 +27,7 @@ public class PasswortManagerApp extends Application {
         Parent root = FXMLLoader.load(res);
 
         primaryStage.setTitle("Passwort Manager");
-        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setScene(new Scene(root, 790, 400));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

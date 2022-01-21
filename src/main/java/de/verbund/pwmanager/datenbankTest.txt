@@ -26,3 +26,5 @@ Sonstiges;consorsbank;alex;56789
 Sonstiges;postbank;alex;kkfjskldfj
 Sonstiges;postbank;alex;kkfjskldfj
 Webseiten;amazon;alex;kkfjskldfj
+Handy;iPhone;Alex;123123
+
